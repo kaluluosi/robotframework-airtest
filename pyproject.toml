@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "robotframework-airtest"
+version = "0.1.0"
+description = "网易Airtest/pocoui的Robotframework测试库"
+authors = ["kaluluosi <kaluluosi@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "robotframework_airtest" }]
+
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+ignore = ['E501']
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ruff = "^0.1.0"
+pocoui = "^1.0.89"
+robotframework = "^6.1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.0"
+pytest = "^7.4.2"
+pytest-mock = "^3.11.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

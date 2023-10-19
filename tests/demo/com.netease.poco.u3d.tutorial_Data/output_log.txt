@@ -1,0 +1,53 @@
+Initialize engine version: 5.3.3p2 (86ede31d5f8d)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce RTX 4090 (ID=0x2684)
+    Vendor:   NVIDIA
+    VRAM:     24156 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
+Loading c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
+- Completed reload, in  0.022 seconds
+Platform assembly: c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: c:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 5120x1440 120Hz; virtual: 5120x1440 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 0.379800 ms
+Tcp server started
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+a3fa9accefc1a12e3a7eb344b9a7e040
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+fail to connect to hunter
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+SocketException: 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+
+  at System.Net.Sockets.Socket.Send (System.Byte[] buf, Int32 offset, Int32 size, SocketFlags flags) [0x00000] in <filename unknown>:0 
+  at hunter.UnityV5.HunterInterface.Send (Int32 pid, System.Collections.Generic.Dictionary`2 content) [0x00000] in <filename unknown>:0 
+  at hunter.UnityV5.HunterInterface.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 6 worker threads for Enlighten.
+  Thread -> id: 6f20 -> priority: 1 
+  Thread -> id: 7ca0 -> priority: 1 
+  Thread -> id: 35e8 -> priority: 1 
+  Thread -> id: 4f20 -> priority: 1 
+  Thread -> id: 9440 -> priority: 1 
+  Thread -> id: 7e10 -> priority: 1 
