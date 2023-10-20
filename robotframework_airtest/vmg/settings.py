@@ -1,13 +1,13 @@
 import toml
 
 from pydantic import BaseModel, RootModel, Field
-from typing import Dict
+from typing import Dict, List
 
 
 class Setting(BaseModel):
     source: str = Field(default="views", description="你的前端界面资源文件存放目录")
     dist: str = Field(default="view_models", description="你的界面模型资源输出目录")
-    exts: str = Field(default=".prefab", description="界面资源文件格式")
+    exts: List[str] = Field(default=[".prefab"], description="界面资源文件格式")
     generator: str = Field(default="unity", description="界面模型导出器")
 
 
