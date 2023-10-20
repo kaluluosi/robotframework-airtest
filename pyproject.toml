@@ -7,6 +7,9 @@ license = "MIT"
 readme = "README.md"
 packages = [{ include = "robotframework_airtest" }]
 
+[tool.poetry.scripts]
+
+ra = "robotframework_airtest.cli:main"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.1"
