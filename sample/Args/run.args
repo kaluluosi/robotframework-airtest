@@ -5,7 +5,7 @@
 # 将报告输出到Logs文件夹
 -d ./Logs 
 
---listener xtester_robot.libraries.AirtestReporter:True
+--listener robotframework_airtest.reporter.AirtestReporter:True
 
 --reporttitle   测试报告
 

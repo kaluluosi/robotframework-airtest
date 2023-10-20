@@ -7,29 +7,29 @@
   "configurations": [
     {
         "type": "robotframework-lsp",
-        "name": "调试-中文简体",
+        "name": "运行所有用例",
         "request": "launch",
         "cwd": "${workspaceFolder}",
-        "target": "${file}",
+        "target": "Tests",
         "terminal": "none",
         "env": {},
         "args": [
           "-A", "Args/debug.args",
-          "--variable", "LANGUAGE:简体",
+          "--variable", "LANGUAGE:zh",
           ],
         "postDebugTask": "打开报告"
       },
       {
         "type": "robotframework-lsp",
-        "name": "干跑测试",
+        "name": "干跑所有测试",
         "request": "launch",
         "cwd": "${workspaceFolder}",
-        "target": "${file}",
+        "target": "Tests",
         "terminal": "none",
         "env": {},
         "args": [
           "-A", "Args/dryrun.args",
-          "--variable", "LANGUAGE:简体",
+          "--variable", "LANGUAGE:zh",
           ],
         "postDebugTask": "打开报告"
       }  

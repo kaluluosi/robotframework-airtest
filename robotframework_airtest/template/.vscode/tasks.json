@@ -24,7 +24,7 @@
     {
         "label": "更新界面模型",
         "type": "shell",
-        "command": "xr vmg"
+        "command": "ra vmg"
     }
   ]
 }

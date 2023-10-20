@@ -9,6 +9,11 @@
       "command": "robot -A Args/dryrun.args Tests"
     },
     {
+        "label": "运行所有测试",
+        "type": "shell",
+        "command": "robot -A Args/run.args --variablefile Args/config.py Tests",
+      },
+    {
       "label": "打开报告",
       "type": "shell",
       "command": "start report.html",
@@ -24,7 +29,7 @@
     {
         "label": "更新界面模型",
         "type": "shell",
-        "command": "xr vmg"
+        "command": "ra vmg"
     }
   ]
 }

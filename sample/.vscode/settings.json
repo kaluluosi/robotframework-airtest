@@ -1,17 +1,10 @@
 {
     "robot.variables": {
-        "device_uri":"Android:///", // 连接安卓手机
-        // "pkg_name":"com.yourcompany.game", // android包名，用来自动启动app
-
-        // "device_uri":"Windows:///?title_re=<窗口标题名>", // PC客户端用这个配置
-        // "pkg_name":"d://game.exe", // pc客户端路径，用来自动打开客户端
-        
-        // "device_uri":"Unity:///", // UnityEditor用这个配置，连接UnityEditor。
-        //"pkg_name":""  // Unity用这个配置，留空即可，Unity需要保持Unity启动，并且如果多个Unity同时运行会识别不了
-        
-        "serverid":"1",  // 自动登录服务器id
-        "auto_start_app": "False",   // 自动打开游戏，需要配置pkg_name才能自动打开
-        "language": "zh"  // 用作多语言表的切换
+        "device_uri":"Android:///",
+        "pkg_name":"",
+        "serverid":"1",
+        "auto_start_app": "False",  
+        "language": "zh" 
     },
-    "python.envFile": "${workspaceFolder}/.env" //这个不用修改
+    "python.envFile": "${workspaceFolder}/.env" 
 }
