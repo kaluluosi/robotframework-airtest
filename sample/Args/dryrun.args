@@ -1,9 +1,0 @@
-# 调试用参数文件
--L  DEBUG 
-
-# 默认情况下用简体语言
---variable   LANGUAGE:zh
-
---dryrun
-
---reporttitle   干跑测试报告
