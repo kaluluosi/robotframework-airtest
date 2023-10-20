@@ -1,5 +1,6 @@
 *** Settings ***
 Library             robotframework_airtest.device.DeviceLibrary
+Library             ../.venv/lib/site-packages/robot/libraries/OperatingSystem.py
 
 Test Setup          初始化用例
 Test Teardown       断开设备
@@ -59,17 +60,25 @@ ${包名}       com.NetEase
     ${结果}    获取分辨率
     Should Not Be Empty    ${结果}    msg=${结果}
 
-获取渲染分辨率
+测试获取渲染分辨率
     ${结果}    获取渲染分辨率
     Should Not Be Empty    ${结果}    msg=${结果}
 
-获取IP
+测试获取IP
     ${结果}    获取IP
     Should Not Be Empty    ${结果}    msg=${结果}
 
-shell命令
+测试shell命令
     ${结果}    shell命令    pm list packages
     Should Not Be Empty    ${结果}    msg=${结果}
+
+测试录像
+    [Documentation]    在华为手机上执行失败
+    开始录像    output=test.mp4
+    Sleep    3s
+    结束录像
+    File Should Exist    test.mp4
+    Remove File    test.mp4
 
 
 *** Keywords ***

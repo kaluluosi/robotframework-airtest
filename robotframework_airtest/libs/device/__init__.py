@@ -71,31 +71,27 @@ class DeviceLibrary:
         self.conn = factory(device_uri, pkg_name)
         self.conn.connect(auto_start_app)
         logger.console("连接设备成功")
-        if getattr(Settings, "RECORDING", None):
+        if hasattr(Settings, "RECORDING") and Settings.RECORDING:
             self.start_recording()
 
     @deco.keyword("断开设备")
     def disconnect_device(self):
-        if getattr(Settings, "RECORDING", None):
+        if hasattr(Settings, "RECORDING") and Settings.RECORDING:
             self.stop_recording()
         self.conn.disconnect() if self.conn else logger.console("设备并没有连接")
 
     @deco.keyword("开始录像")
-    def start_recording(self, output: str = None, *args, **kwargs):
-        save_path = self.conn.device.start_recording(output=output, *args, **kwargs)
+    def start_recording(self):
+        self.conn.device.start_recording()
         logger.console("设备开始录像")
-        return save_path
 
     @deco.keyword("结束录像")
-    def stop_recording(self, output: str = None, *args, **kwargs):
-        """结束录像
-
-        args和kwargs可以传递具体Device的start_recording的参数过去。
-
-        Args:
-            output (str, optional): 另存为，默认会保存到当前目录，视频格式是mp4. Defaults to None.
-        """
-        self.conn.device.stop_recording(output=output, *args, **kwargs)
+    def stop_recording(self):
+        timestamp = str(int(time.time()))
+        file_name = "{}.mp4".format(timestamp)
+        out_file = os.path.join(Settings.LOG_DIR, file_name)
+        self.conn.device.stop_recording(out_file)
+        logger.console("录制结束，保存到{}".format(out_file))
 
     @deco.keyword("连接中")
     def is_connected(self):
@@ -106,7 +102,7 @@ class DeviceLibrary:
         return not self.conn.is_connected
 
     @deco.keyword("截图")
-    def snapshot(self, filename: str = None, *args, **kwargs) -> bytes:
+    def snapshot(self, *args, **kwargs) -> bytes:
         data = self.conn.device.snapshot(*args, **kwargs)
         return data
 
@@ -152,16 +148,6 @@ class DeviceLibrary:
     @deco.keyword("列出安装的APP")
     def list_app(self, **kwargs):
         return self.conn.device.list_app(**kwargs)
-
-    @deco.keyword("是否已安装APP")
-    def is_app_installed(self, package: str, **kwargs):
-        app_list = self.list_app(**kwargs)
-        return package in app_list
-
-    @deco.keyword("APP必须安装成功")
-    def should_install_app(self, package: str, **kwargs):
-        if not self.is_app_installed(package):
-            BuiltIn().fail(msg=f"{package}没有安装")
 
     @deco.keyword("安装APP")
     def install_app(self, uri: str, **kwargs):
