@@ -1,5 +1,3 @@
-import os
-import time
 from typing import Tuple
 from airtest.core.settings import Settings
 from robot.api import logger, deco
@@ -99,7 +97,7 @@ class DeviceLibrary:
 
     @deco.keyword("连接中")
     def is_connected(self):
-        return self.conn.is_connected
+        return self.conn and self.conn.is_connected
 
     @deco.keyword("未连接")
     def is_disconnected(self):
@@ -107,7 +105,7 @@ class DeviceLibrary:
 
     @deco.keyword("截图")
     def snapshot(self, filename: str = None, *args, **kwargs) -> bytes:
-        data = self.conn.device.snapshot(*args, **kwargs)
+        data = self.conn.device.snapshot(filename=filename, *args, **kwargs)
         return data
 
     @deco.keyword("点击")

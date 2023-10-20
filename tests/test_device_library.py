@@ -5,6 +5,8 @@ from typing import ClassVar
 from robotframework_airtest.device import DeviceLibrary
 
 APP_PACKAGE = "com.NetEase"
+APP_PATH = "tests/demo/com.netease.poco.u3d.tutorial.apk"
+EXE_PATH = "tests\demo\com.netease.poco.u3d.tutorial.exe"
 
 
 class DeviceLibraryConnectTest(unittest.TestCase):
@@ -27,9 +29,14 @@ class DeviceLibraryConnectTest(unittest.TestCase):
 
 
 class AndroidDeviceTest(unittest.TestCase):
-    def setUp(self) -> None:
-        self.dev_lib = DeviceLibrary(device_uri="android:///")
-        self.dev_lib.connect_device()
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.dev_lib = DeviceLibrary(device_uri="android:///")
+        cls.dev_lib.connect_device()
+
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.dev_lib.disconnect_device()
 
     def test_snapshot(self):
         data = self.dev_lib.snapshot()
@@ -76,7 +83,9 @@ class TestAppManage(unittest.TestCase):
     dev_lib: ClassVar[DeviceLibrary]
 
     @classmethod
-    def setupClass(cls):
+    def setUpClass(cls):
+        cls.dev_lib = DeviceLibrary(device_uri="android:///")
+        cls.dev_lib.connect_device()
         cls.dev_lib.install_app("tests/demo/com.netease.poco.u3d.tutorial.apk")
 
     @classmethod

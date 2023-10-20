@@ -69,8 +69,7 @@ def parse_path_to_queryinfos(path: str = None, **attrs) -> List[QueryInfo]:
             ext_attrs = dict(parse_qsl(d.query))
             query_info = {"name": path, "attrs": ext_attrs}
             if index == len(paths) - 1:
-                attrs = cast(dict, query_info[attrs])
-                attrs.update(attrs)
+                query_info["attrs"].update(attrs)
             query_infos.append(query_info)
 
     return query_infos
@@ -883,6 +882,8 @@ class StdPocoLibrary:
 
             for i in range(times):
                 scroll_view.swipe(direction, focus=(0.5, 0.5), duration=duration)
+
+        time.sleep(2)  # 大部分滚动都有个回弹，预留点时间
 
     @deco.keyword("获取列表项数量")
     def get_list_item_count(self, scroll_view_path, item_path=None, **attrs) -> int:
