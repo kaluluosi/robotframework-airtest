@@ -1,0 +1,12 @@
+-L  DEBUG 
+
+-e SKIP
+
+# 将报告输出到Logs文件夹
+-d ./Logs 
+
+--listener xtester_robot.libraries.AirtestReporter:True
+
+--reporttitle   测试报告
+
+--splitlog
