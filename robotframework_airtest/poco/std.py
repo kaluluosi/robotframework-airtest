@@ -5,11 +5,11 @@ import time
 import types
 
 from shutil import rmtree
-from typing import Optional, Union, cast, Tuple, List
+from typing import Optional, Union, Tuple, List
 from urllib.parse import parse_qsl, urlparse
 
 from poco.proxy import UIObjectProxy
-from poco.drivers.std import StdPoco
+from poco.drivers.std import StdPoco, DEFAULT_ADDR
 from poco.utils.simplerpc.rpcclient import RpcClient
 
 from airtest import aircv
@@ -97,8 +97,15 @@ class StdPocoLibrary:
     ROBOT_LIBRARY_FORMAT = "rsST"
     ROBOT_LISTENER_API_VERSION = 2
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        addr: Tuple[str, int] = DEFAULT_ADDR,
+        **kwargs,
+    ) -> None:
         self.ROBOT_LIBRARY_LISTENER = self
+
+        self.addr = DEFAULT_ADDR
+        self.kwargs = kwargs
 
         self._poco: StdPoco = None
         self.focus_elements: list[UIObjectProxy] = []
@@ -216,11 +223,11 @@ class StdPocoLibrary:
 
     def _create_poco(self) -> StdPoco:
         """
-        不同的Poco-SDK PocoManager开出的端口都不一样，所以需要为不同的引擎返回具体的Poco。
+        XXX: 不同的Poco-SDK PocoManager开出的端口都不一样，所以需要为不同的引擎返回具体的Poco。
 
         StdPoco连接的端口是15004，但是UnityPoco连接的端口是5004。
         """
-        return StdPoco()
+        return StdPoco(port=self.addr[1])
 
     @deco.not_keyword
     def _disable_keyword_logging(self):
