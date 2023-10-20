@@ -36,5 +36,10 @@ class AndroidConnectStrategy(ConnectStrategy):
 
     def disconnect(self):
         if self.is_connected:
-            self.device.stop_app(self.pkg_name)
+            if self.pkg_name:
+                try:
+                    self.device.stop_app(self.pkg_name)
+                except Exception:
+                    logger.warn("APP没有运行，没有停止。")
+
             G.DEVICE_LIST.remove(self.device)

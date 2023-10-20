@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.8.10 on win32)" generated="20231020 21:41:37.029" rpa="false" schemaversion="4">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\john\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="APP必须安装成功">
+<arg>${包名}</arg>
+<msg timestamp="20231020 21:41:37.358" level="FAIL">No keyword with name 'APP必须安装成功' found.</msg>
+<status status="FAIL" starttime="20231020 21:41:37.358" endtime="20231020 21:41:37.358"/>
+</kw>
+<kw name="启动APP">
+<arg>${包名}</arg>
+<status status="NOT RUN" starttime="20231020 21:41:37.358" endtime="20231020 21:41:37.358"/>
+</kw>
+<kw name="停止APP">
+<arg>${包名}</arg>
+<status status="NOT RUN" starttime="20231020 21:41:37.359" endtime="20231020 21:41:37.359"/>
+</kw>
+<status status="PASS" starttime="20231020 21:41:37.042" endtime="20231020 21:41:39.039"/>
+</kw>
+<status status="PASS" starttime="20231020 21:41:37.041" endtime="20231020 21:41:39.039"/>
+</test>
+<status status="PASS" starttime="20231020 21:41:37.030" endtime="20231020 21:41:39.040"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

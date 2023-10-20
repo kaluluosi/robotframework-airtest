@@ -8,6 +8,16 @@ readme = "README.md"
 packages = [{ include = "robotframework_airtest" }]
 
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.1"
+black = "^23.10.0"
+
+
+[[tool.poetry.source]]
+name = "ali"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "default"
+
 [tool.black]
 line-length = 88
 
@@ -15,16 +25,11 @@ line-length = 88
 ignore = ['E501']
 
 [tool.poetry.dependencies]
-python = "^3.11"
-ruff = "^0.1.0"
-pocoui = "^1.0.89"
+python = "^3.8"
 robotframework = "^6.1.1"
+click = "^8.1.7"
+pocoui = "^1.0.89"
 
-
-[tool.poetry.group.dev.dependencies]
-black = "^23.10.0"
-pytest = "^7.4.2"
-pytest-mock = "^3.11.1"
 
 [build-system]
 requires = ["poetry-core"]

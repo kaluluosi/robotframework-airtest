@@ -1,10 +1,11 @@
 import math
 import os
 import re
-from shutil import rmtree
 import time
 import types
-from typing import Union, cast
+
+from shutil import rmtree
+from typing import Optional, Union, cast, Tuple, List
 from urllib.parse import parse_qsl, urlparse
 
 from poco.proxy import UIObjectProxy
@@ -24,7 +25,7 @@ from robot.utils import get_link_path, timestr_to_secs
 from .gesture import PendingGestureAction, WindowsPendingGestureAction
 
 
-Point = tuple[float, float]
+Point = Tuple[float, float]
 
 # 查询信息hh
 QueryInfo = dict
@@ -37,7 +38,7 @@ POS_ZERO: Point = (0, 0)  # 原点
 # endregion
 
 
-def parse_path_to_queryinfos(path: str = None, **attrs) -> list[QueryInfo]:
+def parse_path_to_queryinfos(path: str = None, **attrs) -> List[QueryInfo]:
     """解析 查询链 返回QueryInfos数据供框架使用。
 
     path参数支持用\\分割拼接多个查询语句做成查询链:
@@ -332,7 +333,7 @@ class StdPocoLibrary:
         except Exception as e:
             logger.warn("_robot_snap {}".format(e))
 
-    def _log_snap(self, *args) -> tuple[str, str]:
+    def _log_snap(self, *args) -> Tuple[str, str]:
         """打截图日志，只是产生robotframework的截图超链日志，本身并不截图。"""
         if self.airtest_log_dir is None:
             # 意味本次测试输出airtest日志
@@ -714,7 +715,7 @@ class StdPocoLibrary:
         self,
         p1: Point,
         p2: Point,
-        direction: Point | None = None,
+        direction: Optional[Point] = None,
         duration: float = 0.5,
     ):
         """整个屏幕上做滑动, 以duration时间长度从p1滑动到p2. e.g. 用5s的时间从p1滑动到p2.

@@ -1,12 +1,13 @@
 import os
 import time
+from typing import Tuple
 from airtest.core.settings import Settings
 from robot.api import logger, deco
 from robot.libraries.BuiltIn import BuiltIn
 from .connects import ConnectStrategy, factory
 
 # 坐标点类型声明
-Point = tuple[float, float]
+Point = Tuple[float, float]
 
 
 class DeviceLibrary:
@@ -70,12 +71,12 @@ class DeviceLibrary:
         self.conn = factory(device_uri, pkg_name)
         self.conn.connect(auto_start_app)
         logger.console("连接设备成功")
-        if hasattr(Settings, "RECORDING") and Settings.RECORDING:
+        if getattr(Settings, "RECORDING", None):
             self.start_recording()
 
     @deco.keyword("断开设备")
     def disconnect_device(self):
-        if hasattr(Settings, "RECORDING") and Settings.RECORDING:
+        if getattr(Settings, "RECORDING", None):
             self.stop_recording()
         self.conn.disconnect() if self.conn else logger.console("设备并没有连接")
 
@@ -101,7 +102,7 @@ class DeviceLibrary:
         return not self.conn.is_connected
 
     @deco.keyword("截图")
-    def snapshot(self, *args, **kwargs) -> bytes:
+    def snapshot(self, filename: str = None, *args, **kwargs) -> bytes:
         data = self.conn.device.snapshot(*args, **kwargs)
         return data
 
@@ -147,6 +148,16 @@ class DeviceLibrary:
     @deco.keyword("列出安装的APP")
     def list_app(self, **kwargs):
         return self.conn.device.list_app(**kwargs)
+
+    @deco.keyword("是否已安装APP")
+    def is_app_installed(self, package: str, **kwargs):
+        app_list = self.list_app(**kwargs)
+        return package in app_list
+
+    @deco.keyword("APP必须安装成功")
+    def should_install_app(self, package: str, **kwargs):
+        if not self.is_app_installed(package):
+            BuiltIn().fail(msg=f"{package}没有安装")
 
     @deco.keyword("安装APP")
     def install_app(self, uri: str, **kwargs):

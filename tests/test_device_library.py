@@ -1,8 +1,8 @@
 import os
-from typing import ClassVar
 import unittest
 import tempfile
-from robotframework_airtest.libs.device_library import DeviceLibrary
+from typing import ClassVar
+from robotframework_airtest.device import DeviceLibrary
 
 APP_PACKAGE = "com.NetEase"
 
