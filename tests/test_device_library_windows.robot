@@ -6,9 +6,16 @@ Test Teardown       断开设备
 
 
 *** Test Cases ***
-获取分辨率
+测试获取分辨率
     ${结果}    获取分辨率
     Should Not Be Empty    ${结果}    msg=${结果}
+
+测试录像
+    开始录像    output=test.mp4
+    Log    睡眠3s    level=console
+    Sleep    3
+    Log    结束录像    level=console
+    结束录像
 
 
 *** Keywords ***

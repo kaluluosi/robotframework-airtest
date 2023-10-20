@@ -16,14 +16,14 @@ Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotfr
 Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
 Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
-- Completed reload, in  0.032 seconds
+- Completed reload, in  0.031 seconds
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\tests\demo\com.netease.poco.u3d.tutorial_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 5120x1440 120Hz; virtual: 5120x1440 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 0.385900 ms
+UnloadTime: 0.369600 ms
 Tcp server started
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
@@ -44,10 +44,3 @@ SocketException: 由于套接字没有连接并且(当使用一个 sendto 调用
  
 (Filename:  Line: -1)
 
-Setting up 6 worker threads for Enlighten.
-  Thread -> id: 81e4 -> priority: 1 
-  Thread -> id: 3d8c -> priority: 1 
-  Thread -> id: 4dcc -> priority: 1 
-  Thread -> id: 2ae8 -> priority: 1 
-  Thread -> id: 852c -> priority: 1 
-  Thread -> id: 7c50 -> priority: 1 

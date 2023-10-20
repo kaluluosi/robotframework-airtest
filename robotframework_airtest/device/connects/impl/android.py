@@ -4,8 +4,6 @@ from airtest.core.api import connect_device
 from airtest.core.helper import G
 from ..connect_strategy import ConnectStrategy
 
-from airtest.core.android import Android
-
 
 class AndroidConnectStrategy(ConnectStrategy):
     def connect(self, auto_start_app=False) -> Device:

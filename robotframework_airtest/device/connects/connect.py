@@ -48,10 +48,10 @@ def factory(device_uri: str, pkg_name: str) -> ConnectStrategy:
         cls_connect_strategy = getattr(
             module, "{}ConnectStrategy".format(platform.title())
         )
-    except Exception:
+    except Exception as e:
         # 预设的连接策略里没有找到该平台的连接策略，尝试去插件里找
         # TODO: 要重新实现插件，这里先直接抛错
 
-        raise RuntimeError("没有合适的连接策略，不支持该平台连接")
+        raise RuntimeError(f"没有合适的连接策略，不支持该平台连接 {e}")
 
     return cls_connect_strategy(device_uri, pkg_name)

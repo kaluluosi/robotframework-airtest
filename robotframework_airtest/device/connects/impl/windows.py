@@ -1,20 +1,34 @@
 import os
+import sys
 import shutil
 import subprocess
 import time
 import types
 
+import cv2
+import pkg_resources
+import robotframework_airtest
+
 from tempfile import TemporaryDirectory
 from threading import Lock, Thread
 
-import cv2
 from airtest.core.api import connect_device
 from airtest.core.device import Device
 from airtest.core.helper import G
 from airtest.core.win.win import Windows
+
 from robot.api import logger
 
 from ..connect_strategy import ConnectStrategy
+
+
+DLL_PATH = pkg_resources.resource_filename(robotframework_airtest.__package__, "dll")
+# 获取当前环境变量PATH
+path = os.environ["PATH"]
+
+# 添加路径到环境变量PATH
+new_path = f"{DLL_PATH};" + path
+os.environ["PATH"] = new_path
 
 
 def windows_wrapper(win_device: Windows):
@@ -26,11 +40,12 @@ def windows_wrapper(win_device: Windows):
         win_device (Windows): 窗口设备
     """
 
-    def start_recording(self: Windows):
+    def start_recording(self: Windows, output: str = None, *args, **kwargs):
         if getattr(self, "_recording"):
             return
 
         self._recording = True
+        self._record_out_file = output
 
         def _recording():
             codec = cv2.VideoWriter_fourcc(*"avc1")
@@ -70,16 +85,17 @@ def windows_wrapper(win_device: Windows):
 
             out.release()
             out_file = self._record_out_file
+            if out_file is None:
+                raise TypeError("outpot 是 None")
             shutil.copy(tmp_out_file, out_file)
-            # logger.console("录制结束,保存到{}".format(out_file))
+            logger.console("录制结束,保存到{}".format(out_file))
 
         self._recorder = Thread(target=_recording)
         self._recorder.start()
 
-    def stop_recording(
-        self: Windows, output: str = "screen.mp4", is_interrupted: bool = False
-    ):
-        self._record_out_file = output
+    def stop_recording(self: Windows, output: str = None, is_interrupted: bool = False):
+        if output:
+            self._record_out_file = output
         self._recording = False
         if self._recorder:
             self._recorder.join()
