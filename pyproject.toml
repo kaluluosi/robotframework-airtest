@@ -29,6 +29,9 @@ python = "^3.8"
 robotframework = "^6.1.1"
 click = "^8.1.7"
 pocoui = "^1.0.89"
+unityparser = "^3.0.1"
+pydantic-settings = "^2.0.3"
+toml = "^0.10.2"
 
 
 [build-system]

@@ -5,7 +5,7 @@ from typing import ClassVar
 from robotframework_airtest.device import DeviceLibrary
 
 APP_PACKAGE = "com.NetEase"
-APP_PATH = "tests/demo/com.netease.poco.u3d.tutorial.apk"
+APP_PATH = "tests\demo\com.netease.poco.u3d.tutorial.apk"
 EXE_PATH = "tests\demo\com.netease.poco.u3d.tutorial.exe"
 
 
