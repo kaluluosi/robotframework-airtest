@@ -7,8 +7,8 @@ Test Teardown       断开设备
 
 *** Test Cases ***
 获取分辨率
-    ${分辨率}    获取分辨率
-    Should Not Be Empty    ${分辨率}    msg=${分辨率}
+    ${结果}    获取分辨率
+    Should Not Be Empty    ${结果}    msg=${结果}
 
 
 *** Keywords ***
