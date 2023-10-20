@@ -1,0 +1,5 @@
+[default]
+source = "Views"
+dist = "Resources/界面模型"
+exts = [ ".prefab",]
+generator = "unity"

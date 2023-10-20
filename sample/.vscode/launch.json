@@ -1,0 +1,38 @@
+{
+
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "type": "robotframework-lsp",
+        "name": "调试-中文简体",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "target": "${file}",
+        "terminal": "none",
+        "env": {},
+        "args": [
+          "-A", "Args/debug.args",
+          "--variable", "LANGUAGE:简体",
+          ],
+        "postDebugTask": "打开报告"
+      },
+      {
+        "type": "robotframework-lsp",
+        "name": "干跑测试",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "target": "${file}",
+        "terminal": "none",
+        "env": {},
+        "args": [
+          "-A", "Args/dryrun.args",
+          "--variable", "LANGUAGE:简体",
+          ],
+        "postDebugTask": "打开报告"
+      }  
+  ]
+}
+       
