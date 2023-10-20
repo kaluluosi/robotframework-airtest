@@ -77,7 +77,10 @@ class AirtestReporter:
 
     def start_test(self, name, attrs):
         log_dir = os.path.join(
-            self.out_dir, ".airtest", self.suit_name, self.test_name + ".air"
+            self.out_dir,
+            ".airtest",
+            self.suit_name,
+            self.test_name + ".air",
         )
         Settings.LOG_DIR = log_dir
         logger.console("Airtest Reporter设置Airtest输出日志目录 {}".format(Settings.LOG_DIR))
@@ -107,12 +110,12 @@ class AirtestReporter:
     def end_test(self, name, attrs):
         if self._recording:
             if G.DEVICE and self._recording:
-                timestamp = str(int(time.time()))
-                file_name = "{}.mp4".format(timestamp)
-                out_file = os.path.join(Settings.LOG_DIR, file_name)
+                # timestamp = str(int(time.time()))
+                # file_name = "{}.mp4".format(timestamp)
+                # out_file = os.path.join(Settings.LOG_DIR, file_name)
 
-                G.DEVICE.stop_recording(out_file)
-                logger.console("录制结束，保存到{}".format(out_file))
+                G.DEVICE.stop_recording()
+                logger.console("录制结束")
             else:
                 logger.warn("录像结束：这个时候没有设备连接")
 
