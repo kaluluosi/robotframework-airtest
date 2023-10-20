@@ -5,7 +5,34 @@
   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-
+    {
+        "type": "robotframework-lsp",
+        "name": "运行所有用例",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "target": "Tests",
+        "terminal": "none",
+        "env": {},
+        "args": [
+          "-A", "Args/debug.args",
+          "--variable", "LANGUAGE:zh",
+          ],
+        "postDebugTask": "打开报告"
+      },
+      {
+        "type": "robotframework-lsp",
+        "name": "干跑所有测试",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "target": "Tests",
+        "terminal": "none",
+        "env": {},
+        "args": [
+          "-A", "Args/dryrun.args",
+          "--variable", "LANGUAGE:zh",
+          ],
+        "postDebugTask": "打开报告"
+      }  
   ]
 }
        

@@ -1,10 +1,11 @@
 {
     "robot.variables": {
         "device_uri":"Android:///",
-        "pkg_name":"",
-        "serverid":"1",
-        "auto_start_app": "False",  
-        "language": "zh" 
+        "pkg_name":"com.NetEase", 
+
+        "serverid":"1", 
+        "auto_start_app": "True",   
+        "language": "zh"  
     },
     "python.envFile": "${workspaceFolder}/.env" 
 }
