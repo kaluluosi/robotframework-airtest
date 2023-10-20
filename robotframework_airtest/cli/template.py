@@ -18,8 +18,8 @@ def start(ctx: click.Context):
     创建模板项目
     """
     click.echo(title("xr模板项目向导"), color="green")
-
-    if os.listdir(os.getcwd()):
+    files = os.listdir(os.getcwd())
+    if len(files) > 1:
         abs_path = os.path.abspath(os.path.curdir)
         answer = click.confirm(f"{abs_path}不是空目录，你是要继续在这个目录下创建吗？", default=False)
 
