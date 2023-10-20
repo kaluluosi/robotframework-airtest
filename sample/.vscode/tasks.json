@@ -14,7 +14,7 @@
         "command": "robot -A Args/run.args Tests"
       },
     {
-      "label": "打开报告",
+      "label": "打开调试报告",
       "type": "shell",
       "command": "start report.html",
       "presentation": {
@@ -26,6 +26,19 @@
         "clear": false,
       },
     },
+    {
+        "label": "打开报告",
+        "type": "shell",
+        "command": "start Logs/report.html",
+        "presentation": {
+          "echo": true,
+          "reveal": "never",
+          "focus": false,
+          "panel": "shared",
+          "showReuseMessage": false,
+          "clear": false,
+        },
+      },
     {
         "label": "更新界面模型",
         "type": "shell",

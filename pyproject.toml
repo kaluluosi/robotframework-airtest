@@ -28,7 +28,7 @@ line-length = 88
 ignore = ['E501']
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.6,<3.9"
 robotframework = "^6.1.1"
 click = "^8.1.7"
 pocoui = "^1.0.89"
