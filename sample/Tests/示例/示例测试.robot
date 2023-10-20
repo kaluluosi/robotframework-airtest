@@ -13,7 +13,6 @@ Test Teardown       用例通用清理
     Log    Hello World!    console=True
 
 测试滑动列表
-    [Documentation]    先去Apk目录将 `com.netease.poco.u3d.tutorial.apk` 安装到手机
     点击元素    btn_start
     点击元素    list_view
     滑动列表    Scroll View    vertical    0.5

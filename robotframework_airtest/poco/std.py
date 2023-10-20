@@ -104,7 +104,7 @@ class StdPocoLibrary:
     ) -> None:
         self.ROBOT_LIBRARY_LISTENER = self
 
-        self.addr = DEFAULT_ADDR
+        self.addr = addr
         self.kwargs = kwargs
 
         self._poco: StdPoco = None

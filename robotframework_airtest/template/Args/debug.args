@@ -5,9 +5,11 @@
 -e  SKIP
 
 # 默认情况下用简体语言
---variable   LANGUAGE:中文简体
+--variable   LANGUAGE:zh
+--variablefile  Args/config.py
 
---listener Lib/AirtestReport.py:True
+--listener robotframework_airtest.reporter.AirtestReporter:True
+
 
 --reporttitle   调试测试报告
 

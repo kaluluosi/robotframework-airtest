@@ -122,3 +122,4 @@ log.html
 output.xml
 report.html
 .airtest
+log*.js

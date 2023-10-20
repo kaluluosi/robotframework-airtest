@@ -10,7 +10,7 @@ Resource            Poco.resource
 
 
 *** Variables ***
-${language}     中文简体
+${language}     zh
 
 
 *** Keywords ***

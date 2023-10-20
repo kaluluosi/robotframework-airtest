@@ -1,7 +1,7 @@
 {
     "robot.variables": {
         "device_uri":"Android:///",
-        "pkg_name":"com.Netease", 
+        "pkg_name":"com.NetEase", 
 
         "serverid":"1", 
         "auto_start_app": "True",   
