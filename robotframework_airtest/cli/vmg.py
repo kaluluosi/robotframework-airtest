@@ -83,7 +83,7 @@ def init(default: bool):
     else:
         click.echo(title("vmg.toml配置文件向导"))
         vm_source = click.prompt(
-            ">前端界面资源（prefab、axonui lua）所在目录", default="Views", show_default=True
+            ">前端界面资源（prefab）所在目录", default="Views", show_default=True
         )
         vm_exts: str = click.prompt(
             ">前端界面资源文件格式，空格隔开", default=".prefab", show_default=True
