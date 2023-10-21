@@ -2,10 +2,9 @@
 
 `Robotframework-Airtest` 是`Robotframework`的`Airtest`测试库封装，同时提供了一整套的自动化测试方案，可以快速搭建基于Robot Framework的自动化测试项目。
 
-!!! note
-    目前只封装了`poco`的接口
-    
-    后续可能增加`Airtest`相关接口，但是VSCode代码编辑器中无法像AirtestIDE编辑器那样将图片显示在编辑器中，所以还需要开发专用插件。
+>**note**
+>目前只封装了`poco`的接口   
+>后续可能增加`Airtest`相关接口，但是VSCode代码编辑器中无法像AirtestIDE编辑器那样将图片显示在编辑器中，所以还需要开发专用插件。
 
 ## 安装
 
@@ -30,6 +29,7 @@ Commands:
   start  创建模板项目
   docs   打开文档
   vmg    界面模型导出工具
+```
 
 ## 什么是`Robot Framework`
 国内的测试如果有看过一些软件测试的书籍那么应该听说过**关键字驱动测试**这个名词，但是工作中却从很少触过`关键字驱动`的实际应用。而Robot Framework 就是一种**关键字驱动测试**的测试框架。
@@ -66,16 +66,15 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
 
 总之，Robot Framework适合末端执行测试编写用例，无程序基础的测试人员就算不熟悉编程语言也可以编写测试用例。虽然Robot脚本语言不像其他编程语言那么灵活，但是相对的也减少了测试人员过于自由而迷路的问题。
 
-!!! note
-    
-    可以去看[RobotFramework中文手册](https://robotframework-userguide-cn。readthedocs。io/zh_CN/latest/GettingStarted/Introduction。html)了解入门
+>**note**
+>可以去看[RobotFramework中文手册](https://robotframework-userguide-cn。readthedocs。io/zh_CN/latest/GettingStarted/Introduction。html)了解入门
     
 
 ## 特性介绍
 
 下面是简单介绍一下这个Package能够做什么。
 
-**用符合人类语言语义的方式编写测试脚本**
+### **用符合人类语言语义的方式编写测试脚本**
 
 ```robotframework
 *** Test Cases ***
@@ -90,7 +89,7 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
     Should Be Equal    ${签名}    ${获取签名}    签名
 ```
 
-**面向界面模型测试**
+### **面向界面模型测试**
 
 不再原始的一个个查找界面元素，直接引用高度封装的界面模型，对界面模型进行操作。
 界面模型已经封装好查询元素和简单的点击操作关键字，你只需开箱即用的调用。
@@ -103,7 +102,7 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
     。。。
 ```
 
-**前端界面资源(Prefab)导出界面模型**
+### **前端界面资源(Prefab)导出界面模型**
 
 内置界面Prefab导出界面模型资源脚本。
 
@@ -111,11 +110,11 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
 ra vmg gen
 ```
 
-!!! note
-    目前只支持解析Unity Prefab文件导出成界面模型资源
+>**warning**
+>目前只支持解析Unity Prefab文件导出成界面模型资源
 
 
-**"Dry Run" 预测试提前发现用例错误**
+### **"Dry Run" 预测试提前发现用例错误**
 
 测试脚本随着版本迭代，界面结构改变，导致脚本过期失效。然而要一个个检查所有的测试脚本找出哪些脚本哪一行失效是成本十分高的事情。
 
@@ -123,11 +122,11 @@ ra vmg gen
 
 **Dry Run**相当于是一个测试测试脚本的测试。
 
-**多语言支持**
+#### **多语言支持**
 
 内置多语言资源文件，脚本内使用的字符串变量定义在多语言资源文件中，测试执行的时候传入"-v LANGAGE:语言"来控制读取哪个语言表实现多语言切换。
 
-**界面观察者**
+### **界面观察者**
 
 注册监控关键字，每一次关键字执行的时候会先执行监控关键字，条件成立就执行。以此来解决操作过程中意外弹的检测和处理。
 ```robotframework
@@ -137,7 +136,7 @@ ra vmg gen
     ...
 ```
 
-**数据驱动测试**
+### **数据驱动测试**
 
 Robotframework提供的测试模板(Template)功能，可以将测试用例变成以空格为分隔符的表格，传入模板关键字中执行测试。这个测试用例不会因为其中一个测试数据失败而终止，而是会执行所有的测试数据，然后汇总所有测试结果。全部都通过的时候这条用例通过，只要有一个失败用例就失败。
 
