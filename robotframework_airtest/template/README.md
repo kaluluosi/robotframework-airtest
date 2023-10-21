@@ -9,7 +9,7 @@
 
 ## 快速开始
 
-将项目Apk目录下的 `com.netease.poco.u3d.tutorial.apk` 示例应用安装到手机上
+将 [com.netease.poco.u3d.tutorial.apk](https://github.com/kaluluosi/robotframework-airtest/blob/main/tests/demo/com.netease.poco.u3d.tutorial.apk) 示例应用安装到手机上
 `vscode`打开 `Tests\示例测试.robot`
 ![](asset/2023-10-21-05-06-28.png)
 如果 `robotframework-lsp` 安装正确，那么你会在用例左边看到播放按钮，用例上面也会看到调试按钮。如果你在`vscode`用过 `unittest` `pytest` 那么怎么用`vscode`调试测试用例应该不需要我多说了。点击播放按钮就可以单独执行这个用例。
