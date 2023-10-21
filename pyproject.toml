@@ -6,6 +6,7 @@ authors = ["kaluluosi <kaluluosi@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "robotframework_airtest" }]
+repository = "https://github.com/kaluluosi/robotframework-airtest"
 
 [tool.poetry.plugins."vmg.generator"]
 unity = "robotframework_airtest.vmg.generators.unity"
