@@ -108,7 +108,7 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
 内置界面Prefab导出界面模型资源脚本。
 
 ```shell
-ra vmg
+ra vmg gen
 ```
 
 !!! note

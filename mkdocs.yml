@@ -23,6 +23,9 @@ theme:
       - search.suggest
       - search.highlight
       - search.share
+      - content.code.copy
+      - content.code.select
+      - content.code.annotate
 
 plugins:
   - search
@@ -31,11 +34,15 @@ nav:
     - 首页: index.md
     - 入门: 
         - quick_start/index.md
+        - 安装: quick_start/0_install.md
         - 创建项目: quick_start/1_create_project.md
         - 开发环境配置: quick_start/2_dev_env.md
         - 前端接入: quick_start/3_frontend.md
     - 高级: 
         - advance/index.md
+        - 基础篇: advance/basic.md
+        - 中级篇: advance/intermediate.md
+        - 高级篇: advance/advance.md
     - 自动化集成:
         - ci_cd/index.md
     - 接口文档:
@@ -61,3 +68,4 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - tables
+  - codehilite
