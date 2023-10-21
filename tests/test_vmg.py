@@ -23,7 +23,10 @@ class TestVMG(unittest.TestCase):
 
     def test_gen_viewmodel(self):
         setting = Setting(
-            source="tests/unity_ui", dist="tests/dist", exts="prefab", generator="unity"
+            source="tests/unity_ui",
+            dist="tests/dist",
+            exts=[".prefab"],
+            generator="unity",
         )
 
         gen_viewmodel(setting=setting, name="test")

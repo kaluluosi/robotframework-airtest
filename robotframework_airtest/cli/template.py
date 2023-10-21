@@ -1,8 +1,8 @@
 import click
 import os
 import pkg_resources
-
 import robotframework_airtest
+import webbrowser
 
 from distutils.dir_util import copy_tree
 
@@ -29,8 +29,6 @@ def start(ctx: click.Context):
     pkg_name = robotframework_airtest.__package__
     template_dir = pkg_resources.resource_filename(pkg_name, "template")
     copy_tree(template_dir, os.getcwd())
-    docs_dir = pkg_resources.resource_filename(pkg_name, "docs")
-    copy_tree(docs_dir, os.path.join(os.getcwd(), "Docs"))
     click.echo(">项目文件复制完毕")
 
     # click要在命令里调用另一个命令得用上下文
@@ -44,8 +42,7 @@ def docs():
     """
     打开文档
     """
-    docs_dir = pkg_resources.resource_filename("xtester_robot", "docs")
-    os.startfile(docs_dir)
+    webbrowser.open("https://kaluluosi.github.io/robotframework-airtest/")
 
 
 def setup(group: click.Group):

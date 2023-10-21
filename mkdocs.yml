@@ -32,7 +32,7 @@ nav:
     - 入门: 
         - quick_start/index.md
         - 创建项目: quick_start/1_create_project.md
-        - 开发环境: quick_start/2_dev_env.md
+        - 开发环境配置: quick_start/2_dev_env.md
         - 前端接入: quick_start/3_frontend.md
     - 高级: 
         - advance/index.md

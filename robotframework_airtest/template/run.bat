@@ -1,0 +1,1 @@
+robot -A Args/run.args  Tests

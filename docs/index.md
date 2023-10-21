@@ -7,10 +7,30 @@
     
     后续可能增加`Airtest`相关接口，但是VSCode代码编辑器中无法像AirtestIDE编辑器那样将图片显示在编辑器中，所以还需要开发专用插件。
 
+
 ## 安装
 
 ```shell
 pip install robotframework-airtest
+```
+
+命令行中输入 `ra` 显示下面内容，说明安装成功。
+
+```shell
+> ra
+Usage: ra [OPTIONS] COMMAND [ARGS]...
+
+  ================================================================
+  Airtest For Robot Framework
+  ================================================================
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  start  创建模板项目
+  docs   打开文档
+  vmg    界面模型导出工具
 ```
 
 ## 什么是`Robot Framework`
@@ -20,7 +40,7 @@ Robot Framework是一个基于Python的、可扩展的、关键字驱动的测�
 
 用Robot Framework编写的脚本如下面这样：
 
-![](asset/2023-10-21-12-09-11。png)
+![](asset/2023-10-21-12-09-11.png)
 
 **Robot Framework的优点：**
 
@@ -48,9 +68,12 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
 
 总之，Robot Framework适合末端执行测试编写用例，无程序基础的测试人员就算不熟悉编程语言也可以编写测试用例。虽然Robot脚本语言不像其他编程语言那么灵活，但是相对的也减少了测试人员过于自由而迷路的问题。
 
+!!! warning
+    本文档不讲解Robot Framework的教程，你需要自己去学习。本文档也假定你已经会Robot Framework。
+
 !!! note
     
-    可以去看[RobotFramework中文手册](https://robotframework-userguide-cn。readthedocs。io/zh_CN/latest/GettingStarted/Introduction。html)了解入门
+    你可以去看[RobotFramework中文手册](https://robotframework-userguide-cn。readthedocs。io/zh_CN/latest/GettingStarted/Introduction。html)了解入门。
     
 
 ## 特性介绍
@@ -115,7 +138,7 @@ ra vmg
 ```robotframework
 *** Test Cases ***
 示例用例
-    监控UI    如果 userInfoViewUI。界面存在 那么 userInfoViewUI。点击BtnClose
+    监控UI    如果 userInfoViewUI.界面存在 那么 userInfoViewUI.点击BtnClose
     ...
 ```
 

@@ -6,7 +6,7 @@
 
 # 默认情况下用简体语言
 --variable   LANGUAGE:zh
---variablefile  Args/config.py
+--variablefile  Args/config.py 
 
 --listener robotframework_airtest.reporter.AirtestReporter:True
 

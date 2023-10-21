@@ -1,0 +1,1 @@
+robot -A Args/dryrun.args  Tests

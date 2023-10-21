@@ -1,4 +1,5 @@
 {
+    // 复制这个开发配置去修改，需要去掉所有的注释
     "robot.variables": {
         "device_uri":"Android:///", // 连接安卓手机
         // "pkg_name":"com.yourcompany.game", // android包名，用来自动启动app
