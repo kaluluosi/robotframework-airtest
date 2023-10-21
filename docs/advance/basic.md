@@ -435,6 +435,8 @@ Resource    ../../../../Resources/辅助.resource    # 引入我们的辅助.res
 
 ## 执行/调试用例
 
+### VSCode中执行
+
 RobotFramework-lsp插件会识别robot文件并在每个用例名称上面显示三个按钮，分别是执行、调试、交互式窗口调试。
 
 !!! Warning
@@ -446,6 +448,16 @@ RobotFramework-lsp插件会识别robot文件并在每个用例名称上面显示
 
 
 RobotFramework Language Server 支持断点调试，你可以打个断点然后点击`Debug`按钮这样跑到断点的位置时候会停止，你可以在这时候去通过VSCode的调试窗口或者调试控制台来查看当前堆栈的变量值。
+
+### 命令行中执行
+
+```shell
+robot -A Args/run.args Tests
+```
+
+!!! Tip
+    `-A`是`robot`命令参数文件功能，通过将参数放到文件中可以缩短命令长度。
+    
 
 ## 调试日志和报告
 

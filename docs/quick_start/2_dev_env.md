@@ -237,7 +237,8 @@ robot -A Args/run.args Tests
     ```
 
 !!! Note
-    `--listener robotframework_airtest.reporter.AirtestReporter:True ` 的作用是将Airtest的报告嵌入到RobotFramework的报告中去。
+    **`--listener robotframework_airtest.reporter.AirtestReporter:True ` 的作用是生成Airtest报告并嵌入到Robot Framework的报告中去。**
+
      ![](asset/2023-10-21-15-57-20.png)
 
     点击**Airtest报告**会跳转到Airtest原生报告页面。
