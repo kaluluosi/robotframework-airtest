@@ -7,6 +7,12 @@
     
     后续可能增加`Airtest`相关接口，但是VSCode代码编辑器中无法像AirtestIDE编辑器那样将图片显示在编辑器中，所以还需要开发专用插件。
 
+## 安装
+
+```shell
+pip install robotframework-airtest
+```
+
 ## 什么是`Robot Framework`
 国内的测试如果有看过一些软件测试的书籍那么应该听说过**关键字驱动测试**这个名词，但是工作中却从很少触过`关键字驱动`的实际应用。而Robot Framework 就是一种**关键字驱动测试**的测试框架。
 
