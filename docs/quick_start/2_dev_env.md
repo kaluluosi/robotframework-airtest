@@ -1,11 +1,12 @@
-# 配置开发环境
-
-
 # 配置本地开发环境
 
 ## 本地调试环境设置
 
-打开`.vscode\settings.json`，设置`robot.variables`，`xr` 生成项目的时候已经默认设置了，你只需要按实际情况微调。
+复制`.vscode\settings.json.sample`到`.vscode\settings.json`。
+设置`robot.variables`。
+
+!!! Tip:
+    `ra` 生成项目的时候已经默认设置了，你只需要按实际情况微调。
 
 ```json
 {
@@ -24,7 +25,10 @@
 
 ```
 
-下面分别介绍这些参数：
+!!! Warning
+    设置好后要将所有注释去掉！不然调试的时候会报错。
+
+## 下面分别介绍这些参数：
 
 !!! Tip
     以下这些参数在Robot脚本中都会作为全局变量。也就是说你可以在Robot脚本里直接用`${device_uri}`访问到`.vscode\settings.json`中的这几个参数。
@@ -132,7 +136,7 @@ Unity:///
 
 测试结果打印`Hello World`表示执行成功。
 
-### 试一下用Poco来测试Airtest的Demo应用
+## 试一下用Poco来测试Airtest的Demo应用
 
 首先到`Apk`目录将`com.netease.poco.u3d.tutorial.apk`安装到手机。
 ![](asset/2023-10-21-15-40-50.png)
@@ -204,6 +208,9 @@ Report:  C:\Users\...\robotframework-airtest\sample\report.html
 
 ![](asset/2023-10-21-15-45-08.png)
 
+每个操作都有截图
+![](asset/2023-10-21-16-15-02.png)
+
 ## 用命令行来执行测试
 
 将来自动化测试终归是要集成到CI\CD里执行，我们需要用命令行来执行所有测试而不是在VSCode里执行。
@@ -233,7 +240,9 @@ robot -A Args/run.args Tests
     `--listener robotframework_airtest.reporter.AirtestReporter:True ` 的作用是将Airtest的报告嵌入到RobotFramework的报告中去。
      ![](asset/2023-10-21-15-57-20.png)
 
-    VSCode中调试Robot用例是不会添加这个参数，所以调试生成的报告没有Airtest报告。
+    点击**Airtest报告**会跳转到Airtest原生报告页面。
+
+    VSCode中调试Robot用例不会添加这个参数，所以调试生成的报告没有Airtest报告。
 
 
 ### CD\CD Jenkins上执行
@@ -246,6 +255,8 @@ robot -A Args/run.args --variable device_uri:$DEVICE_URI --variable pkg_name:$PK
 
 !!! Note
     上面的$变量是Jenkins的Job编辑传入的，通过`--variable`参数来覆盖`run.args`里的值。
+
+
 
 
 
