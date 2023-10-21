@@ -515,6 +515,22 @@ url = "https://mirrors.aliyun.com/pypi/simple"
 reference = "ali"
 
 [[package]]
+name = "docutils"
+version = "0.20.1"
+description = "Docutils -- Python Documentation Utilities"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "docutils-0.20.1-py3-none-any.whl", hash = "sha256:96f387a2c5562db4476f09f13bbab2192e764cac08ebbf3a34a95d9b1e4a59d6"},
+    {file = "docutils-0.20.1.tar.gz", hash = "sha256:f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"},
+]
+
+[package.source]
+type = "legacy"
+url = "https://mirrors.aliyun.com/pypi/simple"
+reference = "ali"
+
+[[package]]
 name = "facebook-wda"
 version = "1.4.6"
 description = "Python Client for Facebook WebDriverAgent"
@@ -2346,4 +2362,4 @@ reference = "ali"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<=3.9"
-content-hash = "aea3fe86e8207607f9a6c0a387091ac3d00a66a88eb0d89e3e56948418874401"
+content-hash = "d213301cec01bd667b660118190db31061447b4a2b125f7e5b89573662b03651"

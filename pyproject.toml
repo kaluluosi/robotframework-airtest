@@ -19,6 +19,7 @@ black = "^23.10.0"
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.3"
 mkdocs-material = "^9.4.6"
+pymdown-extensions = "^10.3.1"
 
 [[tool.poetry.source]]
 name = "ali"
@@ -39,6 +40,8 @@ pocoui = "^1.0.89"
 unityparser = "^3.0.1"
 pydantic-settings = "^2.0.3"
 toml = "^0.10.2"
+docutils = "^0.20.1"
+pymdown-extensions = "^10.3.1"
 
 
 [build-system]

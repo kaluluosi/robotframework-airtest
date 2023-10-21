@@ -38,7 +38,17 @@ nav:
         - advance/index.md
     - 自动化集成:
         - ci_cd/index.md
-    - 参考文档: references.md
+    - 接口文档:
+        - libs/index.md
+        - DeviceLibrary:  libs/DeviceLibrary.html
+        - StdPocoLibrary: libs/StdPocoLibrary.html
+        - UnityPocoLibrary: libs/UnityPocoLibrary.html
+
+    - 参考文档: 
+        - references.md
+        - 中文文档: https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/
+        - 官方文档: https://robotframework.org/robotframework/
+        - 内置关键字文档: https://robotframework.org/robotframework/latest/libraries/BuiltIn.html
 
 markdown_extensions:
   - pymdownx.highlight:
