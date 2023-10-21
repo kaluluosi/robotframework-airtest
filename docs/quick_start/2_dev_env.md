@@ -5,7 +5,7 @@
 复制`.vscode\settings.json.sample`到`.vscode\settings.json`。
 设置`robot.variables`。
 
-!!! Tip:
+!!! Tip
     `ra` 生成项目的时候已经默认设置了，你只需要按实际情况微调。
 
 ```json
