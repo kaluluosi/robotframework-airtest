@@ -7,8 +7,10 @@ license = "MIT"
 readme = "README.md"
 packages = [{ include = "robotframework_airtest" }]
 
-[tool.poetry.scripts]
+[tool.poetry.plugins."vmg.generator"]
+unity = "robotframework_airtest.vmg.generators.unity"
 
+[tool.poetry.scripts]
 ra = "robotframework_airtest.cli:main"
 
 [tool.poetry.group.dev.dependencies]

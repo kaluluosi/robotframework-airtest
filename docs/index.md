@@ -108,6 +108,9 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
     。。。
 ```
 
+!!! Warning
+    目前只支持Unity的Prefab，以后再支持其他引擎。
+
 **前端界面资源(Prefab)导出界面模型**
 
 内置界面Prefab导出界面模型资源脚本。

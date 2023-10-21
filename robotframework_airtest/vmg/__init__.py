@@ -1,27 +1,22 @@
 import glob
 from importlib import metadata
-
-from importlib import import_module
 import os
-from pkgutil import iter_modules
+from types import ModuleType
 from typing import Optional
 from .generatorbase import GeneratorFunc, LoadError
 from .logger import logger  # noqa
-from . import generators
 from .settings import Setting
 
 
 def get_valid_generators() -> dict:
-    modules = filter(lambda m: m.name != "base", iter_modules(generators.__path__))
-    entrypoints = metadata.entry_points().get("XR.viewmodel.generator", [])
-
+    entrypoints = metadata.entry_points().get("vmg.generator", [])
     all_generators = {}
-    for m in modules:
-        module = import_module(f".{m.name}", generators.__package__)
-        all_generators[m.name] = getattr(module, "generate")
-
     for ep in entrypoints:
-        all_generators[ep.name] = ep.load()
+        try:
+            module: ModuleType = ep.load()
+            all_generators[ep.name] = getattr(module, "generate")
+        except Exception as e:
+            logger.error(f"{module.__name__} {e}")
 
     return all_generators
 

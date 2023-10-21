@@ -150,14 +150,14 @@ ${BagView.BagView_BagSellSubView}    ?nameMatches\=BagSellSubView.*
 
     
 
-界面必须不存在
-    元素必须不存在    ${BagView}
+BagView
+    [Return]    ${元素对象}
+    ${元素对象}    获取元素    ?nameMatches\=BagView.*
 
     
 
-点击BagView
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=BagView.*    ${focus}
+界面必须不存在
+    元素必须不存在    ${BagView}
 
     
 
@@ -167,29 +167,29 @@ ${BagView.BagView_BagSellSubView}    ?nameMatches\=BagSellSubView.*
 
     
 
-BagView
-    [Return]    ${元素对象}
-    ${元素对象}    获取元素    ?nameMatches\=BagView.*
-
-    
-
 界面存在
     [Return]    ${结果}
     ${结果}    元素存在    ${BagView}
 
     
 
-    
+点击BagView
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=BagView.*    ${focus}
 
-长按BagView_Bg
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Bg.*    ${focus}
+    
 
     
 
 BagView_Bg
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Bg.*
+
+    
+
+长按BagView_Bg
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Bg.*    ${focus}
 
     
 
@@ -201,15 +201,15 @@ BagView_Bg
 
     
 
-长按BagView_WhiteLine
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=WhiteLine.*    ${focus}
-
-    
-
 BagView_WhiteLine
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=WhiteLine.*
+
+    
+
+长按BagView_WhiteLine
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=WhiteLine.*    ${focus}
 
     
 
@@ -221,15 +221,15 @@ BagView_WhiteLine
 
     
 
-长按BagView_TabBg
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=TabBg.*    ${focus}
-
-    
-
 BagView_TabBg
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=TabBg.*
+
+    
+
+长按BagView_TabBg
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=TabBg.*    ${focus}
 
     
 
@@ -241,15 +241,15 @@ BagView_TabBg
 
     
 
-长按BagView_EmptyBag
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=EmptyBag.*    ${focus}
-
-    
-
 BagView_EmptyBag
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=EmptyBag.*
+
+    
+
+长按BagView_EmptyBag
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=EmptyBag.*    ${focus}
 
     
 
@@ -261,15 +261,15 @@ BagView_EmptyBag
 
     
 
-长按BagView_EmptyBag_Image
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=Image.*    ${focus}
-
-    
-
 BagView_EmptyBag_Image
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=Image.*
+
+    
+
+长按BagView_EmptyBag_Image
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=Image.*    ${focus}
 
     
 
@@ -281,15 +281,15 @@ BagView_EmptyBag_Image
 
     
 
-长按BagView_EmptyBag_BagView_EmptyBag_Image_2
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=Image.*    ${focus}
-
-    
-
 BagView_EmptyBag_BagView_EmptyBag_Image_2
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=Image.*
+
+    
+
+长按BagView_EmptyBag_BagView_EmptyBag_Image_2
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=Image.*    ${focus}
 
     
 
@@ -301,9 +301,9 @@ BagView_EmptyBag_BagView_EmptyBag_Image_2
 
     
 
-输入文字BagView_EmptyBag_EmptyText
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=EmptyBag.*\\?nameMatches\=EmptyText.*   ${文本}    ${键盘输入}
+获取文字BagView_EmptyBag_EmptyText
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=EmptyBag.*\\?nameMatches\=EmptyText.*
 
     
 
@@ -313,9 +313,9 @@ BagView_EmptyBag_BagView_EmptyBag_Image_2
 
     
 
-点击BagView_EmptyBag_EmptyText
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=EmptyText.*    ${focus}
+输入文字BagView_EmptyBag_EmptyText
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=EmptyBag.*\\?nameMatches\=EmptyText.*   ${文本}    ${键盘输入}
 
     
 
@@ -325,23 +325,23 @@ BagView_EmptyBag_EmptyText
 
     
 
-获取文字BagView_EmptyBag_EmptyText
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=EmptyBag.*\\?nameMatches\=EmptyText.*
+点击BagView_EmptyBag_EmptyText
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=EmptyBag.*\\?nameMatches\=EmptyText.*    ${focus}
 
     
-
-    
-
-长按BagView_Node
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*    ${focus}
 
     
 
 BagView_Node
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*
+
+    
+
+长按BagView_Node
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*    ${focus}
 
     
 
@@ -353,15 +353,15 @@ BagView_Node
 
     
 
-长按BagView_Node_LeftBtnLayout
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*    ${focus}
-
-    
-
 BagView_Node_LeftBtnLayout
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*
+
+    
+
+长按BagView_Node_LeftBtnLayout
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*    ${focus}
 
     
 
@@ -373,9 +373,9 @@ BagView_Node_LeftBtnLayout
 
     
 
-输入文字BagView_Node_LeftBtnLayout_WeaponBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_WeaponBtn
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*
 
     
 
@@ -385,9 +385,9 @@ BagView_Node_LeftBtnLayout
 
     
 
-点击BagView_Node_LeftBtnLayout_WeaponBtn
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_WeaponBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*   ${文本}    ${键盘输入}
 
     
 
@@ -397,23 +397,23 @@ BagView_Node_LeftBtnLayout_WeaponBtn
 
     
 
-获取文字BagView_Node_LeftBtnLayout_WeaponBtn
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*
+点击BagView_Node_LeftBtnLayout_WeaponBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*    ${focus}
 
     
 
@@ -425,9 +425,9 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -437,9 +437,9 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -449,23 +449,23 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_WeaponBtn_WeaponUnSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponUnSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*    ${focus}
 
     
 
@@ -477,9 +477,9 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -489,9 +489,9 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -501,23 +501,23 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_WeaponBtn_WeaponSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_WeaponBtn_WeaponBtnRedPos
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponBtnRedPos.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_WeaponBtn_WeaponBtnRedPos
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponBtnRedPos.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_WeaponBtn_WeaponBtnRedPos
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=WeaponBtn.*\\?nameMatches\=WeaponBtnRedPos.*    ${focus}
 
     
 
@@ -529,9 +529,9 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponBtnRedPos
 
     
 
-输入文字BagView_Node_LeftBtnLayout_SkillBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_SkillBtn
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*
 
     
 
@@ -541,9 +541,9 @@ BagView_Node_LeftBtnLayout_WeaponBtn_WeaponBtnRedPos
 
     
 
-点击BagView_Node_LeftBtnLayout_SkillBtn
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_SkillBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*   ${文本}    ${键盘输入}
 
     
 
@@ -553,23 +553,23 @@ BagView_Node_LeftBtnLayout_SkillBtn
 
     
 
-获取文字BagView_Node_LeftBtnLayout_SkillBtn
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*
+点击BagView_Node_LeftBtnLayout_SkillBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*    ${focus}
 
     
 
@@ -581,9 +581,9 @@ BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -593,9 +593,9 @@ BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -605,23 +605,23 @@ BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_SkillBtn_SkillUnSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillUnSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*    ${focus}
 
     
 
@@ -633,9 +633,9 @@ BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -645,9 +645,9 @@ BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -657,23 +657,23 @@ BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_SkillBtn_SkillSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_SkillBtn_SkillBtnRedPos
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillBtnRedPos.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_SkillBtn_SkillBtnRedPos
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillBtnRedPos.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_SkillBtn_SkillBtnRedPos
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillBtn.*\\?nameMatches\=SkillBtnRedPos.*    ${focus}
 
     
 
@@ -685,15 +685,15 @@ BagView_Node_LeftBtnLayout_SkillBtn_SkillBtnRedPos
 
     
 
-长按BagView_Node_LeftBtnLayout_SkillSubBtn
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*    ${focus}
-
-    
-
 BagView_Node_LeftBtnLayout_SkillSubBtn
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_SkillSubBtn
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*    ${focus}
 
     
 
@@ -705,9 +705,9 @@ BagView_Node_LeftBtnLayout_SkillSubBtn
 
     
 
-输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*
 
     
 
@@ -717,9 +717,9 @@ BagView_Node_LeftBtnLayout_SkillSubBtn
 
     
 
-点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*   ${文本}    ${键盘输入}
 
     
 
@@ -729,23 +729,23 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn
 
     
 
-获取文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*
+点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllSelect.*    ${focus}
 
     
 
@@ -757,9 +757,9 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllText
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllText.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllText
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllText.*
 
     
 
@@ -769,9 +769,9 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllText
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllText.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllText
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllText.*   ${文本}    ${键盘输入}
 
     
 
@@ -781,35 +781,11 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllText
 
     
 
-获取文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllText
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllText.*
-
-    
-
-    
-
-输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*   ${文本}    ${键盘输入}
-
-    
-
-长按BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*    ${focus}
-
-    
-
-点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
+点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillAllBtn_SkillAllText
     [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*    ${focus}
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillAllBtn.*\\?nameMatches\=SkillAllText.*    ${focus}
 
     
-
-BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
-    [Return]    ${元素对象}
-    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*
 
     
 
@@ -819,17 +795,41 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
 
     
 
+长按BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*    ${focus}
+
     
 
-长按BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierSelect.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*   ${文本}    ${键盘输入}
+
+    
+
+BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
+    [Return]    ${元素对象}
+    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*
+
+    
+
+点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*    ${focus}
+
+    
 
     
 
 BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierSelect.*    ${focus}
 
     
 
@@ -841,9 +841,9 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierText
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierText.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierText
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierText.*
 
     
 
@@ -853,9 +853,9 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierText
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierText.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierText
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierText.*   ${文本}    ${键盘输入}
 
     
 
@@ -865,35 +865,11 @@ BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierText
 
     
 
-获取文字BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierText
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierText.*
-
-    
-
-    
-
-输入文字BagView_Node_LeftBtnLayout_RuneBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*   ${文本}    ${键盘输入}
-
-    
-
-长按BagView_Node_LeftBtnLayout_RuneBtn
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*    ${focus}
-
-    
-
-点击BagView_Node_LeftBtnLayout_RuneBtn
+点击BagView_Node_LeftBtnLayout_SkillSubBtn_SkillSoldierBtn_SkillSoldierText
     [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*    ${focus}
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=SkillSubBtn.*\\?nameMatches\=SkillSoldierBtn.*\\?nameMatches\=SkillSoldierText.*    ${focus}
 
     
-
-BagView_Node_LeftBtnLayout_RuneBtn
-    [Return]    ${元素对象}
-    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*
 
     
 
@@ -903,17 +879,41 @@ BagView_Node_LeftBtnLayout_RuneBtn
 
     
 
+长按BagView_Node_LeftBtnLayout_RuneBtn
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*    ${focus}
+
     
 
-长按BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_RuneBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*   ${文本}    ${键盘输入}
+
+    
+
+BagView_Node_LeftBtnLayout_RuneBtn
+    [Return]    ${元素对象}
+    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*
+
+    
+
+点击BagView_Node_LeftBtnLayout_RuneBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*    ${focus}
+
+    
 
     
 
 BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*    ${focus}
 
     
 
@@ -925,9 +925,9 @@ BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -937,9 +937,9 @@ BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -949,23 +949,23 @@ BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_RuneBtn_RuneUnSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneUnSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*    ${focus}
 
     
 
@@ -977,9 +977,9 @@ BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -989,9 +989,9 @@ BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -1001,23 +1001,23 @@ BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_RuneBtn_RuneSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_RuneBtn_RuneBtnRedPos
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneBtnRedPos.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_RuneBtn_RuneBtnRedPos
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneBtnRedPos.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_RuneBtn_RuneBtnRedPos
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneBtn.*\\?nameMatches\=RuneBtnRedPos.*    ${focus}
 
     
 
@@ -1029,15 +1029,15 @@ BagView_Node_LeftBtnLayout_RuneBtn_RuneBtnRedPos
 
     
 
-长按BagView_Node_LeftBtnLayout_RuneSubBtn
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*    ${focus}
-
-    
-
 BagView_Node_LeftBtnLayout_RuneSubBtn
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_RuneSubBtn
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*    ${focus}
 
     
 
@@ -1049,9 +1049,9 @@ BagView_Node_LeftBtnLayout_RuneSubBtn
 
     
 
-输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*
 
     
 
@@ -1061,9 +1061,9 @@ BagView_Node_LeftBtnLayout_RuneSubBtn
 
     
 
-点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*   ${文本}    ${键盘输入}
 
     
 
@@ -1073,23 +1073,23 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn
 
     
 
-获取文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*
+点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllSelect.*    ${focus}
 
     
 
@@ -1101,9 +1101,9 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllText
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllText.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllText
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllText.*
 
     
 
@@ -1113,9 +1113,9 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllText
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllText.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllText
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllText.*   ${文本}    ${键盘输入}
 
     
 
@@ -1125,35 +1125,11 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllText
 
     
 
-获取文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllText
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllText.*
-
-    
-
-    
-
-输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*   ${文本}    ${键盘输入}
-
-    
-
-长按BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*    ${focus}
-
-    
-
-点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
+点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneAllBtn_RuneAllText
     [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*    ${focus}
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneAllBtn.*\\?nameMatches\=RuneAllText.*    ${focus}
 
     
-
-BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
-    [Return]    ${元素对象}
-    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*
 
     
 
@@ -1163,17 +1139,41 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
 
     
 
+长按BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*    ${focus}
+
     
 
-长按BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitSelect.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*   ${文本}    ${键盘输入}
+
+    
+
+BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
+    [Return]    ${元素对象}
+    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*
+
+    
+
+点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*    ${focus}
+
+    
 
     
 
 BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitSelect.*    ${focus}
 
     
 
@@ -1185,9 +1185,9 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitText
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitText.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitText
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitText.*
 
     
 
@@ -1197,9 +1197,9 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitText
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitText.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitText
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitText.*   ${文本}    ${键盘输入}
 
     
 
@@ -1209,35 +1209,11 @@ BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitText
 
     
 
-获取文字BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitText
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitText.*
-
-    
-
-    
-
-输入文字BagView_Node_LeftBtnLayout_PieceBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*   ${文本}    ${键盘输入}
-
-    
-
-长按BagView_Node_LeftBtnLayout_PieceBtn
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*    ${focus}
-
-    
-
-点击BagView_Node_LeftBtnLayout_PieceBtn
+点击BagView_Node_LeftBtnLayout_RuneSubBtn_RuneSuitBtn_RuneSuitText
     [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*    ${focus}
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=RuneSubBtn.*\\?nameMatches\=RuneSuitBtn.*\\?nameMatches\=RuneSuitText.*    ${focus}
 
     
-
-BagView_Node_LeftBtnLayout_PieceBtn
-    [Return]    ${元素对象}
-    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*
 
     
 
@@ -1247,17 +1223,41 @@ BagView_Node_LeftBtnLayout_PieceBtn
 
     
 
+长按BagView_Node_LeftBtnLayout_PieceBtn
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*    ${focus}
+
     
 
-长按BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_PieceBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*   ${文本}    ${键盘输入}
+
+    
+
+BagView_Node_LeftBtnLayout_PieceBtn
+    [Return]    ${元素对象}
+    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*
+
+    
+
+点击BagView_Node_LeftBtnLayout_PieceBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*    ${focus}
+
+    
 
     
 
 BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*    ${focus}
 
     
 
@@ -1269,9 +1269,9 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -1281,9 +1281,9 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -1293,23 +1293,23 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_PieceBtn_PieceUnSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceUnSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*    ${focus}
 
     
 
@@ -1321,9 +1321,9 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -1333,9 +1333,9 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -1345,23 +1345,23 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_PieceBtn_PieceSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_PieceBtn_PieceBtnRedPos
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceBtnRedPos.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_PieceBtn_PieceBtnRedPos
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceBtnRedPos.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_PieceBtn_PieceBtnRedPos
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=PieceBtn.*\\?nameMatches\=PieceBtnRedPos.*    ${focus}
 
     
 
@@ -1373,9 +1373,9 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceBtnRedPos
 
     
 
-输入文字BagView_Node_LeftBtnLayout_ItemBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_ItemBtn
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*
 
     
 
@@ -1385,9 +1385,9 @@ BagView_Node_LeftBtnLayout_PieceBtn_PieceBtnRedPos
 
     
 
-点击BagView_Node_LeftBtnLayout_ItemBtn
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_ItemBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*   ${文本}    ${键盘输入}
 
     
 
@@ -1397,23 +1397,23 @@ BagView_Node_LeftBtnLayout_ItemBtn
 
     
 
-获取文字BagView_Node_LeftBtnLayout_ItemBtn
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*
+点击BagView_Node_LeftBtnLayout_ItemBtn
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*    ${focus}
 
     
 
@@ -1425,9 +1425,9 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -1437,9 +1437,9 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -1449,23 +1449,23 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_ItemBtn_ItemUnSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemUnSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*    ${focus}
 
     
 
@@ -1477,9 +1477,9 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect
 
     
 
-输入文字BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect_Text
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect_Text
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*\\?nameMatches\=Text.*
 
     
 
@@ -1489,9 +1489,9 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect
 
     
 
-点击BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect_Text
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*\\?nameMatches\=Text.*    ${focus}
+输入文字BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect_Text
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*\\?nameMatches\=Text.*   ${文本}    ${键盘输入}
 
     
 
@@ -1501,23 +1501,23 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect_Text
 
     
 
-获取文字BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect_Text
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*\\?nameMatches\=Text.*
+点击BagView_Node_LeftBtnLayout_ItemBtn_ItemSelect_Text
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemSelect.*\\?nameMatches\=Text.*    ${focus}
 
     
-
-    
-
-长按BagView_Node_LeftBtnLayout_ItemBtn_ItemBtnRedPos
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemBtnRedPos.*    ${focus}
 
     
 
 BagView_Node_LeftBtnLayout_ItemBtn_ItemBtnRedPos
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemBtnRedPos.*
+
+    
+
+长按BagView_Node_LeftBtnLayout_ItemBtn_ItemBtnRedPos
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=LeftBtnLayout.*\\?nameMatches\=ItemBtn.*\\?nameMatches\=ItemBtnRedPos.*    ${focus}
 
     
 
@@ -1529,9 +1529,9 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemBtnRedPos
 
     
 
-输入文字BagView_Node_SellBtn
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*   ${文本}    ${键盘输入}
+获取文字BagView_Node_SellBtn
+    [Return]    ${文本}
+    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*
 
     
 
@@ -1541,9 +1541,9 @@ BagView_Node_LeftBtnLayout_ItemBtn_ItemBtnRedPos
 
     
 
-点击BagView_Node_SellBtn
-    [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*    ${focus}
+输入文字BagView_Node_SellBtn
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*   ${文本}    ${键盘输入}
 
     
 
@@ -1553,35 +1553,11 @@ BagView_Node_SellBtn
 
     
 
-获取文字BagView_Node_SellBtn
-    [Return]    ${文本}
-    ${文本}    获取文字    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*
-
-    
-
-    
-
-输入文字BagView_Node_SellBtn_SellText
-    [Arguments]     ${文本}     ${键盘输入}=${False}
-    输入文字    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*   ${文本}    ${键盘输入}
-
-    
-
-长按BagView_Node_SellBtn_SellText
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*    ${focus}
-
-    
-
-点击BagView_Node_SellBtn_SellText
+点击BagView_Node_SellBtn
     [Arguments]     ${focus}=(0.5,0.5)
-    点击元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*    ${focus}
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*    ${focus}
 
     
-
-BagView_Node_SellBtn_SellText
-    [Return]    ${元素对象}
-    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*
 
     
 
@@ -1591,17 +1567,41 @@ BagView_Node_SellBtn_SellText
 
     
 
+长按BagView_Node_SellBtn_SellText
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*    ${focus}
+
     
 
-长按BagView_Node_SellBtn_SellIcon
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellIcon.*    ${focus}
+输入文字BagView_Node_SellBtn_SellText
+    [Arguments]     ${文本}     ${键盘输入}=${False}
+    输入文字    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*   ${文本}    ${键盘输入}
+
+    
+
+BagView_Node_SellBtn_SellText
+    [Return]    ${元素对象}
+    ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*
+
+    
+
+点击BagView_Node_SellBtn_SellText
+    [Arguments]     ${focus}=(0.5,0.5)
+    点击元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellText.*    ${focus}
+
+    
 
     
 
 BagView_Node_SellBtn_SellIcon
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellIcon.*
+
+    
+
+长按BagView_Node_SellBtn_SellIcon
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=SellBtn.*\\?nameMatches\=SellIcon.*    ${focus}
 
     
 
@@ -1613,15 +1613,15 @@ BagView_Node_SellBtn_SellIcon
 
     
 
-长按BagView_Node_ResourceBar
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=Node.*\\?nameMatches\=ResourceBar.*    ${focus}
-
-    
-
 BagView_Node_ResourceBar
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=Node.*\\?nameMatches\=ResourceBar.*
+
+    
+
+长按BagView_Node_ResourceBar
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=Node.*\\?nameMatches\=ResourceBar.*    ${focus}
 
     
 
@@ -1633,15 +1633,15 @@ BagView_Node_ResourceBar
 
     
 
-长按BagView_BagSubViewNode
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=BagSubViewNode.*    ${focus}
-
-    
-
 BagView_BagSubViewNode
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=BagSubViewNode.*
+
+    
+
+长按BagView_BagSubViewNode
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=BagSubViewNode.*    ${focus}
 
     
 
@@ -1653,15 +1653,15 @@ BagView_BagSubViewNode
 
     
 
-长按BagView_BagSellSubView
-    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
-    长按元素    ?nameMatches\=BagSellSubView.*    ${focus}
-
-    
-
 BagView_BagSellSubView
     [Return]    ${元素对象}
     ${元素对象}    获取元素    ?nameMatches\=BagSellSubView.*
+
+    
+
+长按BagView_BagSellSubView
+    [Arguments]     ${focus}=(0.5,0.5)    ${duration}=${Empty}
+    长按元素    ?nameMatches\=BagSellSubView.*    ${focus}
 
     
 
