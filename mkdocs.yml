@@ -1,0 +1,24 @@
+site_name: RobotFramework-Airtest
+site_url: https://kaluluosi.github.io/robotframework-airtest
+site_description: "A Robot Framework library for Airtest."
+
+repo_url: https://github.com/kaluluosi/robotframework-airtest
+
+theme: 
+    name: material
+
+nav:
+    - 首页: index.md
+    - 入门: 
+        - 目录: quick_start/index.md
+        - 创建项目: quick_start/1_create_project.md
+        - 开发环境: quick_start/2_dev_env.md
+        - 前端接入: quick_start/3_frontend.md
+    - 高级: 
+        - 目录: advance/index.md
+    - 自动化集成:
+        - 目录: ci_cd/index.md
+    - 参考文档: references.md
+
+markdown_extensions:
+    - admonition

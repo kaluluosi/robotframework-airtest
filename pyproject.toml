@@ -16,6 +16,11 @@ ruff = "^0.1.1"
 black = "^23.10.0"
 
 
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.4.6"
+
 [[tool.poetry.source]]
 name = "ali"
 url = "https://mirrors.aliyun.com/pypi/simple/"
@@ -28,7 +33,7 @@ line-length = 88
 ignore = ['E501']
 
 [tool.poetry.dependencies]
-python = ">=3.6,<3.9"
+python = ">=3.8,<=3.9"
 robotframework = "^6.1.1"
 click = "^8.1.7"
 pocoui = "^1.0.89"
