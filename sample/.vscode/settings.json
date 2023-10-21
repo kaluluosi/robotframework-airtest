@@ -1,10 +1,10 @@
 {
     "robot.variables": {
-        "device_uri":"Android:///",
-        "pkg_name":"com.NetEase", 
+        "device_uri":"Windows:///?title_re=com",
+        "pkg_name":"Apk/com.netease.poco.u3d.tutorial.exe", 
 
         "serverid":"1", 
-        "auto_start_app": "True",   
+        "auto_start_app": "False",   
         "language": "zh"  
     },
     "python.envFile": "${workspaceFolder}/.env" 

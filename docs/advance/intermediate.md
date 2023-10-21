@@ -230,7 +230,7 @@ print(btn_start.attr("type"))
 ```robotframework
 *** Settings ***
 Documentation    userInfoViewUI 界面模型文件    注意：这个文件是导出生成的不要修改。
-Library    xtester_robot.libraries.StdPocoLibrary
+Library    robotframework_airtest.poco.StdPocoLibrary
 
 *** Variables ***
 ${userInfoViewUI}    ?nameMatches\=userInfo/userInfoViewUI.*

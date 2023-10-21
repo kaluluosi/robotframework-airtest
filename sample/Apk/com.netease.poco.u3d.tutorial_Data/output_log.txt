@@ -1,0 +1,109 @@
+Initialize engine version: 5.3.3p2 (86ede31d5f8d)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce RTX 4090 (ID=0x2684)
+    Vendor:   NVIDIA
+    VRAM:     24156 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
+Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
+- Completed reload, in  0.032 seconds
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 5120x1440 120Hz; virtual: 5120x1440 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 0.346200 ms
+Tcp server started
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+TCP client 192.168.1.12:3619 has connected.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Client : 192.168.1.12:3619 --> 104
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+a3fa9accefc1a12e3a7eb344b9a7e040
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+fail to connect to hunter
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+SocketException: 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。
+
+  at System.Net.Sockets.Socket.Send (System.Byte[] buf, Int32 offset, Int32 size, SocketFlags flags) [0x00000] in <filename unknown>:0 
+  at hunter.UnityV5.HunterInterface.Send (Int32 pid, System.Collections.Generic.Dictionary`2 content) [0x00000] in <filename unknown>:0 
+  at hunter.UnityV5.HunterInterface.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Runtime.Serialization.dll (this message is harmless)
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Xml.Linq.dll (this message is harmless)
+Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Xml.dll (this message is harmless)
+Client : 192.168.1.12:3619 --> 104
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Client : 192.168.1.12:3619 --> 104
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+UnityException: Tag: star is not defined.
+  at (wrapper managed-to-native) UnityEngine.GameObject:FindGameObjectsWithTag (string)
+  at EventRegistration.start_playing_drag_and_drop () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+Client : 192.168.1.12:3619 --> 104
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Client : 192.168.1.12:3619 --> 104
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Center: (645.3, 212.0, 0.0), Extents: (113.5, 102.0, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+(731.0, 147.0, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
