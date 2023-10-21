@@ -87,11 +87,11 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
 修改签名
     # [Tags]    DEBUG
     ${签名}    Set Variable    abcdefg
-    userInfoViewUI。输入文字默认_EditLabSign    ${签名}    ${True}
+    userInfoViewUI.输入文字默认_EditLabSign    ${签名}    ${True}
     点击屏幕中间
-    界面打开流程。关闭个人信息界面
-    界面打开流程。打开个人信息界面
-    ${获取签名}    userInfoViewUI。获取文字默认_EditLabSign
+    界面打开流程.关闭个人信息界面
+    界面打开流程.打开个人信息界面
+    ${获取签名}    userInfoViewUI.获取文字默认_EditLabSign
     Should Be Equal    ${签名}    ${获取签名}    签名
 ```
 
@@ -103,9 +103,9 @@ Robot Framework 非常适合给外行用户使用，因为它简单易用，可�
 ```robotframework
 *** Test Cases ***
 修改签名
-    。。。
-    userInfoViewUI。输入文字默认_EditLabSign    ${签名}    ${True}
-    。。。
+    ...
+    userInfoViewUI.输入文字默认_EditLabSign    ${签名}    ${True}
+    ...
 ```
 
 !!! Warning
