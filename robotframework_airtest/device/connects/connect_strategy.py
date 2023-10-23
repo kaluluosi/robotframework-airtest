@@ -3,7 +3,7 @@ from airtest.core.device import Device
 from airtest.core.helper import G
 
 
-class ConnectStrategy(ABC):
+class ConnectStrategyBase(ABC):
     def __init__(self, device_uri: str, pkg_name: str):
         """初始化连接策略
 

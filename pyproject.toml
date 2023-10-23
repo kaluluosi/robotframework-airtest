@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "robotframework-airtest"
-version = "0.1.1"
+version = "0.1.2"
 description = "网易Airtest/pocoui的Robotframework测试库"
 authors = ["kaluluosi <kaluluosi@gmail.com>"]
 license = "MIT"
@@ -8,8 +8,14 @@ readme = "README.md"
 packages = [{ include = "robotframework_airtest" }]
 repository = "https://github.com/kaluluosi/robotframework-airtest"
 
-[tool.poetry.plugins."vmg.generator"]
-unity = "robotframework_airtest.vmg.generators.unity"
+[tool.poetry.plugins."robotframework_airtest.vmg.generator"]
+unity = "robotframework_airtest.vmg.generators.unity:generate"
+
+[tool.poetry.plugins."robotframework_airtest.device.connect_strategy"]
+android = "robotframework_airtest.device.connects.impl.android:AndroidConnectStrategy"
+windows = "robotframework_airtest.device.connects.impl.windows:WindowsConnectStrategy"
+unity = "robotframework_airtest.device.connects.impl.unity:UnityConnectStrategy"
+
 
 [tool.poetry.scripts]
 ra = "robotframework_airtest.cli:main"

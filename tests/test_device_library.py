@@ -19,6 +19,8 @@ class DeviceLibraryConnectTest(unittest.TestCase):
 
         self.assertTrue(dev_lib.is_connected())
 
+        dev_lib.disconnect_device()
+
     def test_connect_windows_default(self):
         dev_lib = DeviceLibrary(
             device_uri="windows:///?title_re=com",
@@ -26,6 +28,7 @@ class DeviceLibraryConnectTest(unittest.TestCase):
             auto_start_app=True,
         )
         dev_lib.connect_device()
+        dev_lib.disconnect_device()
 
 
 class AndroidDeviceTest(unittest.TestCase):

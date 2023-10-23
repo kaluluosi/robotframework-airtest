@@ -1,4 +1,4 @@
-from .connect_strategy import ConnectStrategy
+from .connect_strategy import ConnectStrategyBase
 from .connect import factory
 
-__all__ = ["ConnectStrategy", "factory"]
+__all__ = ["ConnectStrategyBase", "factory"]

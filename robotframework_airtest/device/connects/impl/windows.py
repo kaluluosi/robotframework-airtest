@@ -19,7 +19,7 @@ from airtest.core.win.win import Windows
 
 from robot.api import logger
 
-from ..connect_strategy import ConnectStrategy
+from ..connect_strategy import ConnectStrategyBase
 
 
 DLL_PATH = pkg_resources.resource_filename(robotframework_airtest.__package__, "dll")
@@ -130,7 +130,7 @@ def windows_wrapper(win_device: Windows):
     return win_device
 
 
-class WindowsConnectStrategy(ConnectStrategy):
+class WindowsConnectStrategy(ConnectStrategyBase):
     def connect(self, auto_start_app: bool = False) -> Device:
         if auto_start_app:
             # 尝试连接一下看是不是正有一个客户端开着

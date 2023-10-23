@@ -29,13 +29,30 @@
     找到匹配platform的入口，加载这个入获取ConnectStrategy类，然后用这个类来实例化具体的ConnectStrategy。
 """
 
-import importlib
+from importlib import metadata
+from typing import Dict
 from urllib.parse import urlparse
-from .connect_strategy import ConnectStrategy
-from . import impl
+from .connect_strategy import ConnectStrategyBase
 
 
-def factory(device_uri: str, pkg_name: str) -> ConnectStrategy:
+def get_valid_connect_strategy() -> Dict[str, ConnectStrategyBase]:
+    """获取所有支持的连接策略
+
+    Returns:
+        Dict[str,ConnectStrategy]: 支持的连接策略
+    """
+    entry_points = metadata.entry_points().get(
+        "robotframework_airtest.device.connect_strategy", []
+    )
+    all_connect_strategies = {}
+    for ep in entry_points:
+        connect_strategy = ep.load()
+        all_connect_strategies[ep.name] = connect_strategy
+
+    return all_connect_strategies
+
+
+def factory(device_uri: str, pkg_name: str) -> ConnectStrategyBase:
     """动态加载实现的工厂，用来创建连接策略实例
 
     Returns:
@@ -43,15 +60,9 @@ def factory(device_uri: str, pkg_name: str) -> ConnectStrategy:
     """
     res = urlparse(device_uri)
     platform = res.scheme
-    try:
-        module = importlib.import_module("." + platform.lower(), impl.__package__)
-        cls_connect_strategy = getattr(
-            module, "{}ConnectStrategy".format(platform.title())
-        )
-    except Exception as e:
-        # 预设的连接策略里没有找到该平台的连接策略，尝试去插件里找
-        # TODO: 要重新实现插件，这里先直接抛错
+    all_connect_strategies = get_valid_connect_strategy()
+    connect_strategy = all_connect_strategies.get(platform, None)
+    if connect_strategy is None:
+        raise RuntimeError(f"没有合适的连接策略，不支持 {platform} 平台连接")
 
-        raise RuntimeError(f"没有合适的连接策略，不支持该平台连接 {e}")
-
-    return cls_connect_strategy(device_uri, pkg_name)
+    return connect_strategy(device_uri, pkg_name)

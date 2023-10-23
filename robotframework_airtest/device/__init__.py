@@ -2,7 +2,7 @@ from typing import Tuple
 from airtest.core.settings import Settings
 from robot.api import logger, deco
 from robot.libraries.BuiltIn import BuiltIn
-from .connects import ConnectStrategy, factory
+from .connects import ConnectStrategyBase, factory
 
 # 坐标点类型声明
 Point = Tuple[float, float]
@@ -26,7 +26,7 @@ class DeviceLibrary:
         self.auto_start_app = auto_start_app or self.var("${auto_start_app}") == "True"
         self.device_uri = device_uri or self.var("${device_uri}")
         self.pkg_name = pkg_name or self.var("${pkg_name}")
-        self.conn: ConnectStrategy = None
+        self.conn: ConnectStrategyBase = None
         logger.console(
             "DeviceLibrary初始化 device_uri:{} pkg_name:{} auto_start_app:{}".format(
                 self.device_uri,

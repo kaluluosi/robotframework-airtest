@@ -9,14 +9,16 @@ from .settings import Setting
 
 
 def get_valid_generators() -> dict:
-    entrypoints = metadata.entry_points().get("vmg.generator", [])
+    entrypoints = metadata.entry_points().get(
+        "robotframework_airtest.vmg.generator", []
+    )
     all_generators = {}
     for ep in entrypoints:
         try:
-            module: ModuleType = ep.load()
-            all_generators[ep.name] = getattr(module, "generate")
+            generator = ep.load()
+            all_generators[ep.name] = generator
         except Exception as e:
-            logger.error(f"{module.__name__} {e}")
+            logger.error(f"{ep.__name__} {e}")
 
     return all_generators
 

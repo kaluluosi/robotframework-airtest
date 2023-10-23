@@ -15,12 +15,14 @@ from robot.api import logger
 
 
 class AirtestReporter:
-    """这个模块是Robotframework监听器，通过再robot命令后面追加
-    --listener robotframework_airtest.reporter.AirtestReporter，可以在测试执行的时候
-    生成airtest的测试报告。
+    """
+    Airtest日志导出报告监听器
+    NOTE: 如果robot没有指明这个监听器，那么将不会导出airtest的报告也不会插入到robot的报告里
 
-    Returns:
-        [type]: [description]
+    通过再robot命令后面追加
+    `--listener robotframework_airtest.reporter.AirtestReporter` 可以在测试执行的时候生成airtest的测试报告。
+
+
     """
 
     ROBOT_LISTENER_API_VERSION = 2

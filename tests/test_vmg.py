@@ -2,7 +2,11 @@ import os
 import unittest
 import tempfile
 from robotframework_airtest.vmg.settings import Setting
-from robotframework_airtest.vmg import gen_viewmodel
+from robotframework_airtest.vmg import (
+    gen_viewmodel,
+    get_valid_generators,
+    get_valid_generator_names,
+)
 from robotframework_airtest.vmg.generators.unity import UnityViewModel, generate
 
 
@@ -10,6 +14,16 @@ DEMO_PREFAB = r"tests\unity_ui\BagView.prefab"
 
 
 class TestVMG(unittest.TestCase):
+    def test_get_valid_generators(self):
+        generators = get_valid_generators()
+        self.assertTrue(len(generators) > 0)
+        self.assertTrue("unity" in generators)
+
+    def test_get_valid_generator_names(self):
+        names = get_valid_generator_names()
+        self.assertTrue(len(names) > 0)
+        self.assertTrue("unity" in names)
+
     def test_unity_viewmodel(self):
         model = UnityViewModel(ui_file=DEMO_PREFAB)
         self.assertTrue(model.root_node.name == "BagView")

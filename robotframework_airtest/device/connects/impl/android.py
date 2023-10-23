@@ -2,10 +2,10 @@ from airtest.core.device import Device
 from robot.api import logger
 from airtest.core.api import connect_device
 from airtest.core.helper import G
-from ..connect_strategy import ConnectStrategy
+from ..connect_strategy import ConnectStrategyBase
 
 
-class AndroidConnectStrategy(ConnectStrategy):
+class AndroidConnectStrategy(ConnectStrategyBase):
     def connect(self, auto_start_app=False) -> Device:
         self.device = connect_device(self.device_uri)
         logger.console("设备<{device}>：连接".format(device=self.device_uri))
