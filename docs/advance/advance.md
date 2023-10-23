@@ -6,7 +6,7 @@
 
 ## 数据驱动测试
 
-数据驱动测试是Robotframework的特性之一，详情可以看官方文档[测试模板](https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/CreatingTestData/CreatingTestCases.html?highlight=template#test-templates)。
+数据驱动测试是Robot Framework的特性之一，详情可以看官方文档[测试模板](https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/CreatingTestData/CreatingTestCases.html?highlight=template#test-templates)。
 
 !!! Question
     讲数据驱动测试之前先问大家一个问题：
@@ -137,7 +137,7 @@
 
 ## 自定义测试库
 
-Robotframework默认内置了不少测试库。
+Robot Framework默认内置了不少测试库。
 
 |测试库|说明|
 |---|---|
@@ -153,7 +153,7 @@ Robotframework默认内置了不少测试库。
 |Telnet|telnet测试库|	
 |XML|xml操作测试库|	
 
-Robotframework的脚本的基本语法并不像python那么自由灵活，比如像字符串格式化、分割字符串（splite）你都没办法在RobotFramework脚本里直接调用。
+Robot Framework的脚本的基本语法并不像python那么自由灵活，比如像字符串格式化、分割字符串（splite）你都没办法在RobotFramework脚本里直接调用。
 
 ```robotframework
 *** Test Cases ***
@@ -174,7 +174,7 @@ Library     String
     ${片段}     Split String    ${文本}     ,
 ```
 
-但是Robotframework提供的测试库并不都能满足我们的需要，这时候我们就要自己去扩展自己的测试库。
+但是Robot Framework提供的测试库并不都能满足我们的需要，这时候我们就要自己去扩展自己的测试库。
 
 !!! Tip
     PocoLibrary就是Robot Framework的测试库。

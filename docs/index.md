@@ -1,6 +1,6 @@
 # Robotframework-Airtest
 
-`Robotframework-Airtest` 是`Robotframework`的`Airtest`测试库封装，同时提供了一整套的自动化测试方案，可以快速搭建基于Robot Framework的自动化测试项目。
+`Robotframework-Airtest` 是`Robot Framework`的`Airtest`测试库封装，同时提供了一整套的自动化测试方案，可以快速搭建基于Robot Framework的自动化测试项目。
 
 !!! note
     目前只封装了`poco`的接口
@@ -147,7 +147,7 @@ ra vmg
 
 **数据驱动测试**
 
-Robotframework提供的测试模板(Template)功能，可以将测试用例变成以空格为分隔符的表格，传入模板关键字中执行测试。这个测试用例不会因为其中一个测试数据失败而终止，而是会执行所有的测试数据，然后汇总所有测试结果。全部都通过的时候这条用例通过，只要有一个失败用例就失败。
+Robot Framework提供的测试模板(Template)功能，可以将测试用例变成以空格为分隔符的表格，传入模板关键字中执行测试。这个测试用例不会因为其中一个测试数据失败而终止，而是会执行所有的测试数据，然后汇总所有测试结果。全部都通过的时候这条用例通过，只要有一个失败用例就失败。
 
 ```robotframework
 *** Test Cases ***

@@ -38,12 +38,12 @@ Commands:
 
 ## IDE推荐使用VSCODE
 
-VSCode有Robotframework插件支持，可以调试断点语法提示。
+VSCode有Robot Framework插件支持，可以调试断点语法提示。
 ![](asset/2023-10-21-14-23-33.png)
 
-Robotframework插件：[robotframework-lsp](https://marketplace.visualstudio.com/items?itemName=robocorp.robotframework-lsp)
+Robot Framework插件：[robotframework-lsp](https://marketplace.visualstudio.com/items?itemName=robocorp.robotframework-lsp)
 ![](asset/2023-10-21-14-24-51.png)
 
 !!! warning
-    PyCharm也有Robotframework插件，但是我的模板项目是以VSCode为IDE设计的，因此要在PyCharm上用我的模板项目你需要自己去修改。
+    PyCharm也有Robot Framework插件，但是我的模板项目是以VSCode为IDE设计的，因此要在PyCharm上用我的模板项目你需要自己去修改。
 
