@@ -16,8 +16,7 @@ Robotframeword-Airtest是以Robot Framework为单元测试框架为基础开发�
 
 ![](asset/2023-10-21-16-59-32.png)
 
-**
-Tests**
+### Tests
 
 用来放置我们的测试脚本。默认的规范是以模块名创建[**测试套件文件夹**][FileTestCase]，然后在这个测试套件文件夹下创建各个[**测试用例文件**][FileTestCase]。
 
@@ -27,13 +26,13 @@ Tests**
 !!! Warning
     测试套件文件夹内一定要有一个 `__init__.robot` 文件，内容默认留空，这个文件有什么用去看[**测试套件文件夹**][FileTestCase]。
 
-**Resources**
+### Resources
 
 用来存放公用资源文件（.resource），一些可以复用公用的关键字将会定义到这些资源文件里面供测试团队调用。
 
 ![](asset/2023-10-21-17-05-08.png)
 
-**Views**
+### Views
 
 用来存放前端界面资源文件，在[入门/创建项目](../quick_start/1_create_project.md)那一章已经讲过这个目录的作用了。
 
