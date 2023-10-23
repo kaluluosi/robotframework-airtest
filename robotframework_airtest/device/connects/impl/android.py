@@ -8,29 +8,17 @@ from ..connect_strategy import ConnectStrategyBase
 class AndroidConnectStrategy(ConnectStrategyBase):
     def connect(self, auto_start_app=False) -> Device:
         self.device = connect_device(self.device_uri)
-        logger.console("设备<{device}>：连接".format(device=self.device_uri))
+        logger.console(f"设备<{self.device_uri}>：连接")
         self.device.unlock()
         self.device.wake()
-        logger.console("启动APP：{}".format(auto_start_app))
+        logger.console(f"启动APP：{auto_start_app}")
         if auto_start_app:
             if not self.device.check_app(self.pkg_name):
-                logger.error(
-                    "设备<{device}>：没有安装app<{app}>，启动失败。".format(
-                        device=self.device_uri, app=self.pkg_name
-                    )
-                )
+                logger.error(f"设备<{self.device_uri}>：没有安装app<{self.pkg_name}>，启动失败。")
             else:
-                logger.info(
-                    "设备<{device}>：关闭app<{app}>".format(
-                        device=self.device_uri, app=self.pkg_name
-                    )
-                )
+                logger.info(f"设备<{self.device_uri}>：关闭app<{self.pkg_name}>")
                 self.device.stop_app(self.pkg_name)
-                logger.info(
-                    "设备<{device}>：启动app<{app}>".format(
-                        device=self.device_uri, app=self.pkg_name
-                    )
-                )
+                logger.info(f"设备<{self.device_uri}>：启动app<{self.pkg_name}>")
                 self.device.start_app(self.pkg_name)
         return self.device
 
@@ -39,7 +27,7 @@ class AndroidConnectStrategy(ConnectStrategyBase):
             if self.pkg_name:
                 try:
                     self.device.stop_app(self.pkg_name)
-                except Exception:
-                    logger.warn("APP没有运行，没有停止。")
+                except Exception as e:
+                    logger.warn(f"APP没有运行，没有停止。{e}")
 
             G.DEVICE_LIST.remove(self.device)

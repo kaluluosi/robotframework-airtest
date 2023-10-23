@@ -15,7 +15,7 @@ unity = "robotframework_airtest.vmg.generators.unity:generate"
 android = "robotframework_airtest.device.connects.impl.android:AndroidConnectStrategy"
 windows = "robotframework_airtest.device.connects.impl.windows:WindowsConnectStrategy"
 unity = "robotframework_airtest.device.connects.impl.unity:UnityConnectStrategy"
-
+ios = "robotframework_airtest.device.connects.impl.ios:IOSConnectStrategy"
 
 [tool.poetry.scripts]
 ra = "robotframework_airtest.cli:main"

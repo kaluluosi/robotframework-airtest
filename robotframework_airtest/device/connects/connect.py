@@ -48,7 +48,7 @@ def get_valid_connect_strategy() -> Dict[str, ConnectStrategyBase]:
     all_connect_strategies = {}
     for ep in entry_points:
         connect_strategy = ep.load()
-        all_connect_strategies[ep.name] = connect_strategy
+        all_connect_strategies[ep.name.lower()] = connect_strategy
 
     return all_connect_strategies
 
@@ -61,7 +61,7 @@ def factory(device_uri: str, pkg_name: str) -> ConnectStrategyBase:
         ConnectStrategy: 连接策略实例
     """
     res = urlparse(device_uri)
-    platform = res.scheme
+    platform = res.scheme.lower()
     all_connect_strategies = get_valid_connect_strategy()
     connect_strategy = all_connect_strategies.get(platform, None)
     if connect_strategy is None:
