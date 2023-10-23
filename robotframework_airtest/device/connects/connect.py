@@ -36,7 +36,8 @@ from .connect_strategy import ConnectStrategyBase
 
 
 def get_valid_connect_strategy() -> Dict[str, ConnectStrategyBase]:
-    """获取所有支持的连接策略
+    """
+    获取所有支持的连接策略
 
     Returns:
         Dict[str,ConnectStrategy]: 支持的连接策略
@@ -53,7 +54,8 @@ def get_valid_connect_strategy() -> Dict[str, ConnectStrategyBase]:
 
 
 def factory(device_uri: str, pkg_name: str) -> ConnectStrategyBase:
-    """动态加载实现的工厂，用来创建连接策略实例
+    """
+    动态加载实现的工厂，用来创建连接策略实例
 
     Returns:
         ConnectStrategy: 连接策略实例

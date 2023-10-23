@@ -1,7 +1,6 @@
 import glob
-from importlib import metadata
 import os
-from types import ModuleType
+from importlib import metadata
 from typing import Optional
 from .generatorbase import GeneratorFunc, LoadError
 from .logger import logger  # noqa
