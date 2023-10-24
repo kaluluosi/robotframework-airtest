@@ -1,0 +1,1583 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Robot Framework library for Airtest.">
+      
+      
+      
+        <link rel="canonical" href="https://kaluluosi.github.io/robotframework-airtest/advance/intermediate/">
+      
+      
+        <link rel="prev" href="../basic/">
+      
+      
+        <link rel="next" href="../advance/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>中级篇 - RobotFramework-Airtest</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RobotFramework-Airtest" class="md-header__button md-logo" aria-label="RobotFramework-Airtest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RobotFramework-Airtest
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              中级篇
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kaluluosi/robotframework-airtest" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../quick_start/" class="md-tabs__link">
+          
+  
+    
+  
+  入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  高级
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ci_cd/" class="md-tabs__link">
+          
+  
+    
+  
+  自动化集成
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../libs/" class="md-tabs__link">
+          
+  
+    
+  
+  接口文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+    
+  
+  参考文档
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RobotFramework-Airtest" class="md-nav__button md-logo" aria-label="RobotFramework-Airtest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    RobotFramework-Airtest
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kaluluosi/robotframework-airtest" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../quick_start/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    入门
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_start/0_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_start/1_create_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    创建项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_start/2_dev_env/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    开发环境配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick_start/3_frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前端接入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    高级
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            高级
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础篇
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    中级篇
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    中级篇
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pocolibrary-pocourl" class="md-nav__link">
+    PocoLibrary查询语句 PocoUrl
+  </a>
+  
+    <nav class="md-nav" aria-label="PocoLibrary查询语句 PocoUrl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    普通用法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    高级用法
+  </a>
+  
+    <nav class="md-nav" aria-label="高级用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    带参查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    正则匹配属性参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    查询链
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    额外查询参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    获取元素属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    同名元素列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    界面模型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condition-keyword" class="md-nav__link">
+    如果 condition 那么 keyword
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyword-condition_keyword" class="md-nav__link">
+    循环 keyword 直到 condition_keyword
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    监控UI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    聚焦元素
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级篇
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ci_cd/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    自动化集成
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            自动化集成
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../libs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    接口文档
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            接口文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libs/DeviceLibrary.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DeviceLibrary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libs/StdPocoLibrary.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StdPocoLibrary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libs/UnityPocoLibrary.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UnityPocoLibrary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    参考文档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            参考文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    中文文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://robotframework.org/robotframework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    官方文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    内置关键字文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">中级</h1>
+<p>这篇文章会一一讲解Robotframework-Airtest特性和特有关键字。</p>
+<h2 id="pocolibrary-pocourl">PocoLibrary查询语句 PocoUrl</h2>
+<p>PocoLibrary提供的元素操作相关关键字基本都带有<code>target</code>和<code>**attrs</code>参数。这两个参数是用来查询元素用的。我们拿<code>获取元素</code>这个关键字说明一下。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>获取元素</code>是PocoLibrary最基础的关键字，其他关键字几乎都有调用<code>获取元素</code>，所以你总能在其他PocoLibrary的关键字里看到<code>target</code>和<code>**attrs</code>参数这两个参数。</p>
+</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>获取元素(target: PocoUrl|UIObjectProxy | None = None, **attrs)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>查询获取元素
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Args: target (Union[PocoUrl,UIObjectProxy], optional): 查询路径. Defaults to None.
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Returns: UIObjectProxy: 返回的元素对象
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>PocoUrl</code>其实就是<code>str</code>类型的别名，源码中是这么定义的：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">PocoUrl</span> <span class="o">=</span> <span class="nb">str</span>
+</span></code></pre></div>
+之所以取个别名是为了凸显这个字符串是<code>Url</code>格式的字符串。</p>
+</div>
+<p>PocoLibrary扩展了Poco的查询语句,让<code>target</code>参数支持url风格查询参数，格式如下：
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">[</span>元素名<span class="o">][</span>?属性名1<span class="o">=</span>属性值1<span class="o">[</span><span class="p">&amp;</span><span class="nv">属性名2</span><span class="o">=</span>属性值2<span class="o">]</span>...<span class="o">]</span>
+</span></code></pre></div></p>
+<p>属性名是你从AirtestIDE上查看到的元素的属性列表中的名字。</p>
+<p><img alt="" src="../asset/2023-10-21-18-04-57.png" /></p>
+<p>下面看看其用法</p>
+<h3 id="_2">普通用法</h3>
+<p>用来查找某个名字的元素，只写元素名即可</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gu">普通用法</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">    </span><span class="c"># 直接用元素名查询</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">    </span><span class="c"># 用UIObjectProxy对象    </span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">    </span><span class="c"># 用界面模型变量</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">Panel.btn_start</span><span class="p">}</span>
+</span></code></pre></div>
+<p>等同于Poco的：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">btn_start</span> <span class="o">=</span> <span class="n">poco</span><span class="p">(</span><span class="s2">&quot;btn_start&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h3 id="_3">高级用法</h3>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">    </span><span class="c"># 带参查询</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start?type=Button</span>
+</span></code></pre></div>
+<h4 id="_4">带参查询</h4>
+<p>例如我们要查找所有<code>enable=True</code>的<code>btn_start</code>元素：</p>
+<p><div class="language-robotframework highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">    </span><span class="c"># target带参查询</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start?enable=True</span>
+</span></code></pre></div>
+等同于Poco：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">btn_start</span> <span class="o">=</span> <span class="n">poco</span><span class="p">(</span><span class="s2">&quot;btn_start&quot;</span><span class="p">,</span> <span class="n">enable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>又或者我们想要找所有<code>enable=True</code>的元素，只要不传元素名，直接<code>?</code>号开始写查询参数即可：</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">    </span><span class="c"># target带参查询</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">?enable=True</span>
+</span></code></pre></div>
+<p>等同于Poco:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">btn_start</span> <span class="o">=</span> <span class="n">poco</span><span class="p">(</span><span class="n">enable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h4 id="_5">正则匹配属性参数</h4>
+<p>Airtest.Poco的查询属性支持正则表达式匹配属性，Robotframework-Airtest也支持这个功能。
+正则匹配参数的规则是：</p>
+<p><div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>&lt;属性名&gt;Matches<span class="o">=</span>&lt;正则表达式&gt;
+</span></code></pre></div>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">    </span><span class="c"># 正则匹配参数查询</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">Label?textMatches=hello.*</span>
+</span></code></pre></div>
+这条查询的意思是找到所有 <code>text</code>属性以<code>hello</code>开头的<code>Label</code>。</p>
+<p>等同于Poco的：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">btn_start</span> <span class="o">=</span> <span class="n">poco</span><span class="p">(</span><span class="s2">&quot;Label&quot;</span><span class="p">,</span> <span class="n">textMatches</span><span class="o">=</span><span class="s2">&quot;hello.*&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h4 id="_6">查询链</h4>
+<p><code>target</code>/PocoUrl 参数支持用<code>\\</code>分割拼接多个查询语句做成查询链</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">    </span><span class="c"># 带参查询</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start\\Label</span>
+</span></code></pre></div>
+<p>上面的效果是获取元素会找<code>btn_start</code>，找到后接着在<code>btn_start</code>下面找<code>Label</code>。</p>
+<p>当然你可以在查询链里面用查询参数</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="p">    </span><span class="c"># 带参查询</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start?type=Button\\Label?text=hello</span>
+</span></code></pre></div>
+<h4 id="_7">额外查询参数</h4>
+<p>关键字的<code>**attrs</code>参数其实也是查询参数，不过此查询参数不是以字符串语句的形式而是以<code>键值参数（kwargs）</code>的方式提供。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>额外查询参数<strong>只会作用于查询链最后一个元素的查询</strong>。</p>
+</div>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">    </span><span class="c"># 额外查询参数</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start\\label</span><span class="p">    </span><span class="s">enable=True</span><span class="p">    </span><span class="s">textMatches=start.*</span>
+</span></code></pre></div>
+<p>额外查询参数最终会合并到查询链最后一个查询也就是<code>label</code>里，相当于是：</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">    </span><span class="c"># 额外查询参数</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start\\label?enable=True&amp;textMatches=start.*</span>
+</span></code></pre></div>
+<p>如果最后一个查询本身也有查询参数会怎么样？</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">    </span><span class="c"># 额外查询参数</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start\\label?enable=True</span><span class="p">    </span><span class="s">textMatches=start.*</span>
+</span></code></pre></div>
+<p>他会直接合并到最后一个查询，如果存在同名参数则覆盖同名参数的值。
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gu">高级用法</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">    </span><span class="c"># 额外查询参数</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start\\label?enable=True&amp;textMatches=start.*</span>
+</span></code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>之所以设计这个机制是因为界面模型有很多元素查询变量都是基于查询链封装，我们无法额外的调整查询参数，所以提供了<code>**attr</code>来供我们额外调整。不过实践的过程中发现基本没怎么用上这个功能，所以一直都是作为底层界面模型的支撑机制隐性存在着。</p>
+</div>
+<h2 id="_8">获取元素属性</h2>
+<p>Airtest.Poco的<code>UIObjectProxy</code>支持通过<code>attr()</code>函数获取元素的属性。</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">poco</span> <span class="o">=</span> <span class="n">Poco</span><span class="p">()</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">btn_start</span> <span class="o">=</span> <span class="n">poco</span><span class="p">(</span><span class="s2">&quot;btn_start&quot;</span><span class="p">)</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">btn_start</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">))</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1"># &gt;&gt;&gt; Button</span>
+</span></code></pre></div>
+<p>那么Robotframework-Airtest要怎么获取？</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="gu">获取元素属性</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">    </span><span class="nf">Log</span><span class="p">     ${</span><span class="nv">btn_start.attr(&quot;type&quot;)</span><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这不是Robotframework-Airtest提供的特性，这是Robot Framework提供的高级特性<a href="https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/CreatingTestData/Variables.html#extended-variable-syntax">扩展变量语法</a>。正因为这个特性，所以PocoLibrary没有实现<code>获取元素属性</code>关键字`。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>其实原理可以理解为 </p>
+<blockquote>
+<p>在${}内的语句其实都会被Robot Framework eval的</p>
+</blockquote>
+<p>这也是为什么你可以用<code>${1}</code>、<code>${True}</code>来创建非字符串变量。</p>
+</div>
+<h2 id="_9">同名元素列表</h2>
+<p><code>获取元素</code>关键字返回的是一个UIObjectProxy，所以很多人会以为返回的就是<strong>一个</strong>元素对象，其实并不是。UIObjectProxy内部实现了<code>__getitem__()</code>方法，所以它也支持用下标索引，是个集合对象，也就是你可以这样：</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gu">访问同名元素</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">btn_start[1]</span><span class="p">}    </span><span class="c"># 点击所有同名元素中第二个btn_start</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>${btn_start[1]}</code>是<a href="https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/CreatingTestData/Variables.html#id7">Robot Framework访问数组</a>的方式。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>UIObjectProxy其实并不是具体的元素对象，而是一个查询，当你访问UIObjectProxy的属性或者方法的时候，UIObjectProxy会去再次查询一次。</p>
+</div>
+<p>总的来讲，你可以这么理解：</p>
+<p><code>获取元素</code>关键字返回的是所有找到的元素，你调用<code>点击元素关键字</code>之类的关键字去操作这个元素默认只会作用于第一个元素。</p>
+<p>与此同时你也可以获取所有元素的个数</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="gu">获取同名元素个数</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">btn_start</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="p">    ${</span><span class="nv">个数</span><span class="p">}     </span><span class="nf">Get Length</span><span class="p">    ${</span><span class="nv">btn_start</span><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_10">界面模型</h2>
+<p>界面模型资源是从游戏前端项目的界面资源文件导出生成的资源文件。通过<a href="https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/CreatingTestData/index.html">Robot Framework核心概念</a>你可以知道<code>资源文件（.resource）</code>就是没有<code>Test Cases</code>的robot测试脚本，资源文件主要用来定义<code>变量（variable）</code>和<code>关键字（keyword）</code>然后供其他脚本引用。</p>
+<p>界面模型资源主要生成以下几部分：</p>
+<ul>
+<li>Variables --- 这个界面所有元素的查询链，包括界面自己。</li>
+<li>Keywords --- 这个界面所有元素的操作关键字</li>
+</ul>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gh">*** Settings ***</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="kn">Documentation</span><span class="p">    </span><span class="s">userInfoViewUI 界面模型文件</span><span class="p">    </span><span class="s">注意：这个文件是导出生成的不要修改。</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kn">Library</span><span class="p">    </span><span class="nn">robotframework_airtest.poco.StdPocoLibrary</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="gh">*** Variables ***</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="p">${</span><span class="nv">userInfoViewUI</span><span class="p">}    </span><span class="s">?nameMatches\=userInfo/userInfoViewUI.*</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="p">${</span><span class="nv">userInfoViewUI.个人信息_facebook按钮_BtnFB</span><span class="p">}    </span><span class="s">?nameMatches\=BtnFB.*</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="p">...</span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="gh">*** Keywords ***</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="gu">点击个人信息_facebook按钮_BtnFB</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="p">    [</span><span class="kn">Arguments</span><span class="p">]     ${</span><span class="nv">focus</span><span class="p">}</span><span class="s">=(0.5,0.5)</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    </span><span class="s">?nameMatches\=BtnFB.*</span><span class="p">    ${</span><span class="nv">focus</span><span class="p">}</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="gu">...</span>
+</span></code></pre></div>
+<p>根据控件的类型<code>vmg</code>会生成各自的操作关键字。</p>
+<p><strong>界面(Root)：</strong>   </p>
+<p>界面模型本身对应一个界面，所以界面模型默认会生成这个界面的查询变量。而关键字则会生成一个与界面同名关键字用来获取这个界面元素，然后就是2个界面存在关键字和2个界面存在断言关键字。</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gh">*** Variables ***</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="p">${</span><span class="nv">userInfoViewUI</span><span class="p">}    </span><span class="s">?nameMatches\=userInfo/userInfoViewUI.*</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="gh">*** Keywords ***</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="gu">userInfoViewUI</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="p">    [</span><span class="kn">Return</span><span class="p">]    ${</span><span class="nv">元素对象</span><span class="p">}</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="p">    ${</span><span class="nv">元素对象</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    </span><span class="s">?nameMatches\=userInfo/userInfoViewUI.*</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="gu">界面存在</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="p">    [</span><span class="kn">Return</span><span class="p">]    ${</span><span class="nv">结果</span><span class="p">}</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="p">    ${</span><span class="nv">结果</span><span class="p">}    </span><span class="nf">元素存在</span><span class="p">    ${</span><span class="nv">userInfoViewUI</span><span class="p">}</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="gu">界面必须存在</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="p">    [</span><span class="kn">Return</span><span class="p">]    ${</span><span class="nv">结果</span><span class="p">}</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="p">    ${</span><span class="nv">结果</span><span class="p">}    </span><span class="nf">元素必须存在</span><span class="p">    ${</span><span class="nv">userInfoViewUI</span><span class="p">}</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="gu">界面不存在</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="p">    [</span><span class="kn">Return</span><span class="p">]    ${</span><span class="nv">结果</span><span class="p">}</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="p">    ${</span><span class="nv">结果</span><span class="p">}     </span><span class="nf">元素存在</span><span class="p">    ${</span><span class="nv">userInfoViewUI</span><span class="p">}</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="p">    ${</span><span class="nv">结果</span><span class="p">}    </span><span class="nf">Evaluate</span><span class="p">    </span><span class="s">not </span><span class="p">${</span><span class="nv">结果</span><span class="p">}</span>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="gu">界面必须不存在</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="p">    </span><span class="nf">元素必须不存在</span><span class="p">    ${</span><span class="nv">userInfoViewUI</span><span class="p">}</span>
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>下面不再贴代码而是直接用列表列出.
+</span></code></pre></div>
+<p><strong>默认：</strong></p>
+<p>默认是指所有的控件类型都会生成的操作</p>
+<ul>
+<li>获取元素</li>
+<li>点击元素</li>
+<li>长按元素</li>
+</ul>
+<p><strong>Text：</strong></p>
+<p>文本控件</p>
+<ul>
+<li>获取文字</li>
+<li>输入文字</li>
+</ul>
+<p><strong>Input：</strong></p>
+<p>输入框</p>
+<ul>
+<li>获取文字</li>
+<li>输入文字</li>
+</ul>
+<p><strong>List：</strong></p>
+<p>列表</p>
+<ul>
+<li>获取列表项</li>
+<li>获取列表项数量</li>
+<li>获取列表项_索引</li>
+<li>获取列表项_文本</li>
+<li>点击列表项_索引</li>
+<li>点击列表项_文本</li>
+</ul>
+<h2 id="condition-keyword">如果 condition 那么 keyword</h2>
+<p>此关键字的行为类似<code>Run Keyword If</code>关键字，但是更符合中文语义。同时与<code>Run Keyword If</code>不一样的地方在于，<code>condition</code>支持关键字，因此你可以配合<a href="#界面模型">界面模型</a>这样使用：</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="gu">示例</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="p">    </span><span class="nf">如果 userInfoViewUI.界面存在 那么 点击屏幕</span>
+</span></code></pre></div>
+<p>平时你可以当作<code>Run Keyword If</code>来用：</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="gu">示例</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="p">    ${</span><span class="nv">界面存在</span><span class="p">}     </span><span class="nf">userInfoViewUI.界面存在</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="p">    </span><span class="nf">如果 </span><span class="p">${</span><span class="nv">界面存在</span><span class="p">}</span><span class="nf"> 那么 点击屏幕</span>
+</span></code></pre></div>
+<h2 id="keyword-condition_keyword">循环 keyword 直到 condition_keyword</h2>
+<p>这个关键字会持续执行直到<code>condition_keyword</code>返回<code>True</code>。这个关键字更多用于清理弹窗、对话。</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gh">*** Keywords ***</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="gu">原画层消失</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="p">    ${</span><span class="nv">结果</span><span class="p">}    </span><span class="nf">元素不存在</span><span class="p">    </span><span class="s">原画层</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="p">    [</span><span class="kn">Return</span><span class="p">]    ${</span><span class="nv">结果</span><span class="p">}</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="gu">示例</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="p">    </span><span class="nf">循环 点击屏幕 直到 原画层消失</span>
+</span></code></pre></div>
+<h2 id="ui">监控UI</h2>
+<p>监控UI是Robotframework-Airteset重要特性之一，工作原理是将关键字注册到监控队列，然后每一次执行操作的前会先去遍历一遍监控队列里注册的关键字挨个执行一遍。其实就相当于是加了个钩子在每一步操作前面。监控UI主要用于对意外弹窗，或者弹窗的清理上，而且通常要跟<code>如果 condition 那么 keyword</code> <code>循环 keyword 直到 condition_keyword</code> 这两个关键字配合使用。</p>
+<p>例子：</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="gu">示例</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="p">    </span><span class="nf">监控UI</span><span class="p">    </span><span class="s">如果 dramaChatViewUI1.界面存在 那么 点击屏幕下方</span>
+</span></code></pre></div>
+<p>上面这个例子效果是，我们的测试脚本调用PocoLibrary的操作去操作元素时如果<code>dramaChatViewUI1.界面存在</code>，那么就会先去<code>点击屏幕下方</code>。（dramaChatViewUI1是个剧情对话框，点击屏幕下方正好就是点到它可以跳到下一个对话）</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>要注意，不要在监控UI里面注册一个死循环关键字，这样会导致死循环无法结束；也不要注册一些复杂耗时的操作，不然整个测试就会跑得很慢。因此<strong>最佳的实践</strong>是跟<code>如果 condition 那么 keyword</code> 或 <code>循环 keyword 直到 condition_keyword</code>配合使用。当然你也可以用你自己封装好的关键字，只要这个关键字是能够跳出就行。</p>
+</div>
+<p><strong>取消监控UI</strong></p>
+<p><strong>监控UI的监控队列每一次测试用例执行结束后会自行清空，所以不存在全局的监控。</strong> 而有时候我们只想在某一段操作流程里做监控帮我们清理意外弹窗，那么你可以在流程结束的时候手动消掉你注册的监控。</p>
+<p>取消监控的关键字是<code>取消监控UI</code>。</p>
+<p>例子：
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="gu">示例</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="p">    </span><span class="nf">监控UI</span><span class="p">    </span><span class="s">如果 dramaChatViewUI1.界面存在 那么 点击屏幕下方</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="p">    </span><span class="nf">跳过演示关</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="p">    </span><span class="nf">等待加载</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">    </span><span class="nf">等待元素出现</span><span class="p">    </span><span class="s">原画层</span><span class="p">    </span><span class="s">20 sec</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="p">    </span><span class="nf">循环 点击屏幕中间 直到 原画层消失</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="p">    </span><span class="nf">取消监控UI</span><span class="p">    </span><span class="s">如果 dramaChatViewUI1.界面存在 那么 点击屏幕下方</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="p">    ...</span>
+</span></code></pre></div></p>
+<p>这样在 <code>监控UI</code>和<code>取消监控UI</code>之间的操作都会帮我们清理dramaChatViewUI1，但是往后就不会帮我们清理了。</p>
+<h2 id="_11">聚焦元素</h2>
+<p>聚焦元素关键字是为了解决界面模型同名元素查询的问题，利用的是Poco的offspring方法。界面模型的查询都是通过查询链查询，因此基本上界面内的元素都能直接从全局准确的查询到。但是有一种情况比较特殊，那就是列表内的项，又或者界面内重复实例化的prefab，这些元素都是同名的。</p>
+<p>比如我们有一个界面：</p>
+<p><img alt="" src="../asset/2023-10-21-18-41-24.png" /></p>
+<p>界面1和界面2都是用同一个界面资源重复实例化出来的，因此在控件树上他们都是同名。而我们想要点击界面2的<code>btn_ok</code>。</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="gu">点击OK</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">界面.btn_ok</span><span class="p">}</span>
+</span></code></pre></div>
+<p>那么这时候会查询到2个btn_ok，默认行为就是点击第一个找到的btn_ok。</p>
+<p>如果我们能够把查询范围收缩到界面2内，然后点击<code>界面.btn_ok</code>就好了。</p>
+<p>聚焦元素就是为了这个而存在，我们来看看聚焦元素怎么用</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="gu">点击OK</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="p">    ${</span><span class="nv">所有界面</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    ${</span><span class="nv">界面</span><span class="p">}</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="p">    </span><span class="nf">聚焦元素</span><span class="p">    ${</span><span class="nv">所有界面[1]</span><span class="p">}</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">界面.btn_ok</span><span class="p">}</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="p">    </span><span class="nf">取消聚焦元素</span><span class="p">   </span>
+</span></code></pre></div>
+<p>这样我们就用界面模型点击到了界面2的<code>btn_ok</code>了。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>聚焦元素</code>和<code>取消聚焦元素</code>必须成对出现，如果忘记取消聚焦元素那么PocoLibrary的全局搜索范围就会一直被限制在你聚焦的元素上，直到测试用例结束才会重置。</p>
+</div>
+<p>如果我们在<code>聚焦元素</code>和<code>取消聚焦元素</code>里面还想点击界面2以外的界面，如下</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="gu">点击OK</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="p">    ${</span><span class="nv">所有界面</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    ${</span><span class="nv">界面</span><span class="p">}</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="p">    </span><span class="nf">聚焦元素</span><span class="p">    ${</span><span class="nv">所有界面[1]</span><span class="p">}</span>
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">界面.btn_ok</span><span class="p">}</span>
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">userInfoViewUI.btnChangeName</span><span class="p">}     </span><span class="c"># 点击界面2以外元素</span>
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="p">    </span><span class="nf">取消聚焦元素</span><span class="p">   </span>
+</span></code></pre></div>
+<p>假如<code>userInfoViewUI.btnChangeName</code>是一个弹窗，他不在界面2里面，我们如上调用是找不到<code>userInfoViewUI.btnChangeName</code>的。因为在<code>聚焦元素</code>和<code>取消聚焦元素</code>之间的查询是被限制在界面2以内，而<code>userInfoViewUI.btnChangeName</code>不是界面2的孩子，所以这一行会失败。</p>
+<p>你得先取消聚焦元素，把查询范围恢复成全局，再操作</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="gu">点击OK</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="p">    ${</span><span class="nv">所有界面</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    ${</span><span class="nv">界面</span><span class="p">}</span>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="p">    </span><span class="nf">聚焦元素</span><span class="p">    ${</span><span class="nv">所有界面[1]</span><span class="p">}</span>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">界面.btn_ok</span><span class="p">}</span>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="p">    </span><span class="nf">取消聚焦元素</span><span class="p">   </span>
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">userInfoViewUI.btnChangeName</span><span class="p">}     </span><span class="c"># 点击界面2以外元素</span>
+</span></code></pre></div>
+<p><strong>嵌套聚焦</strong></p>
+<p><code>聚焦元素</code>这个关键字在设计之初就支持嵌套，但是实际实践下来使用的频率极其低。</p>
+<p>用法如下：</p>
+<div class="language-robotframework highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="gh">*** Test Cases ***</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="gu">点击OK</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="p">    ${</span><span class="nv">所有界面</span><span class="p">}    </span><span class="nf">获取元素</span><span class="p">    ${</span><span class="nv">界面</span><span class="p">}</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="p">    </span><span class="nf">聚焦元素</span><span class="p">    ${</span><span class="nv">所有界面[1]</span><span class="p">}</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="p">    </span><span class="nf">聚焦元素</span><span class="p">    ${</span><span class="nv">ItemTemplate</span><span class="p">}     </span><span class="c"># ItemTemplate是 界面里面实例化的另外一个界面模型</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">ItemTemplate.btnCancel</span><span class="p">}</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="p">    </span><span class="nf">取消聚焦元素</span>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="p">    </span><span class="nf">点击元素</span><span class="p">    ${</span><span class="nv">界面.btnOK</span><span class="p">}</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="p">    </span><span class="nf">取消聚焦元素</span><span class="p">   </span>
+</span></code></pre></div>
+<p>当你嵌套<code>聚焦元素</code>的时候，当前聚焦的元素是最后一次你聚焦的元素。而<code>聚焦元素</code>也遵循其自身的规则——<strong>必须聚焦当前查询范围下的元素</strong>。<code>取消聚焦元素</code>的时候会回退到上一个聚焦过的元素，直到最后一个<code>取消聚焦元素</code>将查询范围恢复到全局。</p>
+<p><strong>这种嵌套的<code>聚焦元素</code>用法有什么用呢？</strong></p>
+<p>主要适用于一个界面内有从其他界面资源里生成的界面的情况。比较典型的案例就是Unity的界面了，Unity的界面经常会把复杂的子部件拆分成单独的Prefab。那么在界面模型上的表现就是主界面文件会生成一个界面模型资源，而子部件也会生成一个界面模型资源。而主界面的界面模型资源里是没有子部件的相关的查询变量和关键字的。如果同时存在多个主界面的时候，我们就需要把查询范围收缩到要操作的主界面，然后在<code>聚焦元素</code>和<code>取消聚焦元素</code>去调用子部件界面模型的变量和关键字。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这听起来感觉很晕，不过没关系，一般来讲界面模型已经能搞定所有工作，很少会碰到需要用这么复杂的操作的情况。只是游戏的UI是十分灵活复杂的，Robotframework-Airtest不得不考虑给各种情况给出一个解决方案，因此才会有这个关键字的出现。</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

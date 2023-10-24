@@ -1,0 +1,1387 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Robot Framework library for Airtest.">
+      
+      
+      
+        <link rel="canonical" href="https://kaluluosi.github.io/robotframework-airtest/quick_start/2_dev_env/">
+      
+      
+        <link rel="prev" href="../1_create_project/">
+      
+      
+        <link rel="next" href="../3_frontend/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>开发环境配置 - RobotFramework-Airtest</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="RobotFramework-Airtest" class="md-header__button md-logo" aria-label="RobotFramework-Airtest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RobotFramework-Airtest
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              开发环境配置
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kaluluosi/robotframework-airtest" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  入门
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advance/" class="md-tabs__link">
+          
+  
+    
+  
+  高级
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ci_cd/" class="md-tabs__link">
+          
+  
+    
+  
+  自动化集成
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../libs/" class="md-tabs__link">
+          
+  
+    
+  
+  接口文档
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+    
+  
+  参考文档
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="RobotFramework-Airtest" class="md-nav__button md-logo" aria-label="RobotFramework-Airtest" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    RobotFramework-Airtest
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kaluluosi/robotframework-airtest" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    入门
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            入门
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_create_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    创建项目
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    开发环境配置
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    开发环境配置
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    本地调试环境设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    下面分别介绍这些参数：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    运行第一个脚本
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pocoairtestdemo" class="md-nav__link">
+    试一下用Poco来测试Airtest的Demo应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    用命令行来执行测试
+  </a>
+  
+    <nav class="md-nav" aria-label="用命令行来执行测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    本地执行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cdcd-jenkins" class="md-nav__link">
+    CD\CD Jenkins上执行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前端接入
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../advance/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    高级
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            高级
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advance/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础篇
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advance/intermediate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    中级篇
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advance/advance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级篇
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../ci_cd/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    自动化集成
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            自动化集成
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../libs/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    接口文档
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            接口文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libs/DeviceLibrary.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DeviceLibrary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libs/StdPocoLibrary.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StdPocoLibrary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libs/UnityPocoLibrary.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UnityPocoLibrary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    参考文档
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            参考文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    References
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    中文文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://robotframework.org/robotframework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    官方文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://robotframework.org/robotframework/latest/libraries/BuiltIn.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    内置关键字文档
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">配置本地开发环境</h1>
+<h2 id="_2">本地调试环境设置</h2>
+<p>复制<code>.vscode\settings.json.sample</code>到<code>.vscode\settings.json</code>。
+设置<code>robot.variables</code>。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>ra</code> 生成项目的时候已经默认设置了，你只需要按实际情况微调。</p>
+</div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;robot.variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="nt">&quot;device_uri&quot;</span><span class="p">:</span><span class="s2">&quot;Windows:///?title_re=com&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//PC客户端这个配置，连接windows客户端</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="c1">//&quot;device_uri&quot;:&quot;Unity:///&quot;, // UnityEditor用这个配置，连接UnityEditor。</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="c1">//&quot;device_uri&quot;:&quot;Android:///&quot;, // 连接安卓手机</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&quot;pkg_name&quot;</span><span class="p">:</span><span class="s2">&quot;&lt;PC客户端exe路径&gt;&quot;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="c1">//&quot;pkg_name&quot;:&quot;&quot;  // Unity用这个配置，留空即可，Unity需要保持Unity启动，并且如果多个Unity同时运行会识别不了</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nt">&quot;serverid&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// 自动登录服务器id</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nt">&quot;auto_start_app&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;True&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// 自动打开游戏</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zh&quot;</span><span class="w">  </span><span class="c1">// 用作多语言表的切换</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">&quot;python.envFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/.env&quot;</span><span class="w"> </span><span class="c1">//这个不用修改</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>设置好后要将所有注释去掉！不然调试的时候会报错。</p>
+</div>
+<h2 id="_3">下面分别介绍这些参数：</h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>以下这些参数在Robot脚本中都会作为全局变量。也就是说你可以在Robot脚本里直接用<code>${device_uri}</code>访问到<code>.vscode\settings.json</code>中的这几个参数。</p>
+<p>同理，也可以在Robot命令中覆盖这几个参数。
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>robot<span class="w"> </span>--variable<span class="w"> </span>device_uri:Android:///<span class="w"> </span>--variable<span class="w"> </span>pkg_name:com.NetEase<span class="w"> </span>...
+</span></code></pre></div></p>
+<p>这样就可以做到开发环境和实际测试环境独立区分开来。</p>
+</div>
+<p><strong>device_uri</strong></p>
+<p>设备连接符，用于连接控制设备。设备连接用的就是Airtest的设备连接方案，所以这块是一样的，具体可见其文档<a href="https://airtest.doc.io.netease.com/tutorial/4_Android_automated_testing_one/#_5">Airtest设备连接字符串</a>怎么编写。语法：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&lt;平台名&gt;://UUID/[?[查询语句[&amp;查询语句]...]]
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>例子：
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Android://HOIE67832
+</span></code></pre></div>
+<p>我们在PC上调试只需要用到以下两种就可以了：</p>
+<p>PC端</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Windows:///?title_re=&lt;窗口标题&gt;
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>title_re</code> 这个查询参数是 用正则表达式去匹配窗口标题。</p>
+</div>
+<p>UnityEditor因为情况比较特殊，所以特别实现了它专用连接符。
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Unity:///
+</span></code></pre></div></p>
+<p>想要连接真机就要去看Airtest设备连接了解怎么写Android设备的连接字符串。 </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>device_uri 跟 <a href="https://airtest.doc.io.netease.com/tutorial/4_Android_automated_testing_one/#_5">Airtest设备连接字符串</a> 是一致的，毕竟也是基于Airtest开发的。
+除了Unity额外实现了个专用的连接串。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unity设备的连接不支持同时连两个Unity。</p>
+</div>
+<p><strong>pkg_name</strong></p>
+<p>包名，不同的设备类型下有不一样的行为。</p>
+<table>
+<thead>
+<tr>
+<th>连接设备类型</th>
+<th>值说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>游戏客户端的启动文件，exe或者bat</td>
+</tr>
+<tr>
+<td>Unity</td>
+<td>空字符即可</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>APP包标志名 例如：com.xy.xyx</td>
+</tr>
+<tr>
+<td>IOS</td>
+<td>跟Android一样包标志名</td>
+</tr>
+</tbody>
+</table>
+<p><strong>serverid</strong></p>
+<p>测试服务器id，用来供<code>自动创角</code>关键字使用。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>自动创角</code>关键字位于<code>Resources\辅助.resource</code>。</p>
+</div>
+<p><strong>auto_start_app</strong></p>
+<p>是否测试的时候自动打开游戏， 如果不想每次调试脚本都重启游戏可以设置为"False"
+在不同的设备上有不同的表现：</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>表现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>运行游戏exe</td>
+</tr>
+<tr>
+<td>Unity</td>
+<td>用Play的快捷键运行游戏，<strong>不会帮你打开Unity的，你的先开着</strong></td>
+</tr>
+<tr>
+<td>Android</td>
+<td>运行游戏app</td>
+</tr>
+<tr>
+<td>ios</td>
+<td>运行游戏app</td>
+</tr>
+</tbody>
+</table>
+<p><strong>language</strong></p>
+<p>导入多语言变量文件，值对应<code>Resources\Language</code>目录下的文件。</p>
+<p>由于我们测试的时候不可避免的需要一些文本变量，比如点击某个文本为"开始"的按钮，一旦多语言开发的时候这个按钮的文本就是"Start"了。我们不写死文本，而是用变量文件来管理这些文本，我们引用变量的方式，那么只需要切换不同的变量文件就可以做到文本切换。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>language</code>不是必须的，是属于可选方案。</p>
+</div>
+<p>设置好后就开始我们第一个测试脚本。</p>
+<hr />
+<h2 id="_4">运行第一个脚本</h2>
+<p>打开<code>Tests/示例/示例测试.robot</code></p>
+<p><img alt="" src="../asset/2023-10-21-15-34-20.png" /></p>
+<p><img alt="" src="../asset/2023-10-21-15-35-55.png" /></p>
+<p>你有多种途径可以单独运行/调试测试，随便用一种方式运行<strong>示例用例</strong>看看。</p>
+<p><img alt="" src="../asset/2023-10-21-15-36-42.png" /></p>
+<p>测试结果打印<code>Hello World</code>表示执行成功。</p>
+<h2 id="pocoairtestdemo">试一下用Poco来测试Airtest的Demo应用</h2>
+<p>首先到<code>Apk</code>目录将<code>com.netease.poco.u3d.tutorial.apk</code>安装到手机。
+<img alt="" src="../asset/2023-10-21-15-40-50.png" /></p>
+<p>手机adb连接到电脑。</p>
+<p>接着再试一下执行<strong>测试滑动列表</strong>。</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">==============================================================================</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">示例</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">==============================================================================</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>DeviceLibrary初始化<span class="w"> </span>device_uri:Android:///<span class="w"> </span>pkg_name:com.NetEase<span class="w"> </span>auto_start_app:True
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>示例.示例测试
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="o">==============================================================================</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>执行<span class="w"> </span>初始化.测试集通用设置<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>执行<span class="w"> </span>robotframework_airtest.device.DeviceLibrary.连接设备<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>连接设备：<span class="w"> </span><span class="nv">device_uri</span><span class="o">=</span>Android:///<span class="w"> </span><span class="nv">pkg_name</span><span class="o">=</span>com.NetEase<span class="w"> </span><span class="nv">auto_start_app</span><span class="o">=</span>True
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>设备&lt;Android:///&gt;：连接
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>启动APP：True
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>连接设备成功
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>执行<span class="w"> </span>BuiltIn.No<span class="w"> </span>Operation<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>测试滑动列表<span class="w">                                                          </span>PocoLibrary<span class="w"> </span>设置截图目录<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\j</span>ohn<span class="se">\D</span>ocuments<span class="se">\P</span>rojects<span class="se">\G</span>ithub<span class="se">\x</span>tester_robot<span class="se">\r</span>obotframework-airtest<span class="se">\s</span>ample<span class="se">\.</span>airtest<span class="se">\r</span>obot_snap<span class="w">       </span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>执行<span class="w"> </span>初始化.用例通用设置<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>执行<span class="w"> </span>BuiltIn.No<span class="w"> </span>Operation<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>.执行<span class="w"> </span>robotframework_airtest.poco.UnityPocoLibrary.点击元素<span class="w"> </span><span class="o">[</span><span class="s1">&#39;btn_start&#39;</span><span class="o">]</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>创建Poco实例
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>尝试创建Poco...
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="o">[</span>WinError<span class="w"> </span><span class="m">10054</span><span class="o">]</span><span class="w"> </span>远程主机强迫关闭了一个现有的连接。
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>Poco连接失败，可能游戏还没有加载完...
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>尝试重新连接....<span class="w"> </span><span class="m">1</span>/10
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>尝试创建Poco...
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="o">[</span>WinError<span class="w"> </span><span class="m">10054</span><span class="o">]</span><span class="w"> </span>远程主机强迫关闭了一个现有的连接。
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>Poco连接失败，可能游戏还没有加载完...
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>尝试重新连接....<span class="w"> </span><span class="m">2</span>/10
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>尝试创建Poco...
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="o">[</span>WinError<span class="w"> </span><span class="m">10053</span><span class="o">]</span><span class="w"> </span>你的主机中的软件中止了一个已建立的连接。
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>Poco连接失败，可能游戏还没有加载完...
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>尝试重新连接....<span class="w"> </span><span class="m">3</span>/10
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>尝试创建Poco...
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="o">[</span>WinError<span class="w"> </span><span class="m">10054</span><span class="o">]</span><span class="w"> </span>远程主机强迫关闭了一个现有的连接。
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>Poco连接失败，可能游戏还没有加载完...
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>尝试重新连接....<span class="w"> </span><span class="m">4</span>/10
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>尝试创建Poco...
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>Poco实例创建完毕
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>.执行<span class="w"> </span>robotframework_airtest.poco.UnityPocoLibrary.点击元素<span class="w"> </span><span class="o">[</span><span class="s1">&#39;list_view&#39;</span><span class="o">]</span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>.执行<span class="w"> </span>robotframework_airtest.poco.UnityPocoLibrary.滑动列表<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Scroll View&#39;</span>,<span class="w"> </span><span class="s1">&#39;vertical&#39;</span>,<span class="w"> </span><span class="s1">&#39;0.5&#39;</span><span class="o">]</span>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>.执行<span class="w"> </span>robotframework_airtest.poco.UnityPocoLibrary.点击元素<span class="w"> </span><span class="o">[</span><span class="s1">&#39;text=Item 12&#39;</span><span class="o">]</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>.执行<span class="w"> </span>robotframework_airtest.poco.UnityPocoLibrary.获取文字<span class="w"> </span><span class="o">[</span><span class="s1">&#39;list_view_current_selected_item_name&#39;</span><span class="o">]</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>.执行<span class="w"> </span>BuiltIn.Should<span class="w"> </span>Be<span class="w"> </span>Equal<span class="w"> </span><span class="o">[</span><span class="s1">&#39;${选中项}&#39;</span>,<span class="w"> </span><span class="s1">&#39;Item 12&#39;</span><span class="o">]</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>.执行<span class="w"> </span>初始化.用例通用清理<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>执行<span class="w"> </span>BuiltIn.No<span class="w"> </span>Operation<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>测试滑动列表<span class="w">                                                  </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>------------------------------------------------------------------------------
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>执行<span class="w"> </span>初始化.测试集通用清理<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>执行<span class="w"> </span>robotframework_airtest.device.DeviceLibrary.断开设备<span class="w"> </span><span class="o">[]</span>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>示例.示例测试<span class="w">                                                         </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="m">1</span><span class="w"> </span>test,<span class="w"> </span><span class="m">1</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">failed</span>
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="o">==============================================================================</span>
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>示例<span class="w">                                                                  </span><span class="p">|</span><span class="w"> </span>PASS<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a><span class="m">1</span><span class="w"> </span>test,<span class="w"> </span><span class="m">1</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="nv">failed</span>
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a><span class="o">==============================================================================</span>
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>Output:<span class="w">  </span>C:<span class="se">\U</span>sers<span class="se">\.</span>..<span class="se">\r</span>obotframework-airtest<span class="se">\s</span>ample<span class="se">\o</span>utput.xml
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>Log:<span class="w">     </span>C:<span class="se">\U</span>sers<span class="se">\.</span>..<span class="se">\r</span>obotframework-airtest<span class="se">\s</span>ample<span class="se">\l</span>og.html
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>Report:<span class="w">  </span>C:<span class="se">\U</span>sers<span class="se">\.</span>..<span class="se">\r</span>obotframework-airtest<span class="se">\s</span>ample<span class="se">\r</span>eport.html
+</span></code></pre></div>
+<p>最后三行是测试日志和报告，你可以点开 <code>C:\Users\...\robotframework-airtest\sample\report.html</code> 来看看生成的测试报告。</p>
+<p><img alt="" src="../asset/2023-10-21-15-45-08.png" /></p>
+<p>每个操作都有截图
+<img alt="" src="../asset/2023-10-21-16-15-02.png" /></p>
+<h2 id="_5">用命令行来执行测试</h2>
+<p>将来自动化测试终归是要集成到CI\CD里执行，我们需要用命令行来执行所有测试而不是在VSCode里执行。</p>
+<h3 id="_6">本地执行</h3>
+<p>本地执行所有测试可以使用根目录的<code>run.bat</code>。</p>
+<div class="language-bat highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.\run.bat
+</span></code></pre></div>
+<p>命令执行</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>robot<span class="w"> </span>-A<span class="w"> </span>Args/run.args<span class="w"> </span>Tests
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>-A Args/run.args</code> 其实是读取<code>run.args</code>文件里的命令行参数作用到<code>robot</code>命令中。这样做可以将常用的参数组合放到一个文件里编辑管理，缩短命令长度。
+如果不用这种方式那么就像下面：
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>robot<span class="w"> </span>-L<span class="w">  </span>TRACE:DEBUG<span class="w"> </span>-i<span class="w">  </span>DEBUG<span class="w">  </span>-e<span class="w">  </span>SKIP<span class="w"> </span>--variable<span class="w">   </span>LANGUAGE:zh<span class="w"> </span>--variablefile<span class="w">  </span>Args/config.py<span class="w"> </span>--listener<span class="w"> </span>robotframework_airtest.reporter.AirtestReporter:True<span class="w"> </span>--reporttitle<span class="w">   </span>调试测试报告<span class="w"> </span>--splitlog
+</span></code></pre></div></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong><code>--listener robotframework_airtest.reporter.AirtestReporter:True</code> 的作用是生成Airtest报告并嵌入到Robot Framework的报告中去。</strong></p>
+<p><img alt="" src="../asset/2023-10-21-15-57-20.png" /></p>
+<p>点击<strong>Airtest报告</strong>会跳转到Airtest原生报告页面。</p>
+<p>VSCode中调试Robot用例不会添加这个参数，所以调试生成的报告没有Airtest报告。</p>
+</div>
+<h3 id="cdcd-jenkins">CD\CD Jenkins上执行</h3>
+<p>采用命令执行</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>robot<span class="w"> </span>-A<span class="w"> </span>Args/run.args<span class="w"> </span>--variable<span class="w"> </span>device_uri:<span class="nv">$DEVICE_URI</span><span class="w"> </span>--variable<span class="w"> </span>pkg_name:<span class="nv">$PKG_NAME</span><span class="w"> </span>--variable<span class="w"> </span>language:<span class="nv">$LANG</span><span class="w"> </span>Tests
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>上面的$变量是Jenkins的Job编辑传入的，通过<code>--variable</code>参数来覆盖<code>run.args</code>里的值。</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
