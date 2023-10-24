@@ -94,7 +94,7 @@ send_gm(gm_code:str, *args) -> String
 
 在Unity3D的PocoManager内找到RPC Dispatcher（RPC分发器）相关代码
 
-![G:\项目\测试项目\XTesterRobot\assets\Snipaste_2021-09-06_12-29-48](https://i.loli.net/2021/09/09/ps98JknByFbfeS1.png)
+![](https://i.loli.net/2021/09/09/ps98JknByFbfeS1.png)
 
 在这里添加我们自己的RPC接口：
 

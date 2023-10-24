@@ -2,22 +2,43 @@
 
 这篇文章会一一讲解Robotframework-Airtest特性和特有关键字。
 
-## PocoLibrary查询语句
+## PocoLibrary查询语句 PocoUrl
 
-PocoLibrary提供的元素操作相关关键字基本都带有`path`和`**attrs`参数。这两个参数是用来查询元素用的。我们拿`获取元素`这个关键字说明一下。
+PocoLibrary提供的元素操作相关关键字基本都带有`target`和`**attrs`参数。这两个参数是用来查询元素用的。我们拿`获取元素`这个关键字说明一下。
 
 !!! Note
-    `获取元素`是PocoLibrary最基础的关键字，其他关键字几乎都有调用`获取元素`，所以你总能在其他PocoLibrary的关键字里看到`path`和`**attrs`参数这两个参数。
+    `获取元素`是PocoLibrary最基础的关键字，其他关键字几乎都有调用`获取元素`，所以你总能在其他PocoLibrary的关键字里看到`target`和`**attrs`参数这两个参数。
 
 ```
-获取元素(path: Any | None = None, **attrs)
+获取元素(target: PocoUrl|UIObjectProxy | None = None, **attrs)
 查询获取元素
 
-Args: path (str, optional): 查询路径. Defaults to None.
+Args: target (Union[PocoUrl,UIObjectProxy], optional): 查询路径. Defaults to None.
 Returns: UIObjectProxy: 返回的元素对象
 ```
 
+!!! Tip
+    `PocoUrl`其实就是`str`类型的别名，源码中是这么定义的：
+    ```python
+    PocoUrl = str
+    ```
+    之所以取个别名是为了凸显这个字符串是`Url`格式的字符串。
+
+PocoLibrary扩展了Poco的查询语句,让`target`参数支持url风格查询参数，格式如下：
+```shell
+[元素名][?属性名1=属性值1[&属性名2=属性值2]...]
+```
+
+属性名是你从AirtestIDE上查看到的元素的属性列表中的名字。
+
+![](asset/2023-10-21-18-04-57.png)
+
+
+下面看看其用法
+
 ### 普通用法
+
+用来查找某个名字的元素，只写元素名即可
 
 ```robotframework
 *** Test Cases ***
@@ -33,6 +54,11 @@ Returns: UIObjectProxy: 返回的元素对象
     点击元素    ${Panel.btn_start}
 ```
 
+等同于Poco的：
+```python
+btn_start = poco("btn_start")
+```
+
 ### 高级用法
 
 ```robotframework
@@ -42,23 +68,19 @@ Returns: UIObjectProxy: 返回的元素对象
     ${btn_start}    获取元素    btn_start?type=Button
 ```
 
-#### 带参查询
-PocoLibrary扩展了Poco的查询语句,让path支持url查询参数，格式如下：
-```shell
-[元素名][?属性名1=属性值1[&属性名2=属性值2]...]
-```
-
-属性名是你从AirtestIDE上查看到的元素的属性列表中的名字。
-
-![](asset/2023-10-21-18-04-57.png)
+#### 带参查询 
 
 例如我们要查找所有`enable=True`的`btn_start`元素：
 
 ```robotframework
 *** Test Cases ***
 高级用法
-    # path带参查询
+    # target带参查询
     ${btn_start}    获取元素    btn_start?enable=True
+```
+等同于Poco：
+```python
+btn_start = poco("btn_start", enable=True)
 ```
 
 又或者我们想要找所有`enable=True`的元素，只要不传元素名，直接`?`号开始写查询参数即可：
@@ -66,15 +88,19 @@ PocoLibrary扩展了Poco的查询语句,让path支持url查询参数，格式如
 ```robotframework
 *** Test Cases ***
 高级用法
-    # path带参查询
+    # target带参查询
     ${btn_start}    获取元素    ?enable=True
 ```
 
+等同于Poco:
+```python
+btn_start = poco(enable=True)
+```
 
 
-#### 正则匹配参数
+#### 正则匹配属性参数
 
-Airtest.Poco的查询属性支持正则表达式匹配属性，XTesterRobot也接入这个功能。
+Airtest.Poco的查询属性支持正则表达式匹配属性，Robotframework-Airtest也支持这个功能。
 正则匹配参数的规则是：
 
 ```shell
@@ -88,10 +114,14 @@ Airtest.Poco的查询属性支持正则表达式匹配属性，XTesterRobot也�
 ```
 这条查询的意思是找到所有 `text`属性以`hello`开头的`Label`。
 
+等同于Poco的：
+```python
+btn_start = poco("Label", textMatches="hello.*")
+```
 
 #### 查询链
 
-`path`参数支持用`\\`分割拼接多个查询语句做成查询链
+`target`/PocoUrl 参数支持用`\\`分割拼接多个查询语句做成查询链
 
 ```robotframework
 *** Test Cases ***
@@ -113,7 +143,10 @@ Airtest.Poco的查询属性支持正则表达式匹配属性，XTesterRobot也�
 
 #### 额外查询参数
 
-关键字的`**attrs`参数其实也是查询参数，不过此查询参数不是以字符串语句的形式而是以`键值参数（kwargs）`的方式提供。额外查询参数**只会作用于查询链最后一个元素的查询**。
+关键字的`**attrs`参数其实也是查询参数，不过此查询参数不是以字符串语句的形式而是以`键值参数（kwargs）`的方式提供。
+
+!!! Warning
+    额外查询参数**只会作用于查询链最后一个元素的查询**。
 
 ```robotframework
 *** Test Cases ***
@@ -140,6 +173,7 @@ Airtest.Poco的查询属性支持正则表达式匹配属性，XTesterRobot也�
     ${btn_start}    获取元素    btn_start\\label?enable=True    textMatches=start.*
 ```
 
+他会直接合并到最后一个查询，如果存在同名参数则覆盖同名参数的值。
 ```robotframework
 *** Test Cases ***
 高级用法
@@ -147,7 +181,6 @@ Airtest.Poco的查询属性支持正则表达式匹配属性，XTesterRobot也�
     ${btn_start}    获取元素    btn_start\\label?enable=True&textMatches=start.*
 ```
 
-他会直接合并到最后一个查询，如果存在同名参数则覆盖同名参数的值。
 
 !!! Note
     之所以设计这个机制是因为界面模型有很多元素查询变量都是基于查询链封装，我们无法额外的调整查询参数，所以提供了`**attr`来供我们额外调整。不过实践的过程中发现基本没怎么用上这个功能，所以一直都是作为底层界面模型的支撑机制隐性存在着。
@@ -165,7 +198,7 @@ print(btn_start.attr("type"))
 # >>> Button
 ```
 
-那么XTesterRobot要怎么获取？
+那么Robotframework-Airtest要怎么获取？
 
 ```robotframework
 
@@ -180,7 +213,10 @@ print(btn_start.attr("type"))
     这不是Robotframework-Airtest提供的特性，这是Robot Framework提供的高级特性[扩展变量语法](https://robotframework-userguide-cn.readthedocs.io/zh_CN/latest/CreatingTestData/Variables.html#extended-variable-syntax)。正因为这个特性，所以PocoLibrary没有实现`获取元素属性`关键字`。
 
 !!! Note
-    其实原理可以理解为**“在${}内的语句其实都会被Robot Framework eval”**的，这也是为什么你可以用**${1}**、**${True}**来创建非字符串变量”。
+    其实原理可以理解为 
+    > 在${}内的语句其实都会被Robot Framework eval的
+    
+    这也是为什么你可以用`${1}`、`${True}`来创建非字符串变量。
 
 
 
@@ -492,5 +528,5 @@ userInfoViewUI
 主要适用于一个界面内有从其他界面资源里生成的界面的情况。比较典型的案例就是Unity的界面了，Unity的界面经常会把复杂的子部件拆分成单独的Prefab。那么在界面模型上的表现就是主界面文件会生成一个界面模型资源，而子部件也会生成一个界面模型资源。而主界面的界面模型资源里是没有子部件的相关的查询变量和关键字的。如果同时存在多个主界面的时候，我们就需要把查询范围收缩到要操作的主界面，然后在`聚焦元素`和`取消聚焦元素`去调用子部件界面模型的变量和关键字。
 
 !!! Note
-    这听起来感觉很晕，不过没关系，一般来讲界面模型已经能搞定所有工作，很少会碰到需要用这么复杂的操作的情况。只是游戏的UI是十分灵活复杂的，XTesterRobot不得不考虑给各种情况给出一个解决方案，因此才会有这个关键字的出现。
+    这听起来感觉很晕，不过没关系，一般来讲界面模型已经能搞定所有工作，很少会碰到需要用这么复杂的操作的情况。只是游戏的UI是十分灵活复杂的，Robotframework-Airtest不得不考虑给各种情况给出一个解决方案，因此才会有这个关键字的出现。
 
