@@ -123,3 +123,4 @@ output.xml
 report.html
 .airtest
 log*.js
+tests/demo/com.netease.poco.u3d.tutorial_Data/output_log.txt

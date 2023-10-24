@@ -16,23 +16,23 @@ Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotfr
 Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
 Loading C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
-- Completed reload, in  0.032 seconds
+- Completed reload, in  0.041 seconds
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 5120x1440 120Hz; virtual: 5120x1440 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 0.346200 ms
+UnloadTime: 0.345400 ms
 Tcp server started
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-TCP client 192.168.1.12:3619 has connected.
+TCP client 192.168.1.12:6608 has connected.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Client : 192.168.1.12:3619 --> 104
+Client : 192.168.1.12:6608 --> 104
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
@@ -55,11 +55,11 @@ SocketException: 由于套接字没有连接并且(当使用一个 sendto 调用
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Runtime.Serialization.dll (this message is harmless)
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Xml.Linq.dll (this message is harmless)
 Platform assembly: C:\Users\john\Documents\Projects\Github\xtester_robot\robotframework-airtest\sample\Apk\com.netease.poco.u3d.tutorial_Data\Managed\System.Xml.dll (this message is harmless)
-Client : 192.168.1.12:3619 --> 104
+Client : 192.168.1.12:6608 --> 104
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Client : 192.168.1.12:3619 --> 104
+Client : 192.168.1.12:6608 --> 104
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
@@ -87,19 +87,19 @@ UnityEngine.EventSystems.EventSystem:Update()
  
 (Filename:  Line: -1)
 
-Client : 192.168.1.12:3619 --> 104
+Client : 192.168.1.12:6608 --> 104
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Client : 192.168.1.12:3619 --> 104
+Client : 192.168.1.12:6608 --> 104
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-Center: (645.3, 212.0, 0.0), Extents: (113.5, 102.0, 0.0)
+Center: (651.8, 229.1, 0.0), Extents: (122.6, 110.2, 0.0)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
-(731.0, 147.0, 0.0)
+(651.0, 226.0, 0.0)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 

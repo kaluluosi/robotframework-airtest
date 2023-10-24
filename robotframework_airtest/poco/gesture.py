@@ -1,5 +1,6 @@
 from time import sleep
-from airtest.core.win.win import Windows
+from airtest.core.win import Windows
+from airtest.core.android import Android
 from poco.gesture import PendingGestureAction
 
 
