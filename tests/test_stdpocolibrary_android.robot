@@ -128,7 +128,7 @@ ${包名}       com.NetEase
 测试通过索引获取列表项
     打开列表测试界面
 
-    ${项}    通过索引获取列表项    Scroll View    12    item_path=?nameMatches=Text.*
+    ${项}    通过索引获取列表项    Scroll View    12    item_url=?nameMatches=Text.*
     Should Be Equal    ${项.attr("text")}    Item 12
 
 测试通过文本获取列表项
@@ -137,19 +137,19 @@ ${包名}       com.NetEase
     ${项}    通过文本获取列表项    Scroll View    Item 12
     Should Be Equal    ${项.attr("text")}    Item 12
 
-    ${项}    通过文本获取列表项    Scroll View    Item 12    item_path=?nameMatches=Text.*
+    ${项}    通过文本获取列表项    Scroll View    Item 12    item_url=?nameMatches=Text.*
     Should Be Equal    ${项.attr("text")}    Item 12
 
 测试获取列表项数量
     打开列表测试界面
 
-    ${数量}    获取列表项数量    Scroll View    item_path=?nameMatches=Text.*
+    ${数量}    获取列表项数量    Scroll View    item_url=?nameMatches=Text.*
     Should Be Equal As Numbers    ${数量}    13
 
 测试获取所有列表项
     打开列表测试界面
 
-    ${所有项}    获取所有列表项    Scroll View    item_path=?nameMatches=Text.*
+    ${所有项}    获取所有列表项    Scroll View    item_url=?nameMatches=Text.*
     Length Should Be    ${所有项}    13
 
 测试通过文本点击列表项
@@ -162,27 +162,40 @@ ${包名}       com.NetEase
     ${选中项}    获取文字    list_view_current_selected_item_name
     Should Be Equal    ${选中项}    Item 1
 
-    通过文本点击列表项    Scroll View    Item 12    item_path=?nameMatches=Text.*
+    通过文本点击列表项    Scroll View    Item 12    item_url=?nameMatches=Text.*
     ${选中项}    获取文字    list_view_current_selected_item_name
     Should Be Equal    ${选中项}    Item 12
 
 测试通过索引点击列表项
     打开列表测试界面
 
-    通过索引点击列表项    Scroll View    12    item_path=?nameMatches=Text.*
+    通过索引点击列表项    Scroll View    12    item_url=?nameMatches=Text.*
     ${选中项}    获取文字    list_view_current_selected_item_name
     Should Be Equal    ${选中项}    Item 12
 
-    通过索引点击列表项    Scroll View    1    item_path=?nameMatches=Text.*
+    通过索引点击列表项    Scroll View    1    item_url=?nameMatches=Text.*
     ${选中项}    获取文字    list_view_current_selected_item_name
     Should Be Equal    ${选中项}    Item 1
+
+测试拖拽
+    点击元素    btn_start
+    点击元素    text=drag drop
+
+    ${stars}    获取元素    star
+
+    FOR    ${index}    ${element}    IN ENUMERATE    @{stars}
+        Log    ${index}: ${element}
+        拖拽 ${element} 到 shell 持续 1
+    END
+
+    ${score}    获取文字    scoreVal
+    Should Be Equal As Numbers    ${score}    100
 
 测试手势1
     点击元素    btn_start
     点击元素    text=drag drop
 
     按住    star
-    # 按住    1 secs
     到    shell
     放开
 
@@ -228,8 +241,8 @@ ${包名}       com.NetEase
     点击元素    list_view
 
 模板通过文本点击列表项
-    [Arguments]    ${文本}    ${item_path}=${None}    ${click_path}=${None}    ${focus}=(0.5,0.5)    ${duration}=0.5
-    通过文本点击列表项    Scroll View    ${文本}    ${item_path}    ${click_path}    ${focus}    ${duration}
+    [Arguments]    ${文本}    ${item_url}=${None}    ${click_on_url}=${None}    ${focus}=(0.5,0.5)    ${duration}=0.5
+    通过文本点击列表项    Scroll View    ${文本}    ${item_url}    ${click_on_url}    ${focus}    ${duration}
     ${选中项}    获取文字    list_view_current_selected_item_name
     Should Be Equal    ${选中项}    Item 12
 

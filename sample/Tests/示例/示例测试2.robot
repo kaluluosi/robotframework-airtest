@@ -88,10 +88,12 @@ Test Teardown       清理用例
     点击元素    btn_start
     点击元素    text=drag drop
 
-    按住    star
+    按住    star    speed=5000
     # 按住    1 secs
     到    shell
     放开
+
+    Sleep    1 sec
 
 测试手势2-通过元素对象
     点击元素    btn_start
