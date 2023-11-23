@@ -37,6 +37,7 @@ line-length = 88
 
 [tool.ruff]
 ignore = ['E501']
+exclude = [".venv"]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<=3.9"

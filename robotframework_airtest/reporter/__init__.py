@@ -30,14 +30,14 @@ class AirtestReporter:
     def __init__(self, recording: bool = True):
         logger.debug("Airtest报告生成器初始化: recording {}".format(recording))
         self._recording = recording
-        Settings.RECORDING = self._recording
+        Settings.RECORDING = self._recording  # type:ignore
 
     @property
     def log_dir(self) -> str:
         """
         获取当前Airtest测试用例日志截图输出目录
         """
-        return Settings.LOG_DIR
+        return Settings.LOG_DIR  # type:ignore
 
     @property
     def out_dir(self) -> str:
@@ -84,8 +84,10 @@ class AirtestReporter:
             self.suit_name,
             self.test_name + ".air",
         )
-        Settings.LOG_DIR = log_dir
-        logger.console("Airtest Reporter设置Airtest输出日志目录 {}".format(Settings.LOG_DIR))
+        Settings.LOG_DIR = log_dir  # type:ignore
+        logger.console(
+            "Airtest Reporter设置Airtest输出日志目录 {}".format(Settings.LOG_DIR)
+        )
         if os.path.exists(Settings.LOG_DIR):
             # 截图和录像会越来越多，先删掉处理，以后jenkins构建会自动打包生成的日志不会丢失。
             # 至于以后多移动设备跑要怎么处理日志放置，我觉得应该由上层的脚本通过设置robot的输出目录的方式解决，
@@ -151,7 +153,9 @@ class AirtestReporter:
         report_main(args)
         outfile_url = report_path.replace(self.out_dir, "")
         if outfile_url.startswith(os.path.sep):
-            outfile_url = outfile_url.replace(os.path.sep, "", 1)  # 删除掉第一个\\ 分隔符
+            outfile_url = outfile_url.replace(
+                os.path.sep, "", 1
+            )  # 删除掉第一个\\ 分隔符
         BuiltIn().set_test_documentation(
             "[{}|Airtest报告]".format(outfile_url), append=True
         )
