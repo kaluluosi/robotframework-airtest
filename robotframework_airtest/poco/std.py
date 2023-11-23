@@ -31,7 +31,7 @@ IPAddress = Tuple[str, int]
 
 # 查询信息hh
 class QueryInfo(NamedTuple):
-    name: str
+    name: Optional[str] = None
     attrs: Dict[str, Any] = {}
 
 
@@ -68,13 +68,13 @@ def parse_url_to_queryinfos(url: Optional[PocoURL], **attrs) -> List[QueryInfo]:
     # logger.console("parsing:{} {}".format(path, attrs))
     query_infos: list[QueryInfo] = []
     if url is None:
-        query_info = QueryInfo("", attrs=attrs)
+        query_info = QueryInfo(None, attrs=attrs)
         query_infos.append(query_info)
     else:
         urls: list[str] = url.split("\\")
         for index, url in enumerate(urls):
             d = urlparse(url)
-            path = d.path if d.path else ""
+            path = d.path if d.path else None
             ext_attrs = dict(parse_qsl(d.query))
             query_info = QueryInfo(name=path, attrs=ext_attrs)
             if index == len(urls) - 1:
@@ -164,7 +164,7 @@ class StdPocoLibrary:
         return self._poco
 
     @property
-    def focusing_element(self) -> UIObjectProxy:
+    def focusing_element(self):
         """获取当前聚焦元素
 
         Returns:
@@ -174,8 +174,6 @@ class StdPocoLibrary:
         if self.focusing_elements:
             # 栈顶元素就是当前聚焦的元素
             return self.focusing_elements[-1]
-        # 不然就返回根元素
-        return self.poco()
 
     @property
     def airtest_log_dir(self) -> str:
@@ -341,10 +339,16 @@ class StdPocoLibrary:
 
         node = None
         # 在当前聚焦元素下查询第一个元素
-        node = self.focusing_element.offspring(queryinfo.name, **queryinfo.attrs)
+        if self.focusing_element:
+            node = self.focusing_element.offspring(
+                name=queryinfo.name,  # type:ignore
+                **queryinfo.attrs,
+            )
+        else:
+            node = self.poco(name=queryinfo.name, **queryinfo.attrs)  # type: ignore
 
         for queryinfo in queryinfos[1:]:
-            node = node.offspring(queryinfo.name, **queryinfo.attrs)
+            node = node.offspring(queryinfo.name, **queryinfo.attrs)  # type: ignore
         # 接着往下查询
         return node
 
@@ -458,12 +462,12 @@ class StdPocoLibrary:
         element = self._query(target)
         self.focusing_elements.append(element)
 
-        logger.debug(
-            "聚焦元素 {} {}".format(
-                self.focusing_element, self.focusing_element.get_name()
+        if self.focusing_element:
+            logger.debug(
+                "聚焦元素 {} {}".format(
+                    self.focusing_element, self.focusing_element.get_name()
+                )
             )
-        )
-        logger.debug(self.focusing_elements)
 
     @deco.keyword("结束聚焦元素")
     def end_focus_element(self):

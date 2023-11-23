@@ -91,7 +91,7 @@ class TestAppManage(unittest.TestCase):
     def setUpClass(cls):
         cls.dev_lib = DeviceLibrary(device_uri="android:///")
         cls.dev_lib.connect_device()
-        cls.dev_lib.install_app(APP_PACKAGE)
+        cls.dev_lib.install_app(APP_PATH)
 
     @classmethod
     def tearDownClass(cls):

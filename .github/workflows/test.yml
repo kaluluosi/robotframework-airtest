@@ -22,10 +22,33 @@ jobs:
 
     test-android:
         runs-on: windows-latest
+
+        services:
+            avd:
+                image: budtmo/docker-android:emulator_11.0
+                ports: 
+                  - 6080:6080
+                  - 5554:5554
+                  - 5555:5555
+                env:
+                  EMULATOR_DEVICE: "Samsung Galaxy S10"
+                  WEB_VNC: false
+                options:
+                  --device /dev/kvm
+
         steps:
+            - name: Wait For AVD To Startup-等待模拟器启动
+              uses: jakejarvis/wait-action@v0.1.1
+              with:
+                time: '60s'
+                
             - name: Checkout-检出项目
               uses: actions/checkout@v4
 
             - name: Env Setup
               uses: ./.github/actions/env_setup
 
+            - name: unittest
+              run: |
+                  poetry run -m unittest discover -s ./tests/ -p "test_*.py"
+                  poetry run robot tests
