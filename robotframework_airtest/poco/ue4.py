@@ -1,4 +1,4 @@
-from poco.drivers.std import DEFAULT_ADDR, StdPoco
+from poco.drivers.std import DEFAULT_ADDR
 from .std import IPAddress, StdPocoLibrary
 
 from poco.drivers.ue4 import UE4Poco
@@ -11,5 +11,5 @@ class UE4PocoLibrary(StdPocoLibrary):
         super().__init__(addr, **kwargs)
         self.ue4_editor = ue4_editor
 
-    def _create_poco(self) -> StdPoco:
+    def _create_poco(self):
         return UE4Poco(self.addr, ue4_editor=self.ue4_editor)

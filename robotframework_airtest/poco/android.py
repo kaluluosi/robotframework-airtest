@@ -5,5 +5,5 @@ from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 
 
 class AndroidUiAutomationPocoLibrary(StdPocoLibrary):
-    def _create_poco(self) -> StdPoco:
+    def _create_poco(self):
         return AndroidUiautomationPoco()
