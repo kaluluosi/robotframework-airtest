@@ -5,7 +5,7 @@ import time
 import types
 
 from shutil import rmtree
-from typing import Any, Literal, Optional, Union, Tuple, List, NamedTuple
+from typing import Any, Literal, Optional, Union, Tuple, List, NamedTuple, Dict
 from urllib.parse import parse_qsl, urlparse
 
 from poco.proxy import UIObjectProxy
@@ -32,7 +32,7 @@ IPAddress = Tuple[str, int]
 # 查询信息hh
 class QueryInfo(NamedTuple):
     name: str
-    attrs: List[Any] = []
+    attrs: Dict[str, Any] = {}
 
 
 # 查询链
@@ -68,13 +68,13 @@ def parse_url_to_queryinfos(url: Optional[PocoURL], **attrs) -> List[QueryInfo]:
     # logger.console("parsing:{} {}".format(path, attrs))
     query_infos: list[QueryInfo] = []
     if url is None:
-        query_info = QueryInfo(name=None, attrs=attrs)
+        query_info = QueryInfo("", attrs=attrs)
         query_infos.append(query_info)
     else:
         urls: list[str] = url.split("\\")
         for index, url in enumerate(urls):
             d = urlparse(url)
-            path = d.path if d.path else None
+            path = d.path if d.path else ""
             ext_attrs = dict(parse_qsl(d.query))
             query_info = QueryInfo(name=path, attrs=ext_attrs)
             if index == len(urls) - 1:
@@ -116,14 +116,14 @@ class StdPocoLibrary:
         self.addr = addr
         self.kwargs = kwargs
 
-        self._poco: StdPoco = None
+        self._poco: Optional[StdPoco] = None
         self.focusing_elements: list[UIObjectProxy] = []
 
         # UI监视
         self.ui_watchers: list[str] = []
         self.cur_watcher: str = ""
 
-        self._gesture: PendingGestureAction = None
+        self._gesture: Optional[PendingGestureAction] = None
 
     # region 属性
     @property
@@ -151,7 +151,9 @@ class StdPocoLibrary:
                         time.sleep(2)
                         logger.console("Poco连接失败，可能游戏还没有加载完...")
                         logger.console(
-                            "尝试重新连接.... {}/{}".format(connect_try_times, max_try_times)
+                            "尝试重新连接.... {}/{}".format(
+                                connect_try_times, max_try_times
+                            )
                         )
                     else:
                         logger.warn("多次尝试都失败，请自行检查")
@@ -159,13 +161,10 @@ class StdPocoLibrary:
 
             logger.console("Poco实例创建完毕")
 
-            # 强行给_poco添加一个offspring方法方便_query方法的统一处理
-            self._poco.offspring = lambda name, **attrs: self._poco(name, **attrs)
-
         return self._poco
 
     @property
-    def focusing_element(self) -> Union[UIObjectProxy, StdPoco]:
+    def focusing_element(self) -> UIObjectProxy:
         """获取当前聚焦元素
 
         Returns:
@@ -176,14 +175,14 @@ class StdPocoLibrary:
             # 栈顶元素就是当前聚焦的元素
             return self.focusing_elements[-1]
         # 不然就返回根元素
-        return self.poco
+        return self.poco()
 
     @property
     def airtest_log_dir(self) -> str:
         """
         获取当前Airtest测试用例日志截图输出目录
         """
-        return Settings.LOG_DIR
+        return Settings.LOG_DIR  # type:ignore
 
     @property
     def output_dir(self) -> str:
@@ -261,7 +260,11 @@ class StdPocoLibrary:
         if self._poco:
             for ui_watcher in self.ui_watchers:
                 if name == self.cur_watcher.lower().strip():
-                    logger.console("出现递归，需要检查一下关键字[{}]是不是没有写判断逻辑！".format(ui_watcher))
+                    logger.console(
+                        "出现递归，需要检查一下关键字[{}]是不是没有写判断逻辑！".format(
+                            ui_watcher
+                        )
+                    )
                 else:
                     self.cur_watcher = ui_watcher
                     self._disable_keyword_logging()
@@ -286,7 +289,7 @@ class StdPocoLibrary:
         """
         # airtest用例的输出目录在robotframework输出目录下面，以用例名为目录保存
         # 如果LOG_DIR没有被监听器设置，那么久由库自己设置主要是为了提供截图存放路径
-        Settings.LOG_DIR = os.path.join(self.output_dir, ".airtest", "robot_snap")
+        Settings.LOG_DIR = os.path.join(self.output_dir, ".airtest", "robot_snap")  # type:ignore
         if os.path.exists(Settings.LOG_DIR):
             # 删掉日志目录，因为日志截图会越来越多，先删掉处理
             rmtree(Settings.LOG_DIR)
@@ -335,13 +338,14 @@ class StdPocoLibrary:
 
         # 先获取第一个查询信息
         queryinfo = queryinfos[0]
+
+        node = None
         # 在当前聚焦元素下查询第一个元素
-        node: UIObjectProxy = self.focusing_element.offspring(
-            queryinfo.name, **queryinfo.attrs
-        )
-        # 接着往下查询
+        node = self.focusing_element.offspring(queryinfo.name, **queryinfo.attrs)
+
         for queryinfo in queryinfos[1:]:
             node = node.offspring(queryinfo.name, **queryinfo.attrs)
+        # 接着往下查询
         return node
 
     def _robot_snap(self):
@@ -367,7 +371,7 @@ class StdPocoLibrary:
         """
         if self.airtest_log_dir is None:
             # 意味本次测试输出airtest日志
-            return None, None
+            return "", ""
 
         filename = "%(time)d.jpg" % {"time": time.time() * 1000}
         filepath = os.path.join(self.airtest_log_dir, filename)
@@ -455,7 +459,9 @@ class StdPocoLibrary:
         self.focusing_elements.append(element)
 
         logger.debug(
-            "聚焦元素 {} {}".format(self.focusing_element, self.focusing_element.get_name())
+            "聚焦元素 {} {}".format(
+                self.focusing_element, self.focusing_element.get_name()
+            )
         )
         logger.debug(self.focusing_elements)
 
@@ -663,9 +669,9 @@ class StdPocoLibrary:
     @deco.keyword("登录")
     def login(
         self,
-        username: str = None,
+        username: Optional[str] = None,
         password: str = "",
-        serverid: int = None,
+        serverid: Optional[int] = None,
         auto_logout: bool = True,
     ) -> str:
         """
@@ -766,8 +772,8 @@ class StdPocoLibrary:
             time_out (str, optional): 超时时间, e.g. 2 min 5 sec Defaults to "5 sec".
         """
         start = time.time()
-        time_out = timestr_to_secs(time_out)
-        while time.time() - start < time_out:
+        time_out_sec = timestr_to_secs(time_out)
+        while time.time() - start < time_out_sec:
             if self.exists(target, **attrs):
                 return True
             else:
@@ -789,8 +795,8 @@ class StdPocoLibrary:
             time_out (str, optional): 超时时间, e.g. 2 min 5 sec.Defaults to "5 sec".
         """
         start = time.time()
-        time_out = timestr_to_secs(time_out)
-        while time.time() - start < time_out:
+        time_out_sec = timestr_to_secs(time_out)
+        while time.time() - start < time_out_sec:
             if not self.exists(target, **attrs):
                 return True
             else:
@@ -923,7 +929,9 @@ class StdPocoLibrary:
         cb = client.call(method, *args)
         ret, err = cb.wait(timeout=20)
         if err:
-            logger.error("{}，检查是不是游戏客户端的PocoManaager没有接入{}".format(err, method))
+            logger.error(
+                "{}，检查是不是游戏客户端的PocoManaager没有接入{}".format(err, method)
+            )
         else:
             return ret
 
@@ -959,11 +967,13 @@ class StdPocoLibrary:
             else:
                 direction.append(0.5)
 
+            direction = (direction[0], direction[1])
+
             times1 = math.ceil(abs(item_pos[0] - 0.5) / 0.4)
             times2 = math.ceil(abs(item_pos[1] - 0.5) / 0.4)
             times = max(times1, times2)
             for i in range(times):
-                self.swipe_screen(direction, [0.5, 0.5])
+                self.swipe_screen(direction, (0.5, 0.5))
 
         if 0 > item_pos[0] or item_pos[0] > 1 or 0 > item_pos[1] or item_pos[1] > 1:
             item_move2screen(item_pos)
@@ -1007,7 +1017,7 @@ class StdPocoLibrary:
         scroll_view: Union[PocoURL, UIObjectProxy],
         item_url: Optional[PocoURL] = None,
         **attrs,
-    ) -> "list[UIObjectProxy]":
+    ) -> UIObjectProxy:
         """
         如果item_url没有传入，则默认认为scroll_view下所有孩子是列表项。
         然而实际上列表项不一定能够都是scroll_view直接孩子，比如Unity
@@ -1024,7 +1034,7 @@ class StdPocoLibrary:
             item_url (QueryString, optional): 列表项查询串. Defaults to None.
 
         Returns:
-            List[UIObjectProxy]: 所有项列表
+            UIObjectProxy: 所有项列表
         """
         # 先找到列表元素
         scroll_view_element = self._query(scroll_view)
@@ -1055,7 +1065,8 @@ class StdPocoLibrary:
         """
 
         # 先找到列表元素
-        return len(self.get_list_items(scroll_view, item_url, **attrs))
+        items = self.get_list_items(scroll_view, item_url, **attrs)
+        return len(items)  # type: ignore
 
     @deco.keyword("通过索引获取列表项")
     def get_list_item_by_index(
@@ -1128,6 +1139,7 @@ class StdPocoLibrary:
                     if found.exists():
                         return item
             BuiltIn().fail("没有找到元素")
+            raise RuntimeError("强制失败")
         else:
             scroll_view_element = self.find_element(scroll_view)
             self.focus_element(scroll_view_element)
