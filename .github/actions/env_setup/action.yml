@@ -1,0 +1,30 @@
+name: env setup
+author: kaluluosi
+description: setup python poetry env
+
+runs:
+    using: "composite"
+
+    steps:
+
+      - name: Install Poetry-安装poetry
+        shell: bash
+        run: pipx install poetry
+
+      - name: Setup Python-安装python环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+          cache: 'poetry' # 缓存poetry
+      
+      - name: Update pip
+        shell: bash
+        run: pip install --upgrade pip
+
+      - name: Install 
+        shell: bash
+        run: |
+          poetry install
+          poetry show
+
+      

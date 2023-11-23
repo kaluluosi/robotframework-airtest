@@ -1,9 +1,8 @@
-from poco.drivers.std import StdPoco
-from .std import StdPocoLibrary
+from .base import BasePocoLibrary
 
 from poco.drivers.ios import iosPoco
 
 
-class IOSPocoLibrary(StdPocoLibrary):
-    def _create_poco(self) -> StdPoco:
+class IOSPocoLibrary(BasePocoLibrary):
+    def _create_poco(self):
         return iosPoco()

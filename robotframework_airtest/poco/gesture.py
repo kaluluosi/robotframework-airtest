@@ -1,6 +1,5 @@
 from time import sleep
 from airtest.core.win import Windows
-from airtest.core.android import Android
 from poco.gesture import PendingGestureAction
 
 
@@ -24,7 +23,10 @@ class WindowsPendingGestureAction(PendingGestureAction):
                 pos = device._action_pos((x, y))
                 device.mouse.move(pos)
             elif action_type == "u":
+                if self.track.last_point is None:
+                    raise ValueError("last_point是None")
                 pos = self._normalized2window(self.track.last_point)
+                x, y = event[1]
                 pos = device._action_pos((x, y))
                 device.mouse.release("left", pos)
             elif action_type == "s":

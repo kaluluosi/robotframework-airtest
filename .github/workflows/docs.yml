@@ -1,11 +1,30 @@
 
 name: publish-docs
 on:
-  push:
-    branches:
-      - main
-      
-    
+    push:
+        paths:
+            - "docs/**"
+    pull_request:
+        paths:
+            - "docs/**"
+            
+    workflow_call:
+        inputs:
+            deploy:
+                type: boolean
+                default: false
+                required: true
+                description: 
+                    Whether to deploy the docs or not.
+    workflow_dispatch:
+        inputs:
+            deploy:
+                type: boolean
+                default: false
+                required: true
+                description: 
+                    Whether to deploy the docs or not.
+
 permissions:
     contents: write
 
@@ -13,17 +32,17 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@v4
-        - uses: actions/setup-python@v4
-          with:
-            python-version: '3.8'
-        - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+          - name: Checkout-检出项目
+            uses: actions/checkout@v4
+
+          - name: Env Setup
+            uses: ./.github/actions/env_setup
         
-        - uses: actions/cache@v3
-          with:
-            key: mkdocs-material-${{env.cache_id}}
-            path: .cache
-            restore-keys:
-              mkdocs-material-
-        - run: pip install mkdocs-material
-        - run: mkdocs gh-deploy --force
+          - name: Build-生成文档
+            run: |
+                poetry run mkdocs build
+
+          - name: Deploy-部署文档
+            if: github.event.inputs.deploy == true
+            run: |
+                poetry run mkdocs gh-deploy --force
