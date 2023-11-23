@@ -13,8 +13,11 @@ on:
     types: [published]
 
 jobs:
-  deploy:
+  test:
+    uses: ./.github/workflows/test.yml
 
+  deploy:
+    needs: [test]
     runs-on: ubuntu-latest
 
     steps:
@@ -34,3 +37,10 @@ jobs:
       with:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
+    
+
+  docs:
+    needs: [ deploy ]
+    uses: ./.github/workflows/docs.yml
+    with:
+        deploy: true

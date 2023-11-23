@@ -1,12 +1,13 @@
 import os
+import sys
 import unittest
 import tempfile
 from typing import ClassVar
 from robotframework_airtest.device import DeviceLibrary
 
 APP_PACKAGE = "com.NetEase"
-APP_PATH = "tests\demo\com.netease.poco.u3d.tutorial.apk"
-EXE_PATH = "tests\demo\com.netease.poco.u3d.tutorial.exe"
+APP_PATH = "tests/demo/com.netease.poco.u3d.tutorial.apk"
+EXE_PATH = "tests/demo/com.netease.poco.u3d.tutorial.exe"
 
 
 class DeviceLibraryConnectTest(unittest.TestCase):
@@ -21,10 +22,11 @@ class DeviceLibraryConnectTest(unittest.TestCase):
 
         dev_lib.disconnect_device()
 
+    @unittest.skipIf(condition=sys.platform != "win32", reason="系统平台不支持")
     def test_connect_windows_default(self):
         dev_lib = DeviceLibrary(
             device_uri="windows:///?title_re=com",
-            pkg_name="tests\demo\com.netease.poco.u3d.tutorial.exe",
+            pkg_name=EXE_PATH,
             auto_start_app=True,
         )
         dev_lib.connect_device()
@@ -89,7 +91,7 @@ class TestAppManage(unittest.TestCase):
     def setUpClass(cls):
         cls.dev_lib = DeviceLibrary(device_uri="android:///")
         cls.dev_lib.connect_device()
-        cls.dev_lib.install_app("tests/demo/com.netease.poco.u3d.tutorial.apk")
+        cls.dev_lib.install_app(APP_PACKAGE)
 
     @classmethod
     def tearDownClass(cls):

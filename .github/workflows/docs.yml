@@ -1,11 +1,23 @@
 
 name: publish-docs
 on:
-  push:
-    branches:
-      - main
-      
-    
+    workflow_call:
+        inputs:
+            deploy:
+                type: boolean
+                default: false
+                required: true
+                description: 
+                    Whether to deploy the docs or not.
+    workflow_dispatch:
+        inputs:
+            deploy:
+                type: boolean
+                default: false
+                required: true
+                description: 
+                    Whether to deploy the docs or not.
+
 permissions:
     contents: write
 
