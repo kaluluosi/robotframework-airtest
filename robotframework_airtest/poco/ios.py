@@ -1,4 +1,3 @@
-from poco.drivers.std import StdPoco
 from .std import StdPocoLibrary
 
 from poco.drivers.ios import iosPoco
