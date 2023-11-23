@@ -26,5 +26,5 @@ jobs:
               run: ls -a
 
             - name: Env Setup
-              uses: ./.github/workflows/actions/env_setup
+              uses: ./.github/actions/env_setup
 
