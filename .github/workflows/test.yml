@@ -14,8 +14,12 @@ on:
     workflow_dispatch:
     workflow_call:
 
+env:
+    PYTHONUTF8: 1
 
 jobs:
+
+
     test-android:
         runs-on: windows-latest
         steps:
