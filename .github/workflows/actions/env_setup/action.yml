@@ -6,8 +6,6 @@ runs:
     using: "composite"
 
     steps:
-      - name: Checkout-检出项目
-        uses: actions/checkout@v4
 
       - name: Install Poetry-安装poetry
         run: pipx install poetry
