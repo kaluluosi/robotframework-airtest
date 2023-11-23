@@ -1,6 +1,6 @@
 *** Settings ***
-Library         robotframework_airtest.airtest.AirtestLibrary
-Library         robotframework_airtest.device.DeviceLibrary
+Library         robotframework_airtest.airtest.AirtestLibrary    WITH NAME    airtest
+Library         robotframework_airtest.device.DeviceLibrary    WITH NAME    device
 
 Test Setup      初始化用例
 # Test Teardown    清理用例
@@ -16,7 +16,7 @@ ${包名}       com.NetEase
     Log    当前目录:${CURDIR}    level=CONSOLE
 
 测试点击
-    Touch    btn_start.png
+    airtest.点击    btn_start.png
 
 
 *** Keywords ***

@@ -1,8 +1,8 @@
-from typing import Tuple
+from typing import Optional, Tuple, List
 from airtest.core.settings import Settings
 from robot.api import logger, deco
 from robot.libraries.BuiltIn import BuiltIn
-from .connects import ConnectStrategyBase, factory
+from .connects import factory
 
 # 坐标点类型声明
 Point = Tuple[float, float]
@@ -13,7 +13,10 @@ class DeviceLibrary:
     ROBOT_LIBRARY_FORMAT = "rsST"
 
     def __init__(
-        self, device_uri: str = "", pkg_name: str = None, auto_start_app: bool = False
+        self,
+        device_uri: str = "",
+        pkg_name: Optional[str] = None,
+        auto_start_app: bool = False,
     ):
         """初始化库是传入的参数将会作为连接设备关键字的默认参数用
 
@@ -26,7 +29,6 @@ class DeviceLibrary:
         self.auto_start_app = auto_start_app or self.var("${auto_start_app}") == "True"
         self.device_uri = device_uri or self.var("${device_uri}")
         self.pkg_name = pkg_name or self.var("${pkg_name}")
-        self.conn: ConnectStrategyBase = None
         logger.console(
             "DeviceLibrary初始化 device_uri:{} pkg_name:{} auto_start_app:{}".format(
                 self.device_uri,
@@ -47,7 +49,7 @@ class DeviceLibrary:
     def connect_device(
         self,
         _device_uri: str = "",
-        _pkg_name: str = None,
+        _pkg_name: Optional[str] = None,
         _auto_start_app: bool = False,
     ):
         """如果传入了 _device_uri参数那么就会在这一次连接设备覆盖掉DeviceLibrary初始化时的默认参数。
@@ -79,13 +81,13 @@ class DeviceLibrary:
         self.conn.disconnect() if self.conn else logger.console("设备并没有连接")
 
     @deco.keyword("开始录像")
-    def start_recording(self, output: str = None, *args, **kwargs):
+    def start_recording(self, output: Optional[str] = None, *args, **kwargs):
         save_path = self.conn.device.start_recording(output=output, *args, **kwargs)
         logger.console("设备开始录像")
         return save_path
 
     @deco.keyword("结束录像")
-    def stop_recording(self, output: str = None, *args, **kwargs):
+    def stop_recording(self, output: Optional[str] = None, *args, **kwargs):
         """结束录像
 
         args和kwargs可以传递具体Device的start_recording的参数过去。
@@ -104,9 +106,9 @@ class DeviceLibrary:
         return not self.conn.is_connected
 
     @deco.keyword("截图")
-    def snapshot(self, filename: str = None, *args, **kwargs) -> bytes:
+    def snapshot(self, filename: Optional[str] = None, *args, **kwargs) -> bytes:
         data = self.conn.device.snapshot(filename=filename, *args, **kwargs)
-        return data
+        return data  # type:ignore
 
     @deco.keyword("点击")
     def touch(self, pos: Point, **kwargs):
@@ -148,8 +150,8 @@ class DeviceLibrary:
         self.conn.device.clear_app(package)
 
     @deco.keyword("列出安装的APP")
-    def list_app(self, **kwargs):
-        return self.conn.device.list_app(**kwargs)
+    def list_app(self, **kwargs) -> List[str]:
+        return self.conn.device.list_app(**kwargs)  # type:ignore
 
     @deco.keyword("是否已安装APP")
     def is_app_installed(self, package: str, **kwargs):
@@ -183,6 +185,6 @@ class DeviceLibrary:
 
     @deco.keyword("shell命令")
     def shell(self, *args, **kwargs) -> str:
-        return self.conn.device.shell(*args, **kwargs)
+        return self.conn.device.shell(*args, **kwargs)  # type:ignore
 
     # endregion
