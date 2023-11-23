@@ -60,7 +60,7 @@ priority = "primary"
 [[tool.poetry.source]]
 name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-priority = "secondary"
+priority = "supplemental"
 
 
 [[tool.poetry.source]]
