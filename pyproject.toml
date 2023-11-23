@@ -27,10 +27,6 @@ mkdocs-material = "^9.4.6"
 pymdown-extensions = "^10.3.1"
 pygments = "^2.16.1"
 
-[[tool.poetry.source]]
-name = "ali"
-url = "https://mirrors.aliyun.com/pypi/simple/"
-priority = "default"
 
 [tool.black]
 line-length = 88
@@ -54,6 +50,22 @@ pymdown-extensions = "^10.3.1"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.1"
 black = "^23.10.0"
+
+[[tool.poetry.source]]
+name = "ali"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+priority = "primary"
+
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+priority = "secondary"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "default"
 
 [build-system]
 requires = ["poetry-core"]
