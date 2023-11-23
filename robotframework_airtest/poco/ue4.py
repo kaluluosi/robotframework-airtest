@@ -1,10 +1,10 @@
 from poco.drivers.std import DEFAULT_ADDR
-from .std import IPAddress, StdPocoLibrary
+from .base import IPAddress, BasePocoLibrary
 
 from poco.drivers.ue4 import UE4Poco
 
 
-class UE4PocoLibrary(StdPocoLibrary):
+class UE4PocoLibrary(BasePocoLibrary):
     def __init__(
         self, addr: IPAddress = DEFAULT_ADDR, ue4_editor: bool = False, **kwargs
     ) -> None:
