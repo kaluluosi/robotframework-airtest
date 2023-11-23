@@ -23,5 +23,5 @@ jobs:
               uses: actions/checkout@v4
             
             - name: Env Setup
-              uses: ./.github/workflows/actions/env_setup
+              uses: .github/workflows/actions/env_setup
 
