@@ -22,6 +22,9 @@ jobs:
             - name: Checkout-检出项目
               uses: actions/checkout@v4
             
+            - name: List File
+              run: ls -a
+
             - name: Env Setup
               uses: ./.github/workflows/actions/env_setup
 
