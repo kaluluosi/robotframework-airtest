@@ -6,9 +6,6 @@ runs:
     using: "composite"
 
     steps:
-      - name: chcp
-        shell: bash
-        run: chcp 65001
 
       - name: Install Poetry-安装poetry
         shell: bash
