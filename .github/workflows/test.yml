@@ -21,7 +21,7 @@ jobs:
 
 
     test-android:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
 
         services:
             avd:
@@ -41,7 +41,7 @@ jobs:
               uses: jakejarvis/wait-action@v0.1.1
               with:
                 time: '60s'
-                
+
             - name: Checkout-检出项目
               uses: actions/checkout@v4
 

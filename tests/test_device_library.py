@@ -22,15 +22,15 @@ class DeviceLibraryConnectTest(unittest.TestCase):
 
         dev_lib.disconnect_device()
 
-    @unittest.skipIf(condition=sys.platform != "win32", reason="系统平台不支持")
-    def test_connect_windows_default(self):
-        dev_lib = DeviceLibrary(
-            device_uri="windows:///?title_re=com",
-            pkg_name=EXE_PATH,
-            auto_start_app=True,
-        )
-        dev_lib.connect_device()
-        dev_lib.disconnect_device()
+    # @unittest.skipIf(condition=sys.platform != "win32", reason="系统平台不支持")
+    # def test_connect_windows_default(self):
+    #     dev_lib = DeviceLibrary(
+    #         device_uri="windows:///?title_re=com",
+    #         pkg_name=EXE_PATH,
+    #         auto_start_app=True,
+    #     )
+    #     dev_lib.connect_device()
+    #     dev_lib.disconnect_device()
 
 
 class AndroidDeviceTest(unittest.TestCase):

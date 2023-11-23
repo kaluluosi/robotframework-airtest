@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
         version:
-          description: 'Version'
+          description: package version
           type: string
           required: true
 
@@ -46,7 +46,7 @@ jobs:
         - name: Publish package
           run: |
             poetry publish --username __token__ --password ${{ secrets.PYPI_API_TOKEN }}         
-            
+
   docs:
     needs: [ deploy ]
     uses: ./.github/workflows/docs.yml

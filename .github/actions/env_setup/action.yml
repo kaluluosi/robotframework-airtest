@@ -7,11 +7,11 @@ runs:
 
     steps:
       - name: chcp
-        shell: powershell
+        shell: bash
         run: chcp 65001
 
       - name: Install Poetry-安装poetry
-        shell: powershell
+        shell: bash
         run: pipx install poetry
 
       - name: Setup Python-安装python环境
@@ -21,7 +21,7 @@ runs:
           cache: 'poetry' # 缓存poetry
       
       - name: Update pip
-        shell: powershell
+        shell: bash
         run: pip install --upgrade pip
 
       - name: Install 
