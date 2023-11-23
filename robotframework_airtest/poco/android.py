@@ -1,9 +1,8 @@
-from poco.drivers.std import StdPoco
-from .std import StdPocoLibrary
+from .base import BasePocoLibrary
 
 from poco.drivers.android.uiautomation import AndroidUiautomationPoco
 
 
-class AndroidUiAutomationPocoLibrary(StdPocoLibrary):
+class AndroidUiAutomationPocoLibrary(BasePocoLibrary):
     def _create_poco(self):
         return AndroidUiautomationPoco()
