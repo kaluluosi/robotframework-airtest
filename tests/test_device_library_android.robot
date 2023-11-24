@@ -1,6 +1,6 @@
 *** Settings ***
 Library             robotframework_airtest.device.DeviceLibrary
-Library             ../.venv/lib/site-packages/robot/libraries/OperatingSystem.py
+Library             OperatingSystem
 
 Test Setup          初始化用例
 Test Teardown       断开设备
