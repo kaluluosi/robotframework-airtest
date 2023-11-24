@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Upload Python Package
+name: Upload Python Package 
 
 on:
   release:
@@ -23,6 +23,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+        - name: Checkout-检出项目
+          uses: actions/checkout@v4
+
         - name: Install Poetry-安装poetry
           run: pipx install poetry
 
