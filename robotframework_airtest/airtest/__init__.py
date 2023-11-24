@@ -18,6 +18,12 @@ from airtest.core.api import (
     assert_not_exists,
     assert_equal,
     assert_not_equal,
+    find_all,
+    get_clipboard,
+    set_clipboard,
+    pinch,
+    home,
+    wake,
 )
 from airtest.utils.transform import TargetPos
 
@@ -25,10 +31,10 @@ from robot.libraries.BuiltIn import BuiltIn
 from robot.api import deco
 from robot.utils import timestr_to_secs
 
-from typing import Any, Callable, Optional, Tuple, Union
+from typing import Any, Callable, Literal, Optional, Tuple, Union
 
 Point = Tuple[float, float]
-TargetType = Union["Template", Point, str]
+TargetType = Union["Template", Point, str, dict]
 
 
 class Template(AirTemplate):
@@ -38,7 +44,7 @@ class Template(AirTemplate):
         threshold: Optional[float] = None,
         target_pos=TargetPos.MID,
         record_pos: Optional[Point] = None,
-        resolution=...,
+        resolution=(),
         rgb: bool = False,
         scale_max: int = 800,
         scale_step: float = 0.005,
@@ -54,8 +60,9 @@ class Template(AirTemplate):
             scale_max (int, optional): 最大缩放倍数. Defaults to 800. \n
             scale_step (float, optional): 缩放步进. Defaults to 0.005. \n
         """
+        self.filename = os.path.join(self.curdir, filename)
         super().__init__(
-            filename,
+            self.filename,
             threshold,
             target_pos,
             record_pos,
@@ -64,7 +71,6 @@ class Template(AirTemplate):
             scale_max,
             scale_step,
         )
-        self.filename = os.path.join(self.curdir, filename)
 
     @property
     def curdir(self):
@@ -93,7 +99,7 @@ class AirtestLibrary:
         threshold: Optional[float] = None,
         target_pos: int = TargetPos.MID,
         record_pos: Optional[Point] = None,
-        resolution: Any = None,
+        resolution=(),
         rgb: bool = False,
         scale_max: int = 800,
         scale_step: float = 0.005,
@@ -141,6 +147,8 @@ class AirtestLibrary:
             )
         elif isinstance(target, Template) or isinstance(target, Tuple):
             return target
+        elif isinstance(target, dict) and "result" in target:
+            return target.get("result")
 
     @deco.keyword("点击")
     def touch(
@@ -157,6 +165,7 @@ class AirtestLibrary:
             target (TargetType): 目标可以是坐标`Tuple`，也可以是`Template`，也可以是文件名。
             times (int, optional): 点击次数. Defaults to 1.
         """
+
         v = self.template(target)
         touch(v, times=times)
 
@@ -179,7 +188,7 @@ class AirtestLibrary:
 
         """
         timeout_secs = timestr_to_secs(timeout)
-        v = target
+        v = self.template(target)
 
         if interval_func is not None:
 
@@ -192,10 +201,11 @@ class AirtestLibrary:
 
         wait(v, timeout_secs, interval=interval, intervalfunc=invoker)
 
+    @deco.keyword("滑动")
     def swipe(
         self,
         target1: TargetType,
-        target2: TargetType,
+        target2: Optional[TargetType] = None,
         vector: Optional[Point] = None,
     ):
         """
@@ -219,9 +229,12 @@ class AirtestLibrary:
         v1 = self.template(
             target1,
         )
-        v2 = self.template(
-            target2,
-        )
+
+        v2 = None
+        if target2:
+            v2 = self.template(
+                target2,
+            )
         swipe(v1, v2, vector)
 
     @deco.keyword("存在")
@@ -294,7 +307,7 @@ class AirtestLibrary:
         secs = timestr_to_secs(timeout)
         sleep(secs)
 
-    @deco.keyword("元素必须存在")
+    @deco.keyword("必须存在")
     def assert_exists(self, target: TargetType, msg: str = ""):
         """
         断言 元素必须存在
@@ -306,7 +319,7 @@ class AirtestLibrary:
         v = self.template(target)
         assert_exists(v, msg)
 
-    @deco.keyword("元素必须不存在")
+    @deco.keyword("必须不存在")
     def assert_not_exists(self, target: TargetType, msg: str = ""):
         """
         断言 元素必须不存在
@@ -322,17 +335,19 @@ class AirtestLibrary:
     @deco.keyword("必须相等")
     def assert_equal(
         self,
-        first: TargetType,
-        second: TargetType,
+        first: Any,
+        second: Any,
         msg: str = "",
         snapshot: bool = True,
     ):
         """
         断言 必须相等
 
+        NOTE: 这个断言跟 `robot` 的断言区别在于这个会再Airtest日志中留截图日志
+
         Args:
-            first (TargetType): 目标可以是坐标`Tuple`，也可以是`Template`，也可以是文件名。
-            second (TargetType): 目标可以是坐标`Tuple`，也可以是`Template`，也可以是文件名。
+            first (Any): 任何类型
+            second (Any): 任何类型
             msg (str, optional): 信息. Defaults to "".
             snapshot (bool, optional): 是否截图. Defaults to True.
         """
@@ -341,18 +356,50 @@ class AirtestLibrary:
     @deco.keyword("必须不相等")
     def assert_not_equal(
         self,
-        first: TargetType,
-        second: TargetType,
+        first: Any,
+        second: Any,
         msg: str = "",
         snapshot: bool = True,
     ):
         """
-        断言 必须不相等
+        对比两个值或对象
+
+        NOTE: 这个断言跟 `robot` 的断言区别在于这个会再Airtest日志中留截图日志
 
         Args:
-            first (TargetType): 目标可以是坐标`Tuple`，也可以是`Template`，也可以是文件名。
-            second (TargetType): 目标可以是坐标`Tuple`，也可以是`Template`，也可以是文件名。
+            first (Any): 任何类型
+            second (Any): 任何类型
             msg (str, optional): 信息. Defaults to "".
             snapshot (bool, optional): 是否截图. Defaults to True.
         """
         assert_not_equal(first, second, msg=msg, snapshot=snapshot)
+
+    @deco.keyword("查找所有")
+    def find_all(self, target: TargetType):
+        v = self.template(target)
+        return find_all(v)
+
+    @deco.keyword("获取剪贴板")
+    def get_clipboard(self, wda_bundle_id: Optional[str] = None):
+        return get_clipboard()
+
+    @deco.keyword("设置剪贴板")
+    def set_clipboard(self, content: str):
+        set_clipboard(content)
+
+    @deco.keyword("双指手势")
+    def pinch(
+        self,
+        in_or_out: Literal["in", "out"],
+        center: Optional[Point] = None,
+        percent: float = 0.5,
+    ):
+        pinch(in_or_out=in_or_out, center=center, percent=percent)
+
+    @deco.keyword("Home键")
+    def home(self):
+        home()
+
+    @deco.keyword("唤醒")
+    def wake(self):
+        wake()
