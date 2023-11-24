@@ -23,8 +23,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-        - name: Env Setup
-          uses: ./.github/actions/env_setup
+        - name: Install Poetry-安装poetry
+          run: pipx install poetry
+
+        - name: Setup Python-安装python环境
+          uses: actions/setup-python@v4
+          with:
+            python-version: "3.8"
+            cache: 'poetry' # 缓存poetry
+        
+        - name: Update pip
+          run: pip install --upgrade pip
+
+        - name: Install 
+          run: |
+            poetry install
+            poetry show
         
         - name: 将Tag版本号填写到toml配置中
           if: github.event.release.tag_name
