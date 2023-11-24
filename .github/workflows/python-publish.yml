@@ -18,6 +18,9 @@ on:
           type: string
           required: true
 
+env:
+    PYTHONIOENCODING: utf-8
+
 jobs:
   deploy:
     runs-on: windows-latest
