@@ -1,9 +1,9 @@
 *** Settings ***
-Library         robotframework_airtest.airtest.AirtestLibrary    WITH NAME    airtest
-Library         robotframework_airtest.device.DeviceLibrary    WITH NAME    device
+Library             robotframework_airtest.AirtestLibrary    WITH NAME    airtest
+Library             robotframework_airtest.DeviceLibrary    WITH NAME    device
 
-Test Setup      初始化用例
-# Test Teardown    清理用例
+Test Setup          初始化用例
+Test Teardown       清理用例
 
 
 *** Variables ***
