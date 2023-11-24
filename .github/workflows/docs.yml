@@ -48,7 +48,7 @@ jobs:
           - name: Install 
             shell: bash
             run: |
-              poetry install --with=docs
+              poetry install --only=docs
               poetry show
         
           - name: Build-生成文档
