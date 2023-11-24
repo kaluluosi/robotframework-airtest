@@ -23,6 +23,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+        - name: chcp 65001
+          run: chcp 65001
+
         - name: Checkout-检出项目
           uses: actions/checkout@v4
 
