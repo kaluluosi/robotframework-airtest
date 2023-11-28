@@ -4,9 +4,6 @@
 
 `Robotframework-Airtest` 是`Robotframework`的`Airtest`测试库封装，同时提供了一整套的自动化测试方案，可以快速搭建基于Robot Framework的自动化测试项目。
 
->**note**
->目前只封装了`poco`的接口   
->后续可能增加`Airtest`相关接口，但是VSCode代码编辑器中无法像AirtestIDE编辑器那样将图片显示在编辑器中，所以还需要开发专用插件。
 
 ## 安装
 
