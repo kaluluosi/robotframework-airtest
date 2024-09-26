@@ -1,12 +1,13 @@
-from typing import Callable
 import click
 import os
-
+import logging
 import glob
+from typing import Callable
 from .util import title
 from robotframework_airtest.vmg import get_valid_generator_names, get_valid_generators
 from robotframework_airtest.vmg.settings import Setting, Settings
 
+logger = logging.getLogger(__name__)
 
 @click.group()
 def vmg():
@@ -53,7 +54,11 @@ def gen():
                     outpath = file.replace(source, dist)
                     # 修改扩展名
                     output = os.path.splitext(outpath)[0] + ".resource"
-                    generator(file, output, setting)
+                    try:
+                        generator(file, output, setting)
+                    except Exception as e:
+                        logger.error(e, exc_info=e)
+
 
 
 @vmg.command
@@ -94,7 +99,7 @@ def init(default: bool):
         vm_generator: str = click.prompt(
             ">选择导出器",
             default="unity",
-            type=click.Choice(get_valid_generators().keys()),
+            type=click.Choice(list(get_valid_generators().keys())),
             show_default=True,
             show_choices=True,
         )

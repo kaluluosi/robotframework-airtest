@@ -1,4 +1,4 @@
-from typing import Any, Sequence, Set
+from typing import Any, Optional, Sequence, Set
 from ..generatorbase import (
     ControlType,
     ElementNode,
@@ -74,9 +74,9 @@ def find_root_entry(doc: UnityDocument):
 
 
 class UnityElementNode(ElementNode):
-    def __init__(self, raw_data: RawData, parent: ElementNode = None):
+    def __init__(self, raw_data: RawData, parent: Optional[ElementNode] = None):
+        super().__init__(parent)
         self._raw_data = raw_data
-        self._parent = parent
         self._name = self.path = str(self._raw_data.entry.m_Name)
 
     @property
@@ -98,7 +98,7 @@ class UnityElementNode(ElementNode):
         return self._name
 
     @name.setter
-    def name(self, value: str) -> str:
+    def name(self, value: str):
         self._name = value
 
     @property
@@ -151,7 +151,7 @@ class UnityElementNode(ElementNode):
 
 
 class UnityViewModel(ViewModel):
-    def __init__(self, ui_file: str, extra_info: dict = None) -> None:
+    def __init__(self, ui_file: str, extra_info: Optional[dict] = None) -> None:
         super().__init__(ui_file, extra_info)
         self._libraries = ["robotframework_airtest.poco.UnityPocoLibrary"]
 
@@ -167,5 +167,5 @@ class UnityViewModel(ViewModel):
         return root
 
 
-def generate(input: str, output: str, extra_info: dict = None):
+def generate(input: str, output: str, extra_info: Optional[dict] = None):
     UnityViewModel(input, extra_info).gen(output)

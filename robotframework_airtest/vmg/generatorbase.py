@@ -1,7 +1,8 @@
 import os
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import Callable, Dict, Sequence, Set
+from typing import Callable, Dict, Optional, Sequence, Set
+from .settings import Setting
 
 from jinja2 import Template
 import pkg_resources
@@ -27,7 +28,7 @@ from .actions import (
 )
 
 ActionMap = Dict
-GeneratorFunc = Callable[[str, str, dict], None]
+GeneratorFunc = Callable[[str, str, Setting], None]
 
 
 class ControlType(Enum):
@@ -68,13 +69,14 @@ class ElementNode(ABC):
         ],
     }
 
-    QUERY = "?nameMatches\={}.*"
+    QUERY = r"?nameMatches\={}.*"
 
-    def __init__(self):
+    def __init__(self,parent:Optional["ElementNode"]=None):
         """节点抽象基类，要怎么实现这个基类的所有虚方法看具体情况。"""
         self._path = ""
         self._name = ""
         self._type = []
+        self._parent = parent
 
     @property
     @abstractmethod
@@ -94,11 +96,6 @@ class ElementNode(ABC):
 
     @property
     @abstractmethod
-    def name(self, value) -> str:
-        self._name = value
-
-    @name.setter
-    @abstractmethod
     def name(self) -> str:
         """返回元素名
 
@@ -106,6 +103,12 @@ class ElementNode(ABC):
             str: 元素名
         """
         return self._name
+    
+    @name.setter
+    @abstractmethod
+    def name(self, value) -> str:
+        self._name = value
+
 
     @property
     @abstractmethod
@@ -118,7 +121,7 @@ class ElementNode(ABC):
         return self.type
 
     @property
-    def parent(self) -> "ElementNode":
+    def parent(self) -> Optional["ElementNode"]:
         return self._parent
 
     @property
@@ -141,7 +144,7 @@ class ElementNode(ABC):
 
 
 class ViewModel(ABC):
-    def __init__(self, ui_file: str, extra_info: dict = None) -> None:
+    def __init__(self, ui_file: str, extra_info: Optional[dict] = None) -> None:
         """[summary]
 
         Args:
@@ -201,24 +204,18 @@ class ViewModel(ABC):
     def gen(self, output: str):
         vm = self
 
-        try:
-            # package data 文件需要用 pkg_resources来定位访问，不要自行拼接相对路径
-            temp_txt = pkg_resources.resource_string(__name__, "template.robot").decode(
-                "utf-8"
-            )
-            template = Template(temp_txt)
-            txt = template.render(ui=vm, type=ControlType)
-
-            outdir = os.path.dirname(output)
-
-            if not os.path.exists(outdir):
-                os.makedirs(outdir)
-
-            with open(output, "w", encoding="utf-8") as f:
-                f.write(txt)
-                logger.info("导出%s-->%s", self._ui_file, output)
-        except Exception as e:
-            logger.error(e, exc_info=1)
+        # package data 文件需要用 pkg_resources来定位访问，不要自行拼接相对路径
+        temp_txt = pkg_resources.resource_string(__name__, "template.robot").decode(
+            "utf-8"
+        )
+        template = Template(temp_txt)
+        txt = template.render(ui=vm, type=ControlType)
+        outdir = os.path.dirname(output)
+        if not os.path.exists(outdir):
+            os.makedirs(outdir)
+        with open(output, "w", encoding="utf-8") as f:
+            f.write(txt)
+            logger.info("导出%s-->%s", self._ui_file, output)
 
 
 class LoadError(Exception):

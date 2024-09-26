@@ -1,13 +1,13 @@
 import glob
 import os
 from importlib import metadata
-from typing import Optional
+from typing import Dict, Optional
 from .generatorbase import GeneratorFunc, LoadError
 from .logger import logger  # noqa
 from .settings import Setting
 
 
-def get_valid_generators() -> dict:
+def get_valid_generators() -> Dict[str, GeneratorFunc]:
     entrypoints = metadata.entry_points().get(
         "robotframework_airtest.vmg.generator", []
     )
@@ -17,7 +17,7 @@ def get_valid_generators() -> dict:
             generator = ep.load()
             all_generators[ep.name] = generator
         except Exception as e:
-            logger.error(f"{ep.__name__} {e}")
+            logger.error(f"{ep.name} {e}")
 
     return all_generators
 
@@ -35,9 +35,7 @@ def gen_viewmodel(setting: Setting, name: Optional[str] = None):
     installed_generators = get_valid_generators()
     if generator_name not in installed_generators:
         logger.info(
-            f">{generator_name} 导出器没有安装，目前安装的导出器只有{get_valid_generator_names()}",
-            err=True,
-        )
+            f">{generator_name} 导出器没有安装，目前安装的导出器只有{get_valid_generator_names()}",)
         logger.info(f">配置 {name} 无法处理")
     else:
         generator: GeneratorFunc = installed_generators[generator_name]
