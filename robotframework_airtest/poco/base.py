@@ -27,7 +27,7 @@ from urllib.parse import parse_qsl, urlparse
 
 from poco.pocofw import Poco
 from poco.proxy import UIObjectProxy
-from poco.drivers.std import StdPoco, DEFAULT_ADDR
+from poco.drivers.std import DEFAULT_ADDR
 from poco.utils.simplerpc.rpcclient import RpcClient
 
 from airtest import aircv
@@ -75,7 +75,7 @@ class BasePocoLibrary(ABC, Generic[PocoType]):
         self.addr = addr
         self.kwargs = kwargs
 
-        self._poco: Optional[StdPoco] = None
+        self._poco: Optional[PocoType] = None
         self.focusing_elements: list[UIObjectProxy] = []
 
         # UI监视
@@ -87,7 +87,10 @@ class BasePocoLibrary(ABC, Generic[PocoType]):
     # region 属性
     @property
     def poco(self) -> PocoType:
-        return self._create_poco()
+        if self._poco is None:
+            self._poco = self._create_poco()
+        
+        return self._poco
 
     @property
     def focusing_element(self):
@@ -210,10 +213,12 @@ class BasePocoLibrary(ABC, Generic[PocoType]):
         # airtest用例的输出目录在robotframework输出目录下面，以用例名为目录保存
         # 如果LOG_DIR没有被监听器设置，那么久由库自己设置主要是为了提供截图存放路径
         Settings.LOG_DIR = os.path.join(self.output_dir, ".airtest", "robot_snap")  # type:ignore
-        if os.path.exists(Settings.LOG_DIR):
-            # 删掉日志目录，因为日志截图会越来越多，先删掉处理
-            rmtree(Settings.LOG_DIR)
-        os.makedirs(Settings.LOG_DIR)
+        if Settings.LOG_DIR:
+            if os.path.exists(Settings.LOG_DIR): 
+                # 删掉日志目录，因为日志截图会越来越多，先删掉处理
+                rmtree(Settings.LOG_DIR)
+            os.makedirs(Settings.LOG_DIR)
+        
         logger.console("PocoLibrary 设置截图目录 {}".format(Settings.LOG_DIR))
         set_logdir(Settings.LOG_DIR)
 

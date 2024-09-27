@@ -17,7 +17,7 @@
         "pkg_name":"<PC客户端exe路径>", 
         //"pkg_name":""  // Unity用这个配置，留空即可，Unity需要保持Unity启动，并且如果多个Unity同时运行会识别不了
         "serverid":"1",  // 自动登录服务器id
-        "auto_start_app": "True",   // 自动打开游戏
+        "auto_start_app": "True",   // 自动打开游戏，UnityEditor要支持自动运行要将 Editor/Play 快捷键设置成Ctrl+F12.
         "language": "zh"  // 用作多语言表的切换
     },
     "python.envFile": "${workspaceFolder}/.env" //这个不用修改

@@ -1,9 +1,9 @@
 import os
-import sys
 import shutil
 import subprocess
 import time
 import types
+from typing import Optional
 
 import cv2
 import pkg_resources
@@ -22,7 +22,7 @@ from robot.api import logger
 from ..connect_strategy import ConnectStrategyBase
 
 
-DLL_PATH = pkg_resources.resource_filename(robotframework_airtest.__package__, "dll")
+DLL_PATH = pkg_resources.resource_filename(robotframework_airtest.__package__, "dll") # type: ignore
 # 获取当前环境变量PATH
 path = os.environ["PATH"]
 
@@ -40,7 +40,7 @@ def windows_wrapper(win_device: Windows):
         win_device (Windows): 窗口设备
     """
 
-    def start_recording(self: Windows, output: str = None, *args, **kwargs):
+    def start_recording(self: Windows, output: Optional[str] = None, *args, **kwargs):
         if getattr(self, "_recording"):
             return
 
@@ -48,7 +48,7 @@ def windows_wrapper(win_device: Windows):
         self._record_out_file = output
 
         def _recording():
-            codec = cv2.VideoWriter_fourcc(*"avc1")
+            codec = cv2.VideoWriter_fourcc(*"avc1") # type: ignore
 
             tmp_dir_obj = TemporaryDirectory()
             tmp_dir = tmp_dir_obj.name
@@ -72,7 +72,7 @@ def windows_wrapper(win_device: Windows):
                 resolution = self.get_current_resolution()
 
             tmp_out_file = os.path.join(tmp_dir, "record.mp4")
-            out = cv2.VideoWriter(tmp_out_file, codec, 12, resolution)
+            out = cv2.VideoWriter(tmp_out_file, codec, 12, resolution) # type: ignore
 
             # frame_index = 0
             while self._recording:
@@ -93,7 +93,7 @@ def windows_wrapper(win_device: Windows):
         self._recorder = Thread(target=_recording)
         self._recorder.start()
 
-    def stop_recording(self: Windows, output: str = None, is_interrupted: bool = False):
+    def stop_recording(self: Windows, output: Optional[str] = None, is_interrupted: bool = False):
         if output:
             self._record_out_file = output
         self._recording = False
@@ -170,6 +170,7 @@ class WindowsConnectStrategy(ConnectStrategyBase):
                 )
                 try_time -= 1
                 continue
+        raise Exception("连接设备失败")
 
     def disconnect(self):
         if self.is_connected:

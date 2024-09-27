@@ -88,12 +88,13 @@ class AirtestReporter:
         logger.console(
             "Airtest Reporter设置Airtest输出日志目录 {}".format(Settings.LOG_DIR)
         )
-        if os.path.exists(Settings.LOG_DIR):
-            # 截图和录像会越来越多，先删掉处理，以后jenkins构建会自动打包生成的日志不会丢失。
-            # 至于以后多移动设备跑要怎么处理日志放置，我觉得应该由上层的脚本通过设置robot的输出目录的方式解决，
-            # 不应该由框架内部处理
-            rmtree(log_dir)
-        os.makedirs(log_dir)
+        if Settings.LOG_DIR:
+            if os.path.exists(Settings.LOG_DIR):
+                # 截图和录像会越来越多，先删掉处理，以后jenkins构建会自动打包生成的日志不会丢失。
+                # 至于以后多移动设备跑要怎么处理日志放置，我觉得应该由上层的脚本通过设置robot的输出目录的方式解决，
+                # 不应该由框架内部处理
+                rmtree(log_dir)
+            os.makedirs(log_dir)
 
         set_logdir(Settings.LOG_DIR)
         # 写一个 py文件用来供airtest生成报告
